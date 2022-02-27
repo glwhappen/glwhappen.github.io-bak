@@ -21,7 +21,7 @@
     <meta name="description" content="我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bilibili视频列表爬虫">
-<meta property="og:url" content="https://www.glwsq.cn/post/efe842ac/index.html">
+<meta property="og:url" content="https://www.glwsq.cn/post/bilibili-part-spider/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
 <meta property="og:description" content="我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。">
 <meta property="og:locale" content="zh_CN">
@@ -207,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.7k 字
     </span>
   
 
@@ -216,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      15 分钟
     </span>
   
 
@@ -265,14 +265,21 @@
               <p>我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。</p>
 <span id="more"></span>
 
-<h2 id="获取视频的每一集的数据"><a href="#获取视频的每一集的数据" class="headerlink" title="获取视频的每一集的数据"></a>获取视频的每一集的数据</h2><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> videoData = <span class="hljs-built_in">window</span>.__INITIAL_STATE__.videoData<br><span class="hljs-keyword">let</span> bvid = videoData.bvid<br><span class="hljs-keyword">let</span> baseUrl = <span class="hljs-string">&#x27;https://www.bilibili.com/video/&#x27;</span><br><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [ ] [$part$]($partUrl$)</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> page <span class="hljs-keyword">of</span> videoData.pages) &#123;<br>    <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, page.part).replace(<span class="hljs-string">&#x27;$page$&#x27;</span>, page.page).replace(<span class="hljs-string">&#x27;$url$&#x27;</span>, baseUrl + bvid).replace(<span class="hljs-string">&#x27;$partUrl$&#x27;</span>,<span class="hljs-string">`<span class="hljs-subst">$&#123;baseUrl&#125;</span><span class="hljs-subst">$&#123;bvid&#125;</span>?p=<span class="hljs-subst">$&#123;page.page&#125;</span>`</span>)<br>    resStr += tempstr<br>&#125;<br><span class="hljs-built_in">console</span>.log(resStr)<br></code></pre></td></tr></table></figure>
+<h2 id="获取视频的每一集的数据"><a href="#获取视频的每一集的数据" class="headerlink" title="获取视频的每一集的数据"></a>获取视频的每一集的数据</h2><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> videoData = <span class="hljs-built_in">window</span>.__INITIAL_STATE__.videoData<br><span class="hljs-keyword">let</span> bvid = videoData.bvid<br><span class="hljs-keyword">let</span> baseUrl = <span class="hljs-string">&#x27;https://www.bilibili.com/video/&#x27;</span><br><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [ ] [p$page$ $part$]($partUrl$)</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> page <span class="hljs-keyword">of</span> videoData.pages) &#123;<br>    <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, page.part).replace(<span class="hljs-string">&#x27;$page$&#x27;</span>, page.page).replace(<span class="hljs-string">&#x27;$url$&#x27;</span>, baseUrl + bvid).replace(<span class="hljs-string">&#x27;$partUrl$&#x27;</span>,<span class="hljs-string">`<span class="hljs-subst">$&#123;baseUrl&#125;</span><span class="hljs-subst">$&#123;bvid&#125;</span>?p=<span class="hljs-subst">$&#123;page.page&#125;</span>`</span>)<br>    resStr += tempstr<br>&#125;<br><span class="hljs-built_in">console</span>.log(resStr)<br></code></pre></td></tr></table></figure>
 
 <p>会输出这种格式的文本，具体可以修改template字符串</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">01-项目初始化</span>](<span class="hljs-link">https://www.bilibili.com/video/BV13A411w79h?p=1</span>)<br><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">02-项目的基础搭建</span>](<span class="hljs-link">https://www.bilibili.com/video/BV13A411w79h?p=2</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">p1 第1步 安装Ubuntu</span>](<span class="hljs-link">https://www.bilibili.com/video/BV1Wb411S7JE?p=1</span>)<br><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">p2 第2步 安装VMware Tools</span>](<span class="hljs-link">https://www.bilibili.com/video/BV1Wb411S7JE?p=2</span>)<br><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">p3 第3步 快照</span>](<span class="hljs-link">https://www.bilibili.com/video/BV1Wb411S7JE?p=3</span>)<br></code></pre></td></tr></table></figure>
 
+<h2 id="template字符串"><a href="#template字符串" class="headerlink" title="template字符串"></a>template字符串</h2><p>支持的模板如下：</p>
+<ul>
+<li><code>$part$</code> 每一集的标题</li>
+<li><code>$page$</code> 每一集的编号</li>
+<li><code>$url$</code> 整个视频的url</li>
+<li><code>$partUrl$</code> 视频每一集的url</li>
+</ul>
 <h2 id="加强版-可以给前n个视频打勾"><a href="#加强版-可以给前n个视频打勾" class="headerlink" title="加强版-可以给前n个视频打勾"></a>加强版-可以给前n个视频打勾</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> done = <span class="hljs-number">8</span>; <span class="hljs-comment">// 学习过前几集</span><br><br><br><span class="hljs-keyword">const</span> videoData = <span class="hljs-built_in">window</span>.__INITIAL_STATE__.videoData<br><span class="hljs-keyword">let</span> bvid = videoData.bvid<br><span class="hljs-keyword">let</span> baseUrl = <span class="hljs-string">&#x27;https://www.bilibili.com/video/&#x27;</span><br><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [$checked$] [$part$]($partUrl$)</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> page <span class="hljs-keyword">of</span> videoData.pages) &#123;<br>    <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, page.part).replace(<span class="hljs-string">&#x27;$page$&#x27;</span>, page.page).replace(<span class="hljs-string">&#x27;$url$&#x27;</span>, baseUrl + bvid).replace(<span class="hljs-string">&#x27;$partUrl$&#x27;</span>,<span class="hljs-string">`<span class="hljs-subst">$&#123;baseUrl&#125;</span><span class="hljs-subst">$&#123;bvid&#125;</span>?p=<span class="hljs-subst">$&#123;page.page&#125;</span>`</span>)<br>    <span class="hljs-keyword">if</span>(page.page &lt;= done) &#123;<br>        tempstr = tempstr.replace(<span class="hljs-string">&#x27;$checked$&#x27;</span>, <span class="hljs-string">&#x27;x&#x27;</span>)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        tempstr = tempstr.replace(<span class="hljs-string">&#x27;$checked$&#x27;</span>, <span class="hljs-string">&#x27; &#x27;</span>)<br>    &#125;<br>    <br>    resStr += tempstr<br>&#125;<br><span class="hljs-built_in">console</span>.log(resStr)<br><span class="hljs-built_in">console</span>.log(videoData.pic)<br></code></pre></td></tr></table></figure>
 
-
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p><img src="https://image.glwsq.cn/img/bilibili%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8%E7%88%AC%E8%99%AB-2022-02-27-10-49-15.png" srcset="/img/loading.gif" lazyload></p>
 
 
 
