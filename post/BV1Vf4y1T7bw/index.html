@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="这个视频看了一点，没有学下去，如果你也在找一个刚学完vue的练手项目的话，推荐这个：Vue后台管理系统项目实战-vue+element-ui">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尚硅谷VUE项目实战，前端项目-尚品汇(大型\重磅)">
+<meta property="og:url" content="https://www.glwsq.cn/post/BV1Vf4y1T7bw/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="这个视频看了一点，没有学下去，如果你也在找一个刚学完vue的练手项目的话，推荐这个：Vue后台管理系统项目实战-vue+element-ui">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/尚硅谷VUE项目实战，前端项目-尚品汇-大型-重磅-2022-02-04-19-39-53.jpg">
+<meta property="article:published_time" content="2022-02-04T11:38:30.000Z">
+<meta property="article:modified_time" content="2022-02-04T11:38:30.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="创作中">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/尚硅谷VUE项目实战，前端项目-尚品汇-大型-重磅-2022-02-04-19-39-53.jpg">
+  
+  
+  <title>尚硅谷VUE项目实战，前端项目-尚品汇(大型\重磅) - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/尚硅谷VUE项目实战，前端项目-尚品汇-大型-重磅-2022-02-04-19-39-53.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="尚硅谷VUE项目实战，前端项目-尚品汇(大型\重磅)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-04 19:38" pubdate>
+        2022年2月4日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      42 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">尚硅谷VUE项目实战，前端项目-尚品汇(大型\重磅)</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月4日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <div class="note note-success">
+            <p>我把我通过哔哩哔哩学习过的视频都记录下来了，方便后期复习。如果你也在学习相关的知识，但是不知道有哪些优质的视频，可以看我的合集，都是学习过的，或者正在学习的。</p>
+          </div>
+
+<p><a href="/bilibili-record/">哔哩哔哩学习记录</a></p>
+
+<p>这个视频看了一点，没有学下去，如果你也在找一个刚学完vue的练手项目的话，推荐这个：<a href="/post/note-vue-element/">Vue后台管理系统项目实战-vue+element-ui</a></p>
+
+
+<blockquote>
+<p>视频地址: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw">https://www.bilibili.com/video/BV1Vf4y1T7bw</a><br>素材地址:</p>
+<ol>
+<li>尚品汇源码GIT地址：<a target="_blank" rel="noopener" href="https://gitee.com/jch1011/shangpinhui_0415.git">https://gitee.com/jch1011/shangpinhui_0415.git</a></li>
+<li>后台管理系统源码GIT地址：<a target="_blank" rel="noopener" href="https://gitee.com/jch1011/guigu.git">https://gitee.com/jch1011/guigu.git</a></li>
+</ol>
+</blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=1">001-尚硅谷-尚品汇-教程简介</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=2">002-尚硅谷-尚品汇-vue-cli脚手架初始化项目</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=3">003-尚硅谷-尚品汇-项目的其他配置</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=4">004-尚硅谷-尚品汇-项目的路由分析</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=5">005-尚硅谷-尚品汇-Header与Footer非路由组件完成</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=6">006-尚硅谷-尚品汇-完成路由组件的搭建</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=7">007-尚硅谷-尚品汇-路由元信息的使用</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=8">008-尚硅谷-尚品汇-路由传递参数</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=9">009-尚硅谷-尚品汇-路由传递参数相关面试题</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=10">010-尚硅谷-尚品汇-重写push与replace方法</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=11">011-尚硅谷-尚品汇-home首页组件拆分业务分析</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=12">012-尚硅谷-尚品汇-TypeNav三级联动全局组件完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=13">013-尚硅谷-尚品汇-Home首页拆分静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=14">014-尚硅谷-尚品汇-POSTMAN工具测试接口</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=15">015-尚硅谷-尚品汇-axios二次封装</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=16">016-尚硅谷-尚品汇-API接口统一管理</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=17">017-尚硅谷-尚品汇-nprogress进度条的使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=18">018-尚硅谷-尚品汇-vuex模块式开发</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=19">019-尚硅谷-尚品汇-动态展示三级联动数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=20">020-尚硅谷-尚品汇-完成三级联动动态背景颜色</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=21">021-尚硅谷-尚品汇-通过JS控制二三级分类显示与隐藏</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=22">022-尚硅谷-尚品汇-演示卡顿现象引入防抖与节流</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=23">023-尚硅谷-尚品汇-函数防抖的理解</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=24">024-尚硅谷-尚品汇-函数节流的理解</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=25">025-尚硅谷-尚品汇-三级联动节流</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=26">026-尚硅谷-尚品汇-三级联动路由跳转的分析</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=27">027-尚硅谷-尚品汇-完成三级联动的路由跳转与传递参数业务</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=28">028-尚硅谷-尚品汇-复习</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=29">029-尚硅谷-尚品汇-Search模块中商品分类与过渡动画</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=30">030-尚硅谷-尚品汇-typeNav商品分类列表的优化</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=31">031-尚硅谷-尚品汇-合并参数</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=32">032-尚硅谷-尚品汇-mockjs模拟数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=33">033-尚硅谷-尚品汇-获取Banner轮播图的数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=34">034-尚硅谷-尚品汇-swiper基本使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=35">035-尚硅谷-尚品汇-Banner实现轮播图第一种解决方案</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=36">036-尚硅谷-尚品汇-轮播图通过watch+nectTick解决问题</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=37">037-尚硅谷-尚品汇-获取floor组件mock数据‘</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=38">038-尚硅谷-尚品汇-动态展示Floor组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=39">039-尚硅谷-尚品汇-共用组件Carsouel</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=40">040-尚硅谷-尚品汇-Search模块的静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=41">041-尚硅谷-尚品汇-search模块vuex操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=42">042-尚硅谷-尚品汇-search模块中动态展示产品列表</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=43">043-尚硅谷-尚品汇-Search模块根据不同的参数获取数据展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=44">044-尚硅谷-尚品汇-Search模块中子组件动态开发</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=45">045-尚硅谷-尚品汇-监听路由的变化再次发请求获取数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=46">046-尚硅谷-商品柜-面包屑处理分类的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=47">047-尚硅谷-尚品汇-面包屑处理关键字</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=48">048-尚硅谷-尚品汇-面包屑处理品牌信息</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=49">049-尚硅谷-尚品汇-平台售卖属性的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=50">050-尚硅谷-尚品汇-排序操作上</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=51">051-尚硅谷-尚品汇-排序操作下</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=52">052-尚硅谷-尚品汇-分页器静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=53">053-尚硅谷-尚品汇-排序复习</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=54">054-尚硅谷-尚品汇-分页功能分析</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=55">055-尚硅谷-尚品汇-分页器起始与结束数字计算</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=56">056-山硅谷-尚品汇-分页器动态展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=57">057-尚硅谷-尚品汇-分页器完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=58">058-尚硅谷-尚品汇-分页器添加类名</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=59">059-尚硅谷-尚品汇-滚动行为</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=60">060-尚硅谷-尚品汇-产品详情数据获取</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=61">061-尚硅谷-尚品汇-产品详情展示动态数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=62">062-尚硅谷-尚品汇-分页器复习-裁剪</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=63">063-尚硅谷-尚品汇-zoom放大镜展示数据-裁剪</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=64">064-尚硅谷-尚品汇-detail路由组件展示商品售卖属性-裁剪</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=65">065-尚硅谷-尚品汇-产品售卖属性值排他操作-裁剪</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=66">066-尚硅谷-尚品汇-放大镜操作上</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=67">067-尚硅谷-尚品汇-放大镜结束‘</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=68">068-尚硅谷-尚品汇-购买产品个数的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=69">069-尚硅谷-尚品汇-加入购物车</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=70">070-尚硅谷-尚品汇-加入购物车成功与失败的判断</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=71">071-尚硅谷-尚品汇-加入购物车操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=72">072-尚硅谷-尚品汇-路由传递参数结合会话存储</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=73">073-尚硅谷-尚品汇-购物车静态组件与修改</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=74">074-尚硅谷-尚品汇-uuid游客身份获取购物车数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=75">075-尚硅谷-尚品汇-购物车动态展示数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=76">076-尚硅谷-尚品汇-处理产品数量</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=77">077-尚硅谷-尚品汇-修改购物车产品的数量完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=78">078-尚硅谷-尚品汇-删除购物车产品的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=79">079-尚硅谷-尚品汇-修改产品状态</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=80">080-尚硅谷-尚品汇-复习</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=81">081-尚硅谷-尚品汇-删除全部选中的商品</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=82">082-尚硅谷-尚品汇-全部产品的勾选状态修改</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=83">083-尚硅谷-尚品汇-登录注册静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=84">084-尚硅谷-尚品汇-注册业务上</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=85">085-尚硅谷-尚品汇-注册业务下</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=86">086-尚硅谷-尚品汇-登录业务（token）</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=87">087-尚硅谷-尚品汇-用户登录携带token获取用户信息</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=88">088-尚硅谷-尚品汇-登录业务中讲解存在问题‘</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=89">089-尚硅谷-尚品汇-退出登录</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=90">090-尚硅谷-尚品汇-导航守卫理解</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=91">091-尚硅谷-尚品汇-导航守卫的判断</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=92">092-尚硅谷-尚品汇-导航守卫用户登录操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=93">093-尚硅谷-尚品汇-trade静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=94">094-尚硅谷-尚品汇-获取交易页数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=95">095-尚硅谷-尚品汇-用户地址信息的展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=96">096-尚硅谷-商品汇-交易页面完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=97">097-尚硅谷-尚品汇-提交订单</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=98">098-尚硅谷-尚品汇-获取订单号与展示支付信息</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=99">099-尚硅谷-尚品汇-支付页面中使用ElementUI以及按需引入</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=100">100-尚硅谷-尚品汇-微信支付业务上</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=101">101-尚硅谷-尚品汇-微信支付下、</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=102">102-尚硅谷-尚品汇-个人中心二级路由搭建</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=103">103-尚硅谷-尚品汇-我的订单</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=104">104-尚硅谷-尚品汇-未登录的导航守卫判断</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=105">105-尚硅谷-尚品汇-用户登录（路由独享与组件内守卫）</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=106">106-尚硅谷-尚品汇-图片懒加载</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=107">107-尚硅谷-尚品汇-vee-validate表单验证使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=108">108-尚硅谷-尚品汇-路由懒加载</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=109">109-尚硅谷-尚品汇-处理map文件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=110">110-尚硅谷-尚品汇-购买服务器</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=111">111-尚品汇-尚硅谷-安全组与xshell操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=112">112-尚品汇-尚硅谷-nginx反向代理</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=113">001-尚硅谷-组件通信-组件通信6种方式</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=114">002-尚硅谷-组件通信-自定义事件深入</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=115">003-尚硅谷-组件通信-v-model深入</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=116">004-尚硅谷-组件通信-sync属性修饰符</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=117">005-尚硅谷-组件通信-$attrs与$listeners</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=118">006-尚硅谷-组件通信-$children与$parent</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=119">007-尚硅谷-组件通信-混入mixin</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=120">008-尚硅谷-组件通信-作用域插槽</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=121">009-尚硅谷-后台管理系统项目-后台管理系统项目简介</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=122">010-尚硅谷-后台管理系统-后台管理系统模板介绍</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=123">011-尚硅谷-后台管理系统-登录业务完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=124">012-尚硅谷-后台管理系统-退出登录</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=125">013-尚硅谷-后台管理系统-路由的搭建</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=126">014-尚硅谷-后台管理系统-品牌管理静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=127">015-尚硅谷-后台管理系统-品牌列表展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=128">016-尚硅谷-后台管理系统-添加品牌与修改品牌静态完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=129">017-尚硅谷-后台管理系统-添加品牌完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=130">018-尚硅谷-后台管理系统-修改品牌完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=131">019-尚硅谷-后台管理系统-品牌的表单验证（自定义校验规则）</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=132">020-尚硅谷-后台管理系统-删除品牌操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=133">021-尚硅谷-后台管理系统-商品管理之三级联动静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=134">022-尚硅谷-后台管理系统-三级联动动态展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=135">023-尚硅谷-后台管理系统-三级联动完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=136">024-尚硅谷-后台管理系统-平台属性管理动态展示属性</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=137">025-尚硅谷-后台管理系统-平台属性之添加属性与修改属性静态完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=138">026-尚硅谷-后台管理系统-收集属性名的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=139">027-尚硅谷-后台管理-收集属性值操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=140">028-尚硅谷-后台管理系统-解决返回按钮数据回显问题</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=141">029-尚硅谷-后台管理系统-修改属性操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=142">030-尚硅谷-后台管理系统-查看模式与修改模式切换</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=143">031-尚硅谷-后台管理系统-查看模式与编辑模式注意事项</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=144">032-尚硅谷-后台管理系统-修改属性的查看与编辑模式切换</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=145">033-尚硅谷-后台管理系统-表单元素自动聚焦的实现</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=146">034-尚硅谷-后台管理系统-删除属性值的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=147">035-尚硅谷-后台管理系统-保存操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=148">036-尚硅谷-后台管理系统-按钮与三级联动的可操作性</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=149">037-尚硅谷-后台管理系统-SPU管理模块业务介绍</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=150">038-尚硅谷-后台管理系统-SPU管理模块静态</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=151">039-尚硅谷-后台管理系统-动态展示SPU列表</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=152">040-尚硅谷-后台管理系统-Spu管理内容的切换</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=153">041-尚硅谷-后台管理系统-SpuForm静态组件完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=154">042-尚硅谷-后台管理系统-SpuForm请求业务得分析</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=155">043-尚硅谷-后台管理系统-获取SpuForm数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=156">044-尚硅谷-后台管理系统-SpuForm组件数据展示与收集数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=157">045-尚硅谷-后台管理系统-SpuForm销售属性的数据展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=158">046-尚硅谷-后台管理系统-完成SpuForm照片墙数据的收集</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=159">047-尚硅谷-后台管理系统-销售属性的添加的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=160">048-尚硅谷-后台管理系统-销售属性值展示与收集</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=161">049-尚硅谷-后台管理系统-删除销售属性与属性值操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=162">050-尚硅谷-后台管理系统-完成修改Spu的保存操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=163">051-尚硅谷-后台管理系统-完成添加SPU的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=164">052-尚硅谷-后台管理系统-删除SPU的操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=165">053-尚硅谷-后台管理系统-完成SKU静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=166">054-尚硅谷-后台管理系统-获取SkuForm数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=167">055-尚硅谷-后台管理系统-展示SKU与收集SKU的数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=168">056-尚硅谷-后台管理系统-添加SKU图片列表数据的展示与收集</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=169">057-尚硅谷-后台管理系统-完成添加SKU保存操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=170">058-尚硅谷-后台管理系统-SKU列表的展示</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=171">059-尚硅谷-后台管理系统-loading效果</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=172">060-尚硅谷-后台管理系统-sku模块数据展示与分页功能</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=173">061-尚硅谷-尚品汇-SKU上架与下架操作</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=174">062-尚硅谷-后台管理系统-SKU详情查看完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=175">063-尚硅谷-后台管理系统-深度选择器</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=176">064-尚硅谷-后台管理系统-数据可视化简介</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=177">065-尚硅谷-后台管理系统-canvas绘制线段</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=178">066-尚硅谷-后台管理系统-canvas绘制矩形</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=179">067-尚硅谷-后台管理系统-绘制圆形</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=180">068-尚硅谷-后台管理系统-画布清除与绘制文字</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=181">069-尚硅谷-后台管理系统-绘制柱状图</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=182">070-尚硅谷-后台管理系统-svg基本使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=183">071-尚硅谷-后台管理系统-echarts基本使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=184">072-上硅谷-后台管理系统-echarts展示多个图表</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=185">073-尚硅谷-后台管理系统-一个容器显示多个图表</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=186">074-尚硅谷-后台管理系统-echart中数据集dataset使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=187">075-尚硅谷-后台管理系统-echarts内置组件使用</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=188">076-尚硅谷-后台管理系统-echarts坐标体系</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=189">077-尚硅谷-后台管理系统-Home首页Card静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=190">078-尚硅谷-后台管理系统-折线图完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=191">079-尚硅谷-后台管理系统-柱状图完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=192">080-尚硅谷-后台管理系统-进度条完成</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=193">081-尚硅谷-后台管理系统-sale静态组件-上</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=194">082-尚硅谷-后台管理系统-sale静态组件-中</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=195">083-尚硅谷-后台管理系统-sale组件完毕</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=196">084-尚硅谷-后台管理系统-observe静态组件</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=197">085-尚硅谷-后台管理系统-动态展示mock数据</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=198">086-尚硅谷-后台管理系统-权限管理模块介绍</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=199">087-尚硅谷-后台管理系统-权限管理模块的串讲</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?p=200">088-尚硅谷-后台管理系统-菜单&amp;按钮权限</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Bilibili/">Bilibili</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

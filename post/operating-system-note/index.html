@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="记录在学习操作系统这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="王道操作系统学习总结">
+<meta property="og:url" content="https://www.glwsq.cn/post/operating-system-note/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="记录在学习操作系统这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/操作系统学习总结-2022-02-05-20-31-34.png">
+<meta property="article:published_time" content="2022-01-25T04:03:38.000Z">
+<meta property="article:modified_time" content="2022-02-06T13:50:49.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="正在学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/操作系统学习总结-2022-02-05-20-31-34.png">
+  
+  
+  <title>王道操作系统学习总结 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/操作系统学习总结-2022-02-05-20-31-34.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="王道操作系统学习总结">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-25 12:03" pubdate>
+        2022年1月25日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">王道操作系统学习总结</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月6日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>记录在学习操作系统这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..</p>
+<span id="more"></span>
+
+
+
+
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><h3 id="第一章计算机系统概述"><a href="#第一章计算机系统概述" class="headerlink" title="第一章计算机系统概述"></a>第一章计算机系统概述</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 1.1.1操作系统的概念、功能</li>
+<li><input checked="" disabled="" type="checkbox"> 1.1.2操作系统的特征</li>
+<li><input checked="" disabled="" type="checkbox"> 1.2操作系统的发展与分类</li>
+<li><input checked="" disabled="" type="checkbox"> 1.3.1操作系统的运行机制</li>
+<li><input checked="" disabled="" type="checkbox"> 1.3.2中断和异常</li>
+<li><input checked="" disabled="" type="checkbox"> 1.3.3系统调用</li>
+<li><input checked="" disabled="" type="checkbox"> 1.4操作系统的体系结构</li>
+<li><input checked="" disabled="" type="checkbox"> 第一章知识点回顾</li>
+</ul>
+<h3 id="第二章进程管理"><a href="#第二章进程管理" class="headerlink" title="第二章进程管理"></a>第二章进程管理</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 2.1.1进程的概念、组成、特征</li>
+<li><input checked="" disabled="" type="checkbox"> 2.1.2进程的状态与转换、进程的组织<details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-02-06-20-06-49.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+<li><input checked="" disabled="" type="checkbox"> 2.1.3进程控制</li>
+<li><input checked="" disabled="" type="checkbox"> 2.1.4进程通信</li>
+<li><input checked="" disabled="" type="checkbox"> 2.1.5线程的概念</li>
+<li><input checked="" disabled="" type="checkbox"> 2.1.6线程的实现方式和多线程模型</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.1调度的概念、层次<details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-02-06-20-07-19.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.2进程调度的时机、切换与过程、方式<details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-02-06-20-22-59.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.3调度算法的评价指标</li>
+<li><input disabled="" type="checkbox"> 2.2.4FCFS、SJF、HRRN调度算法</li>
+<li><input disabled="" type="checkbox"> 2.2.5调度算法：时间片轮转、优先级、多级反馈队列</li>
+<li><input disabled="" type="checkbox"> 2.3.1进程同步、进程互斥</li>
+<li><input disabled="" type="checkbox"> 2.3.2进程互斥的软件实现方法</li>
+<li><input disabled="" type="checkbox"> 2.3.3进程互斥的硬件实现方法</li>
+<li><input disabled="" type="checkbox"> 2.3.4信号量机制</li>
+<li><input disabled="" type="checkbox"> 2.3.5用信号量实现进程互斥、同步、前驱关系</li>
+<li><input disabled="" type="checkbox"> 2.3.6生产者-消费者问题</li>
+<li><input disabled="" type="checkbox"> 2.3.7多生产者-多消费者问题</li>
+<li><input disabled="" type="checkbox"> 2.3.8吸烟者问题</li>
+<li><input disabled="" type="checkbox"> 2.3.9读者写者问题</li>
+<li><input disabled="" type="checkbox"> 2.3.10哲学家进餐问题</li>
+<li><input disabled="" type="checkbox"> 2.3.11管程</li>
+<li><input disabled="" type="checkbox"> 2.4.1死锁的概念</li>
+<li><input disabled="" type="checkbox"> 2.4.2预防死锁</li>
+<li><input disabled="" type="checkbox"> 2.4.3避免死锁(银行家算法)</li>
+<li><input disabled="" type="checkbox"> 2.4.4死锁的检测和解除</li>
+</ul>
+<h3 id="第三章内存管理"><a href="#第三章内存管理" class="headerlink" title="第三章内存管理"></a>第三章内存管理</h3><ul>
+<li><input disabled="" type="checkbox"> 3.1.1内存的基础知识</li>
+<li><input disabled="" type="checkbox"> 3.1.2内存管理的概念</li>
+<li><input disabled="" type="checkbox"> 3.1.3覆盖与交换</li>
+<li><input disabled="" type="checkbox"> 3.1.4连续分配管理方式</li>
+<li><input disabled="" type="checkbox"> 3.1.5动态分区分配算法</li>
+<li><input disabled="" type="checkbox"> 3.1.6基本分页存储管理的概念</li>
+<li><input disabled="" type="checkbox"> 3.1.7基本地址变换机构</li>
+<li><input disabled="" type="checkbox"> 3.1.8具有快表的地址变换机构</li>
+<li><input disabled="" type="checkbox"> 3.1.9两级页表</li>
+<li><input disabled="" type="checkbox"> 3.1.10基本分段存储管理</li>
+<li><input disabled="" type="checkbox"> 3.1.11段页式管理方式</li>
+<li><input disabled="" type="checkbox"> 3.2_1_虚拟内存的基本概念</li>
+<li><input disabled="" type="checkbox"> 3.2_2_请求分页管理方式</li>
+<li><input disabled="" type="checkbox"> 3.2_3_页面置换算法</li>
+<li><input disabled="" type="checkbox"> 3.2_4_页面分配策略、抖动、工作集</li>
+</ul>
+<h3 id="第四章文件管理"><a href="#第四章文件管理" class="headerlink" title="第四章文件管理"></a>第四章文件管理</h3><ul>
+<li><input disabled="" type="checkbox"> 4.1.1初识文件管理</li>
+<li><input disabled="" type="checkbox"> 4.1.2文件的逻辑结构</li>
+<li><input disabled="" type="checkbox"> 4.1.3文件目录</li>
+<li><input disabled="" type="checkbox"> 4.1.4文件保护</li>
+<li><input disabled="" type="checkbox"> 4.1.5文件共享</li>
+<li><input disabled="" type="checkbox"> 4.2.1文件实现（上）</li>
+<li><input disabled="" type="checkbox"> 4.2.2文件实现（下）</li>
+<li><input disabled="" type="checkbox"> 4.2.3逻辑结构V.S.物理结构</li>
+<li><input disabled="" type="checkbox"> 4.2.4文件存储空间管理</li>
+<li><input disabled="" type="checkbox"> 4.2.5文件的基本操作</li>
+<li><input disabled="" type="checkbox"> 4.2.6文件系统的层次结构</li>
+<li><input disabled="" type="checkbox"> 4.3.1磁盘的结构</li>
+<li><input disabled="" type="checkbox"> 4.3.2磁盘调度算法</li>
+<li><input disabled="" type="checkbox"> 4.3.3减少磁盘延迟时间的方法</li>
+<li><input disabled="" type="checkbox"> 4.3.4磁盘的管理</li>
+</ul>
+<h3 id="第五章输入输出（IO）管理"><a href="#第五章输入输出（IO）管理" class="headerlink" title="第五章输入输出（IO）管理"></a>第五章输入输出（IO）管理</h3><ul>
+<li><input disabled="" type="checkbox"> 5.1.1IO设备的概念和分类</li>
+<li><input disabled="" type="checkbox"> 5.1.2IO控制器</li>
+<li><input disabled="" type="checkbox"> 5.1.3IO控制方式</li>
+<li><input disabled="" type="checkbox"> 5.1.4IO软件层次结构</li>
+<li><input disabled="" type="checkbox"> 5.2_1_I-O核心子系统</li>
+<li><input disabled="" type="checkbox"> 5.2_2_假脱机技术</li>
+<li><input disabled="" type="checkbox"> 5.2_3_设备的分配与回收</li>
+<li><input disabled="" type="checkbox"> 5.2_4_缓冲区管理</li>
+</ul>
+<h2 id="第一章计算机系统概述-1"><a href="#第一章计算机系统概述-1" class="headerlink" title="第一章计算机系统概述"></a>第一章计算机系统概述</h2><h3 id="知识大框架"><a href="#知识大框架" class="headerlink" title="知识大框架"></a>知识大框架</h3><p><img src="https://image.glwsq.cn/img/202201251207417.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="操作系统运行机制在中国古代的应用"><a href="#操作系统运行机制在中国古代的应用" class="headerlink" title="操作系统运行机制在中国古代的应用"></a>操作系统运行机制在中国古代的应用</h3><p><img src="https://image.glwsq.cn/img/202201251208004.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="特权指令和非特权指令"><a href="#特权指令和非特权指令" class="headerlink" title="特权指令和非特权指令"></a>特权指令和非特权指令</h3><p><img src="https://image.glwsq.cn/img/202201251212234.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://image.glwsq.cn/img/202201251217574.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="内核态切换到用户态"><a href="#内核态切换到用户态" class="headerlink" title="内核态切换到用户态"></a>内核态切换到用户态</h3><p><img src="https://image.glwsq.cn/img/202201251220736.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="用户态切换到内核态"><a href="#用户态切换到内核态" class="headerlink" title="用户态切换到内核态"></a>用户态切换到内核态</h3><h4 id="异常的方式"><a href="#异常的方式" class="headerlink" title="异常的方式"></a>异常的方式</h4><p><img src="https://image.glwsq.cn/img/202201251221358.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="系统调用的方式"><a href="#系统调用的方式" class="headerlink" title="系统调用的方式"></a>系统调用的方式</h4><p><img src="https://image.glwsq.cn/img/202201251221724.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="中断的方式"><a href="#中断的方式" class="headerlink" title="中断的方式"></a>中断的方式</h4><p><img src="https://image.glwsq.cn/img/202201251222740.png" srcset="/img/loading.gif" lazyload></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/">百度网盘</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%AD%A3%E5%9C%A8%E5%AD%A6%E4%B9%A0/">正在学习</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

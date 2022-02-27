@@ -1,0 +1,18 @@
+.trans-hide {
+    color: #6c757d;
+    background-color: #6c757d; /* #212529  17a2b8 848f9b*/
+    cursor: pointer;
+}
+
+.trans {
+    /* color: #292d30; */
+    cursor: pointer;
+}
+.tips {
+    color: #6c757d;
+    /* font-size: 7px; */
+}
+
+.word {
+    cursor: pointer;
+}

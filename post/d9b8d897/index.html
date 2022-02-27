@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="心路历程不知道你有没有遇到过这样的情景，老师布置了一个任务，安装一下某个软件，然后让把每一步截图，最后行程报告。不管你烦不烦，我是很烦这个操作的，安装软件本来就是一项很简单的过程，因为需要时时刻刻的截图，变成了一项很艰巨的任务。 所以我就一直想找一个软件，这个软件的功能是实现自动截图的操作，当然还有几点要求：  当我按下鼠标左键的时候自动截图，因为每次按下左键都会到下一个界面 我不想单纯的截一张全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动截屏工具">
+<meta property="og:url" content="https://www.glwsq.cn/post/d9b8d897/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="心路历程不知道你有没有遇到过这样的情景，老师布置了一个任务，安装一下某个软件，然后让把每一步截图，最后行程报告。不管你烦不烦，我是很烦这个操作的，安装软件本来就是一项很简单的过程，因为需要时时刻刻的截图，变成了一项很艰巨的任务。 所以我就一直想找一个软件，这个软件的功能是实现自动截图的操作，当然还有几点要求：  当我按下鼠标左键的时候自动截图，因为每次按下左键都会到下一个界面 我不想单纯的截一张全">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.glwsq.cn/images/index/c.jpeg">
+<meta property="article:published_time" content="2019-11-04T11:00:46.000Z">
+<meta property="article:modified_time" content="2019-11-04T11:00:46.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="郭力玮">
+<meta property="article:tag" content="郭力玮的博客">
+<meta property="article:tag" content="郭力玮的个人博客">
+<meta property="article:tag" content="happen">
+<meta property="article:tag" content="happen&#39;blog">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.glwsq.cn/images/index/c.jpeg">
+  
+  
+  <title>自动截屏工具 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/images/uploads/article.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="自动截屏工具">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-11-04 19:00" pubdate>
+        2019年11月4日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      21k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      174 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">自动截屏工具</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2019年11月4日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="心路历程"><a href="#心路历程" class="headerlink" title="心路历程"></a>心路历程</h1><p>不知道你有没有遇到过这样的情景，老师布置了一个任务，安装一下某个软件，然后让把每一步截图，最后行程报告。<br>不管你烦不烦，我是很烦这个操作的，安装软件本来就是一项很简单的过程，因为需要时时刻刻的截图，变成了一项很艰巨的任务。</p>
+<p>所以我就一直想找一个软件，这个软件的功能是实现自动截图的操作，当然还有几点要求：</p>
+<ol>
+<li>当我按下鼠标左键的时候自动截图，因为每次按下左键都会到下一个界面</li>
+<li>我不想单纯的截一张全屏的图，我想让他截下来当前运行程序的截图。</li>
+</ol>
+<p>虽然就只有很少的两个要求，但是并没有发现满足这两个功能的截图软件。</p>
+<p>所以我就想写一个这样的软件。</p>
+<h1 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h1><p>要想写一个程序，首先选择的是要用哪一个编程语言。刚开始我选择了java，并且看开发文档写了下面的程序。<br>他只能实现截屏，然后并不能获取鼠标的状态，同样也就不能直接操作windows的句柄从而获取窗口的截图。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></div></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> javax.imageio.ImageIO;<br><span class="hljs-keyword">import</span> java.awt.*;<br><span class="hljs-keyword">import</span> java.awt.image.BufferedImage;<br><span class="hljs-keyword">import</span> java.io.File;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CaptureScreen</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">captureScreen</span><span class="hljs-params">(String folder, String fileName)</span> <span class="hljs-keyword">throws</span> AWTException, IOException </span>&#123;<br>        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();<br>        Rectangle screenRectangle = <span class="hljs-keyword">new</span> Rectangle(screenSize);<br>        Robot robot = <span class="hljs-keyword">new</span> Robot();<br>        BufferedImage image = robot.createScreenCapture(screenRectangle);<br><br>        File screenFile = <span class="hljs-keyword">new</span> File(folder);<br>        <span class="hljs-keyword">if</span>(!screenFile.exists()) &#123;<br>            screenFile.mkdir();<br>        &#125;<br>        File f = <span class="hljs-keyword">new</span> File(screenFile, fileName);<br>        ImageIO.write(image, <span class="hljs-string">&quot;png&quot;</span>, f);<br>        <span class="hljs-keyword">if</span>(Desktop.isDesktopSupported() &amp;&amp; Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) &#123;<br>            Desktop.getDesktop().open(f);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            captureScreen(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;11.png&quot;</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (AWTException e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>然后又找了一个python的代码，然后跟java是同样的问题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> win32gui, win32ui, win32con, win32api<br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">window_capture</span>(<span class="hljs-params">filename</span>):</span><br>    hwnd = <span class="hljs-number">0</span>  <span class="hljs-comment"># 窗口的编号，0号表示当前活跃窗口</span><br>    <span class="hljs-comment"># 根据窗口句柄获取窗口的设备上下文DC（Divice Context）</span><br>    hwndDC = win32gui.GetWindowDC(hwnd)<br>    <span class="hljs-comment"># 根据窗口的DC获取mfcDC</span><br>    mfcDC = win32ui.CreateDCFromHandle(hwndDC)<br>    <span class="hljs-comment"># mfcDC创建可兼容的DC</span><br>    saveDC = mfcDC.CreateCompatibleDC()<br>    <span class="hljs-comment"># 创建bigmap准备保存图片</span><br>    saveBitMap = win32ui.CreateBitmap()<br>    <span class="hljs-comment"># 获取监控器信息</span><br>    MoniterDev = win32api.EnumDisplayMonitors(<span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>)<br>    w = MoniterDev[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]<br>    h = MoniterDev[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>][<span class="hljs-number">3</span>]<br>    <span class="hljs-comment"># print w,h　　　#图片大小</span><br>    <span class="hljs-comment"># 为bitmap开辟空间</span><br>    saveBitMap.CreateCompatibleBitmap(mfcDC, w, h)<br>    <span class="hljs-comment"># 高度saveDC，将截图保存到saveBitmap中</span><br>    saveDC.SelectObject(saveBitMap)<br>    <span class="hljs-comment"># 截取从左上角（0，0）长宽为（w，h）的图片</span><br>    saveDC.BitBlt((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), (w, h), mfcDC, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), win32con.SRCCOPY)<br>    saveBitMap.SaveBitmapFile(saveDC, filename)<br><br><br>beg = time.time()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    window_capture(<span class="hljs-string">&quot;haha.jpg&quot;</span>)<br>end = time.time()<br><span class="hljs-built_in">print</span>(end - beg)<br></code></pre></td></tr></table></figure>
+
+<p>没有办法，最终只能选择C语言了，他能直接操作Windows的句柄，并且可以通过hook来获取全局鼠标的状态。</p>
+<p>一步一步来，第一个代码先获取一下鼠标的状态，如果我点击鼠标了，让他显示一下我点击了左键还是右键。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><br>HHOOK   _glh_hook_ = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">//定义为全局变量</span><br><br><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">MouseProc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nCode, WPARAM wparam, LPARAM lparam)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (nCode &gt;= <span class="hljs-number">0</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span>(wparam == WM_RBUTTONDOWN)<br>		&#123;<br>		    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;右键&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (wparam == WM_LBUTTONDOWN)<br>		&#123;<br>		    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;左键&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (wparam == WM_MBUTTONDOWN)<br>		&#123;<br>		    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;中键&quot;</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> CallNextHookEx(_glh_hook_, nCode, wparam, lparam);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    HINSTANCE   glhInstance = <span class="hljs-literal">NULL</span>;<br>	glhInstance = GetModuleHandle(<span class="hljs-literal">NULL</span>);<br>	_glh_hook_ = SetWindowsHookEx(WH_MOUSE_LL, MouseProc, glhInstance, <span class="hljs-number">0</span>);<br>	<span class="hljs-comment">//WH_MOUSE_LL指监控鼠标行为,MouseProc是回调函数</span><br>	<span class="hljs-keyword">if</span>(_glh_hook_ == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;鼠标钩子获取失败&quot;</span>);<br>    &#125;<br>    MSG msg;<br>    <span class="hljs-keyword">while</span> (GetMessage(&amp;msg, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br>    &#123;<br>        TranslateMessage(&amp;msg);<br>        DispatchMessage(&amp;msg);<br>    &#125;<br>    UnhookWindowsHookEx(_glh_hook_);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>关于全局鼠标钩子卡的原因分析</p>
+<p>问题：注册全局钩子后，最大化或关闭时，某些电脑会卡顿，卡的时候不固定，同样的系统有的会卡，有的不会卡。</p>
+<p>分析：基于这样的问题进行了大量的资料收集与分析，发现卡的问题其实是在windows 动画上，由于关闭窗口时线程退出消息循环而没结束钩子消息导致都不能接收，于是鼠标消息就在那耗着，直到超时所形成的卡顿现象，解决方案有如下二种：<br>1，在窗体发送WM_Close消息前先卸载钩子。<br>2，关闭窗口动画过渡效果，从而减少卡顿时间，比如使用性能模式或使用windows 经典主题。</p>
+<p>完整的代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;pch.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ShootScreen</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* filename, HWND hWnd)</span></span><br><span class="hljs-function"></span>&#123;<br>	HDC hdc = CreateDC(<span class="hljs-string">&quot;DISPLAY&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);<br>	<span class="hljs-keyword">int32_t</span> ScrWidth = <span class="hljs-number">0</span>, ScrHeight = <span class="hljs-number">0</span>;<br>	RECT rect = &#123; <span class="hljs-number">0</span> &#125;;<br>	<span class="hljs-keyword">if</span> (hWnd == <span class="hljs-literal">NULL</span>)<br>	&#123;<br>		ScrWidth = GetDeviceCaps(hdc, HORZRES);<br>		ScrHeight = GetDeviceCaps(hdc, VERTRES);<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		GetWindowRect(hWnd, &amp;rect);<br>		ScrWidth = rect.right - rect.left;<br>		ScrHeight = rect.bottom - rect.top;<br>	&#125;<br>	HDC hmdc = CreateCompatibleDC(hdc);<br><br>	HBITMAP hBmpScreen = CreateCompatibleBitmap(hdc, ScrWidth, ScrHeight);<br>	HBITMAP holdbmp = (HBITMAP)SelectObject(hmdc, hBmpScreen);<br><br>	BITMAP bm;<br>	GetObject(hBmpScreen, <span class="hljs-keyword">sizeof</span>(bm), &amp;bm);<br><br>	BITMAPINFOHEADER bi = &#123; <span class="hljs-number">0</span> &#125;;<br>	bi.biSize = <span class="hljs-keyword">sizeof</span>(BITMAPINFOHEADER);<br>	bi.biWidth = bm.bmWidth;<br>	bi.biHeight = bm.bmHeight;<br>	bi.biPlanes = bm.bmPlanes;<br>	bi.biBitCount = bm.bmBitsPixel;<br>	bi.biCompression = BI_RGB;<br>	bi.biSizeImage = bm.bmHeight * bm.bmWidthBytes;<br><br>	<span class="hljs-keyword">char</span> *buf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[bi.biSizeImage];<br>	BitBlt(hmdc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, ScrWidth, ScrHeight, hdc, rect.left, rect.top, SRCCOPY);<br>	GetDIBits(hmdc, hBmpScreen, <span class="hljs-number">0L</span>, (DWORD)ScrHeight, buf, (LPBITMAPINFO)&amp;bi, (DWORD)DIB_RGB_COLORS);<br><br>	BITMAPFILEHEADER bfh = &#123; <span class="hljs-number">0</span> &#125;;<br>	bfh.bfType = ((WORD)(<span class="hljs-string">&#x27;M&#x27;</span> &lt;&lt; <span class="hljs-number">8</span>) | <span class="hljs-string">&#x27;B&#x27;</span>);<br>	bfh.bfSize = <span class="hljs-keyword">sizeof</span>(BITMAPFILEHEADER) + <span class="hljs-keyword">sizeof</span>(BITMAPINFOHEADER) + bi.biSizeImage;<br>	bfh.bfOffBits = <span class="hljs-keyword">sizeof</span>(BITMAPFILEHEADER) + <span class="hljs-keyword">sizeof</span>(BITMAPINFOHEADER);<br>	HANDLE hFile = CreateFile(filename, GENERIC_WRITE, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, <span class="hljs-number">0</span>);<br>	DWORD dwWrite;<br>	WriteFile(hFile, &amp;bfh, <span class="hljs-keyword">sizeof</span>(BITMAPFILEHEADER), &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	WriteFile(hFile, &amp;bi, <span class="hljs-keyword">sizeof</span>(BITMAPINFOHEADER), &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	WriteFile(hFile, buf, bi.biSizeImage, &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	CloseHandle(hFile);<br>	hBmpScreen = (HBITMAP)SelectObject(hmdc, holdbmp);<br>&#125;<br><br>HHOOK   _glh_hook_ = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">//定义为全局变量</span><br><br><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">MouseProc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> nCode, WPARAM wparam, LPARAM lparam)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (nCode &gt;= <span class="hljs-number">0</span>)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (wparam == WM_RBUTTONDOWN)<br>		&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;右键&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (wparam == WM_LBUTTONDOWN)<br>		&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;左键&quot;</span>);<br>			POINT pNow = &#123; <span class="hljs-number">0</span>,<span class="hljs-number">0</span> &#125;;<br>			<span class="hljs-keyword">if</span> (GetCursorPos(&amp;pNow))  <span class="hljs-comment">// 获取鼠标当前位置</span><br>			&#123;<br><br>				HWND hwndPointNow = <span class="hljs-literal">NULL</span>;<br>				hwndPointNow = WindowFromPoint(pNow);  <span class="hljs-comment">// 获取鼠标所在窗口的句柄</span><br>				<span class="hljs-keyword">if</span> (hwndPointNow)<br>				&#123;<br>					<span class="hljs-built_in">cout</span> &lt;&lt; hwndPointNow &lt;&lt; <span class="hljs-built_in">endl</span>;<br>					<span class="hljs-keyword">time_t</span> timep;<br>					<span class="hljs-keyword">int</span> t = time(&amp;timep);<br><br>					<span class="hljs-keyword">char</span> name[<span class="hljs-number">256</span>] = &#123; <span class="hljs-number">0</span> &#125;;<br><br>					sprintf_s(name, <span class="hljs-number">256</span>, <span class="hljs-string">&quot;%d.bmp&quot;</span>, t);<br><br>					<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;截图%s\n&quot;</span>, name);<br>					ShootScreen(name, hwndPointNow);<br>				&#125;<br>				<span class="hljs-keyword">else</span><br>					<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Error!!&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>			&#125;<br>			<span class="hljs-keyword">else</span><br>				<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Error!!&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>		&#125;<br>		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (wparam == WM_MBUTTONDOWN)<br>		&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;中键&quot;</span>);<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> CallNextHookEx(_glh_hook_, nCode, wparam, lparam);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">int32_t</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;程序运行中&quot;</span>);<br>	HINSTANCE   glhInstance = <span class="hljs-literal">NULL</span>;<br>	glhInstance = GetModuleHandle(<span class="hljs-literal">NULL</span>);<br>	_glh_hook_ = SetWindowsHookEx(WH_MOUSE_LL, MouseProc, glhInstance, <span class="hljs-number">0</span>);<br>	<span class="hljs-comment">//WH_MOUSE_LL指监控鼠标行为,MouseProc是回调函数</span><br>	<span class="hljs-keyword">if</span> (_glh_hook_ == <span class="hljs-literal">NULL</span>)<br>	&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;鼠标钩子获取失败&quot;</span>);<br>	&#125;<br>	MSG msg;<br>	<span class="hljs-keyword">while</span> (GetMessage(&amp;msg, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br>	&#123;<br>		TranslateMessage(&amp;msg);<br>		DispatchMessage(&amp;msg);<br>	&#125;<br>	UnhookWindowsHookEx(_glh_hook_);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>但是这个代码是有问题的，Window10的动画冲突，会导致突然电脑变卡</p>
+<p>没有办法，最后只能写一个通过按键来截图的工具了，而且进行了完善，可以通过修改配置文件来更改设置信息。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;pch.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;errno.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ctype.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdbool.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;io.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;direct.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span>  MAX_VALUE  64 <span class="hljs-comment">/* 定义section,key,value字符串最大长度 */</span></span><br><span class="hljs-comment">// printf(&quot;File = %s\nLine = %d\nFunc=%s\nDate=%s\nTime=%s\n&quot;, __FILE__, __LINE__, __FUNCTION__, __DATE__, __TIME__);</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span>  PRINT_ERRMSG(STR) fprintf(stderr,<span class="hljs-meta-string">&quot;line:%d,msg:%s,eMsg:%s\n&quot;</span>, __LINE__, STR, strerror(errno))</span><br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">option</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">char</span>    key[MAX_VALUE];   <span class="hljs-comment">/* 对应键 */</span><br>	<span class="hljs-keyword">char</span>    value[MAX_VALUE]; <span class="hljs-comment">/* 对应值 */</span><br>	<span class="hljs-class"><span class="hljs-keyword">struct</span>  _<span class="hljs-title">option</span> *<span class="hljs-title">next</span>;</span>    <span class="hljs-comment">/* 链表连接标识 */</span><br>&#125; Option;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> _<span class="hljs-title">data</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">char</span>    section[MAX_VALUE]; <span class="hljs-comment">/* 保存section值          */</span><br>	Option  *option;            <span class="hljs-comment">/* option链表头           */</span><br>	<span class="hljs-class"><span class="hljs-keyword">struct</span>  _<span class="hljs-title">data</span> *<span class="hljs-title">next</span>;</span>        <span class="hljs-comment">/* 链表连接标识           */</span><br>&#125; Data;<br><br><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span></span><br><span class="hljs-class">&#123;</span><br>	<span class="hljs-keyword">char</span>    comment;              <span class="hljs-comment">/* 表示注释的符号    */</span><br>	<span class="hljs-keyword">char</span>    separator;            <span class="hljs-comment">/* 表示分隔符        */</span><br>	<span class="hljs-keyword">char</span>    re_string[MAX_VALUE]; <span class="hljs-comment">/* 返回值字符串的值  */</span><br>	<span class="hljs-keyword">int</span>     re_int;               <span class="hljs-comment">/* 返回int的值       */</span><br>	<span class="hljs-keyword">bool</span>    re_bool;              <span class="hljs-comment">/* 返回bool的值      */</span><br>	<span class="hljs-keyword">double</span>  re_double;           <span class="hljs-comment">/* 返回double类型    */</span><br>	Data    *data;                <span class="hljs-comment">/* 保存数据的头      */</span><br>&#125; Config;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 判断字符串是否为空</span><br><span class="hljs-comment">* 为空返回true,不为空返回false</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">str_empty</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *string)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span> == string || <span class="hljs-number">0</span> == <span class="hljs-built_in">strlen</span>(string);<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 向链表添加section,key,value</span><br><span class="hljs-comment">* 如果添加时不存在section则新增一个</span><br><span class="hljs-comment">* 如果对应section的key不存在则新增一个</span><br><span class="hljs-comment">* 如果section已存在则不会重复创建</span><br><span class="hljs-comment">* 如果对应section的key已存在则只会覆盖key的值</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cnf_add_option</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *key, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *value)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == cnf || <span class="hljs-built_in">str_empty</span>(section) || <span class="hljs-built_in">str_empty</span>(key) || <span class="hljs-built_in">str_empty</span>(value))<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">/* 参数不正确,返回false */</span><br>	&#125;<br><br>	Data *p = cnf-&gt;data; <span class="hljs-comment">/* 让变量p循环遍历data,找到对应section */</span><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(p-&gt;section, section))<br>	&#123;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)   <span class="hljs-comment">/* 说明没有找到section,需要加一个 */</span><br>	&#123;<br>		Data *ps = (Data*)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(Data));<br>		<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == ps)<br>		&#123;<br>			<span class="hljs-built_in">exit</span>(<span class="hljs-number">-1</span>); <span class="hljs-comment">/* 申请内存错误 */</span><br>		&#125;<br>		<span class="hljs-built_in">strcpy</span>(ps-&gt;section, section);<br>		ps-&gt;option = <span class="hljs-literal">NULL</span>;    <span class="hljs-comment">/* 初始的option要为空 */</span><br>		ps-&gt;next = cnf-&gt;data; <span class="hljs-comment">/* cnf-&gt;data可能为NULL */</span><br>		cnf-&gt;data = p = ps;   <span class="hljs-comment">/* 头插法插入链表 */</span><br>	&#125;<br><br>	Option *q = p-&gt;option;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != q &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(q-&gt;key, key))<br>	&#123;<br>		q = q-&gt;next; <span class="hljs-comment">/* 遍历option,检查key是否已经存在 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == q)   <span class="hljs-comment">/* 不存在option,则新建一个 */</span><br>	&#123;<br>		q = (Option*)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(Option));<br>		<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == q)<br>		&#123;<br>			<span class="hljs-built_in">exit</span>(<span class="hljs-number">-1</span>); <span class="hljs-comment">/* 申请内存错误 */</span><br>		&#125;<br>		<span class="hljs-built_in">strcpy</span>(q-&gt;key, key);<br>		q-&gt;next = p-&gt;option; <span class="hljs-comment">/*这里p-&gt;option可能为NULL,不过也没关系 */</span><br>		p-&gt;option = q; <span class="hljs-comment">/* 头插法插入链表 */</span><br>	&#125;<br>	<span class="hljs-built_in">strcpy</span>(q-&gt;value, value); <span class="hljs-comment">/* 无论如何要把值改了 */</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 去掉字符串内所有空白</span><br><span class="hljs-comment">* 且忽略注释部分</span><br><span class="hljs-comment">* 最终得到没有空白的字符串</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">strip_comments</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *string, <span class="hljs-keyword">char</span> comment)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == string || <span class="hljs-string">&#x27;\n&#x27;</span> == *string || <span class="hljs-string">&#x27;\r&#x27;</span> == *string)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <span class="hljs-comment">/* 第一个字符为回车或换行,表示空行 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">char</span> *p, *q; <span class="hljs-comment">/* 下面去掉字符串中所有空白字符 */</span><br>	<span class="hljs-keyword">for</span> (p = q = string; *p != <span class="hljs-string">&#x27;\0&#x27;</span> &amp;&amp; *p != comment; p++)<br>	&#123;<br>		<span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> == <span class="hljs-built_in">isspace</span>(*p))<br>		&#123;<br>			*q++ = *p; <span class="hljs-comment">/* 不是空白字符则重写字符串 */</span><br>		&#125;<br>	&#125;<br>	*q = <span class="hljs-string">&#x27;\0&#x27;</span>;<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span> != <span class="hljs-built_in">strlen</span>(string); <span class="hljs-comment">/* 字符串长度不为0,表示数据可用 */</span><br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 传递配置文件路径</span><br><span class="hljs-comment">* 参数有文件路径,注释字符,分隔符</span><br><span class="hljs-comment">* 返回Config结构体</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function">Config *<span class="hljs-title">cnf_read_config</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *filename, <span class="hljs-keyword">char</span> comment, <span class="hljs-keyword">char</span> separator)</span></span><br><span class="hljs-function"></span>&#123;<br>	Config *cnf = (Config*)<span class="hljs-built_in">malloc</span>(<span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(Config));<br>	cnf-&gt;comment = comment; <span class="hljs-comment">/* 每一行该字符及以后的字符将丢弃 */</span><br>	cnf-&gt;separator = separator; <span class="hljs-comment">/* 用来分隔Section 和 数据 */</span><br>	cnf-&gt;data = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">/* 初始数据为空 */</span><br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">str_empty</span>(filename))<br>	&#123;<br>		<span class="hljs-keyword">return</span> cnf; <span class="hljs-comment">/* 空字符串则直接返回对象 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">char</span> *p, sLine[MAX_VALUE];    <span class="hljs-comment">/* 保存一行数据到字符串 */</span><br>	<span class="hljs-keyword">char</span> section[MAX_VALUE], key[MAX_VALUE], value[MAX_VALUE]; <span class="hljs-comment">/* 缓存section,key,value */</span><br>	FILE *fp = <span class="hljs-built_in">fopen</span>(filename, <span class="hljs-string">&quot;r&quot;</span>);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == fp)<br>	&#123;<br>		<span class="hljs-built_in">PRINT_ERRMSG</span>(<span class="hljs-string">&quot;fopen&quot;</span>);<br>		<span class="hljs-built_in">exit</span>(errno); <span class="hljs-comment">/* 读文件错误直接按照错误码退出 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != <span class="hljs-built_in">fgets</span>(sLine, MAX_VALUE, fp))<br>	&#123;<br>		<span class="hljs-keyword">if</span> (<span class="hljs-built_in">strip_comments</span>(sLine, cnf-&gt;comment))   <span class="hljs-comment">/* 去掉字符串所有空白,注释也忽略 */</span><br>		&#123;<br>			<span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;[&#x27;</span> == sLine[<span class="hljs-number">0</span>] &amp;&amp; <span class="hljs-string">&#x27;]&#x27;</span> == sLine[<span class="hljs-built_in">strlen</span>(sLine) - <span class="hljs-number">1</span>])<br>			&#123;<br>				<span class="hljs-built_in">memset</span>(section, <span class="hljs-string">&#x27;\0&#x27;</span>, MAX_VALUE); <span class="hljs-comment">/* 清空section,因为strncpy不追加&#x27;\0&#x27; */</span><br>				<span class="hljs-built_in">strncpy</span>(section, sLine + <span class="hljs-number">1</span>, <span class="hljs-built_in">strlen</span>(sLine) - <span class="hljs-number">2</span>);<br>			&#125;<br>			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> != (p = <span class="hljs-built_in">strchr</span>(sLine, cnf-&gt;separator)))      <span class="hljs-comment">/* 存在分隔符 */</span><br>			&#123;<br>				<span class="hljs-built_in">memset</span>(key, <span class="hljs-string">&#x27;\0&#x27;</span>, MAX_VALUE); <span class="hljs-comment">/* 清空key,因为strncpy不追加&#x27;\0&#x27; */</span><br>				<span class="hljs-built_in">strncpy</span>(key, sLine, p - sLine);<br>				<span class="hljs-built_in">strcpy</span>(value, p + <span class="hljs-number">1</span>); <span class="hljs-comment">/* strcpy会追加&#x27;\0&#x27;,所以妥妥哒 */</span><br>				<span class="hljs-built_in">cnf_add_option</span>(cnf, section, key, value); <span class="hljs-comment">/* 添加section,key,value */</span><br>			&#125; <span class="hljs-comment">/* 如果该行不存在分隔符则忽略这一行 */</span><br>		&#125; <span class="hljs-comment">/* end strip_comments */</span><br>	&#125; <span class="hljs-comment">/* end while */</span><br><br>	<span class="hljs-built_in">fclose</span>(fp);<br>	<span class="hljs-keyword">return</span> cnf;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 获取指定类型的值</span><br><span class="hljs-comment">* 根据不同类型会赋值给对应值</span><br><span class="hljs-comment">* 本方法需要注意,int和double的转换,不满足就是0</span><br><span class="hljs-comment">*     需要自己写代码时判断好</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cnf_get_value</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *key)</span></span><br><span class="hljs-function"></span>&#123;<br>	Data *p = cnf-&gt;data; <span class="hljs-comment">/* 让变量p循环遍历data,找到对应section */</span><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(p-&gt;section, section))<br>	&#123;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)<br>	&#123;<br>		<span class="hljs-built_in">PRINT_ERRMSG</span>(<span class="hljs-string">&quot;section not find!&quot;</span>);<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br><br>	Option *q = p-&gt;option;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != q &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(q-&gt;key, key))<br>	&#123;<br>		q = q-&gt;next; <span class="hljs-comment">/* 遍历option,检查key是否已经存在 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == q)<br>	&#123;<br>		<span class="hljs-built_in">PRINT_ERRMSG</span>(<span class="hljs-string">&quot;key not find!&quot;</span>);<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br><br>	<span class="hljs-built_in">strcpy</span>(cnf-&gt;re_string, q-&gt;value);       <span class="hljs-comment">/* 将结果字符串赋值 */</span><br>	cnf-&gt;re_int = <span class="hljs-built_in">atoi</span>(cnf-&gt;re_string);  <span class="hljs-comment">/* 转换为整形 */</span><br>	cnf-&gt;re_bool = <span class="hljs-number">0</span> == <span class="hljs-built_in">strcmp</span>(<span class="hljs-string">&quot;true&quot;</span>, cnf-&gt;re_string); <span class="hljs-comment">/* 转换为bool型 */</span><br>	cnf-&gt;re_double = <span class="hljs-built_in">atof</span>(cnf-&gt;re_string);  <span class="hljs-comment">/* 转换为double型 */</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 判断section是否存在</span><br><span class="hljs-comment">* 不存在返回空指针</span><br><span class="hljs-comment">* 存在则返回包含那个section的Data指针</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function">Data *<span class="hljs-title">cnf_has_section</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section)</span></span><br><span class="hljs-function"></span>&#123;<br>	Data *p = cnf-&gt;data; <span class="hljs-comment">/* 让变量p循环遍历data,找到对应section */</span><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(p-&gt;section, section))<br>	&#123;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)   <span class="hljs-comment">/* 没找到则不存在 */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 判断指定option是否存在</span><br><span class="hljs-comment">* 不存在返回空指针</span><br><span class="hljs-comment">* 存在则返回包含那个section下key的Option指针</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function">Option *<span class="hljs-title">cnf_has_option</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *key)</span></span><br><span class="hljs-function"></span>&#123;<br>	Data *p = <span class="hljs-built_in">cnf_has_section</span>(cnf, section);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)   <span class="hljs-comment">/* 没找到则不存在 */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	&#125;<br><br>	Option *q = p-&gt;option;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != q &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(q-&gt;key, key))<br>	&#123;<br>		q = q-&gt;next; <span class="hljs-comment">/* 遍历option,检查key是否已经存在 */</span><br>	&#125;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == q)   <span class="hljs-comment">/* 没找到则不存在 */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	&#125;<br><br>	<span class="hljs-keyword">return</span> q;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 将Config对象写入指定文件中</span><br><span class="hljs-comment">* header表示在文件开头加一句注释</span><br><span class="hljs-comment">* 写入成功则返回true</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cnf_write_file</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *filename, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *header)</span></span><br><span class="hljs-function"></span>&#123;<br>	FILE *fp = <span class="hljs-built_in">fopen</span>(filename, <span class="hljs-string">&quot;w&quot;</span>);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == fp)<br>	&#123;<br>		<span class="hljs-built_in">PRINT_ERRMSG</span>(<span class="hljs-string">&quot;fopen&quot;</span>);<br>		<span class="hljs-built_in">exit</span>(errno); <span class="hljs-comment">/* 读文件错误直接按照错误码退出 */</span><br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt; <span class="hljs-built_in">strlen</span>(header))   <span class="hljs-comment">/* 文件注释不为空,则写注释到文件 */</span><br>	&#123;<br>		<span class="hljs-built_in">fprintf</span>(fp, <span class="hljs-string">&quot;%c %s\n\n&quot;</span>, cnf-&gt;comment, header);<br>	&#125;<br><br>	Option *q;<br>	Data   *p = cnf-&gt;data;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p)<br>	&#123;<br>		<span class="hljs-built_in">fprintf</span>(fp, <span class="hljs-string">&quot;[%s]\n&quot;</span>, p-&gt;section);<br>		q = p-&gt;option;<br>		<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != q)<br>		&#123;<br>			<span class="hljs-built_in">fprintf</span>(fp, <span class="hljs-string">&quot;%s %c %s\n&quot;</span>, q-&gt;key, cnf-&gt;separator, q-&gt;value);<br>			q = q-&gt;next;<br>		&#125;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-built_in">fclose</span>(fp);<br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 删除option</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cnf_remove_option</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *key)</span></span><br><span class="hljs-function"></span>&#123;<br>	Data *ps = <span class="hljs-built_in">cnf_has_section</span>(cnf, section);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == ps)   <span class="hljs-comment">/* 没找到则不存在 */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	&#125;<br><br>	Option *p, *q;<br>	q = p = ps-&gt;option;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(p-&gt;key, key))<br>	&#123;<br>		<span class="hljs-keyword">if</span> (p != q)<br>		&#123;<br>			q = q-&gt;next;    <span class="hljs-comment">/* 始终让q处于p的上一个节点 */</span><br>		&#125;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)   <span class="hljs-comment">/* 没找到则不存在 */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (p == q)   <span class="hljs-comment">/* 第一个option就匹配了 */</span><br>	&#123;<br>		ps-&gt;option = p-&gt;next;<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		q-&gt;next = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-built_in">free</span>(p);<br>	q = p = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// 避免野指针</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 删除section</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cnf_remove_section</span><span class="hljs-params">(Config *cnf, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *section)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span> (<span class="hljs-built_in">str_empty</span>(section))<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br><br>	Data *p, *q;<br>	q = p = cnf-&gt;data; <span class="hljs-comment">/* 让变量p循环遍历data,找到对应section */</span><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p &amp;&amp; <span class="hljs-number">0</span> != <span class="hljs-built_in">strcmp</span>(p-&gt;section, section))<br>	&#123;<br>		<span class="hljs-keyword">if</span> (p != q)<br>		&#123;<br>			q = q-&gt;next;    <span class="hljs-comment">/* 始终让q处于p的上一个节点 */</span><br>		&#125;<br>		p = p-&gt;next;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == p)   <span class="hljs-comment">/* 没有找到section */</span><br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span> (p == q)   <span class="hljs-comment">/* 这里表示第一个section,因此链表头位置改变 */</span><br>	&#123;<br>		cnf-&gt;data = p-&gt;next;<br>	&#125;<br>	<span class="hljs-keyword">else</span>     <span class="hljs-comment">/* 此时是中间或尾部节点 */</span><br>	&#123;<br>		q-&gt;next = p-&gt;next;<br>	&#125;<br><br>	Option *o = p-&gt;option;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != o)<br>	&#123;<br>		<span class="hljs-built_in">free</span>(o); <span class="hljs-comment">/* 循环释放所有option */</span><br>		o = o-&gt;next;<br>	&#125;<br>	p-&gt;option = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// 避免野指针</span><br>	<span class="hljs-built_in">free</span>(p); <span class="hljs-comment">/* 释放删除的section */</span><br>	q = p = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// 避免野指针</span><br><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* 打印当前Config对象</span><br><span class="hljs-comment">**/</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_config</span><span class="hljs-params">(Config *cnf)</span></span><br><span class="hljs-function"></span>&#123;<br>	Data *p = cnf-&gt;data; <span class="hljs-comment">// 循环打印结果</span><br>	<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != p)<br>	&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[%s]\n&quot;</span>, p-&gt;section);<br><br>		Option *q = p-&gt;option;<br>		<span class="hljs-keyword">while</span> (<span class="hljs-literal">NULL</span> != q)<br>		&#123;<br>			<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;  %s %c %s\n&quot;</span>, q-&gt;key, cnf-&gt;separator, q-&gt;value);<br>			q = q-&gt;next;<br>		&#125;<br>		p = p-&gt;next;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">char</span> preName[<span class="hljs-number">255</span>];<br><span class="hljs-keyword">double</span> scale = <span class="hljs-number">1.0</span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ShootScreen</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* filename, HWND hWnd)</span></span><br><span class="hljs-function"></span>&#123;<br>	HDC hdc = <span class="hljs-built_in">CreateDC</span>(<span class="hljs-string">&quot;DISPLAY&quot;</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);<br>	<span class="hljs-keyword">int32_t</span> ScrWidth = <span class="hljs-number">0</span>, ScrHeight = <span class="hljs-number">0</span>;<br>	RECT rect = &#123; <span class="hljs-number">0</span> &#125;;<br>	<span class="hljs-keyword">if</span> (hWnd == <span class="hljs-literal">NULL</span>)<br>	&#123;<br>		ScrWidth = <span class="hljs-built_in">GetDeviceCaps</span>(hdc, HORZRES);<br>		ScrHeight = <span class="hljs-built_in">GetDeviceCaps</span>(hdc, VERTRES);<br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		<span class="hljs-built_in">GetWindowRect</span>(hWnd, &amp;rect);<br>		ScrWidth = (rect.right * scale - rect.left * scale) ;<br>		ScrHeight = (rect.bottom * scale - rect.top * scale);<br>	&#125;<br>	HDC hmdc = <span class="hljs-built_in">CreateCompatibleDC</span>(hdc);<br><br>	HBITMAP hBmpScreen = <span class="hljs-built_in">CreateCompatibleBitmap</span>(hdc, ScrWidth, ScrHeight);<br>	HBITMAP holdbmp = (HBITMAP)<span class="hljs-built_in">SelectObject</span>(hmdc, hBmpScreen);<br><br>	BITMAP bm;<br>	<span class="hljs-built_in">GetObject</span>(hBmpScreen, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(bm), &amp;bm);<br><br>	BITMAPINFOHEADER bi = &#123; <span class="hljs-number">0</span> &#125;;<br>	bi.biSize = <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPINFOHEADER);<br>	bi.biWidth = bm.bmWidth;<br>	bi.biHeight = bm.bmHeight;<br>	bi.biPlanes = bm.bmPlanes;<br>	bi.biBitCount = bm.bmBitsPixel;<br>	bi.biCompression = BI_RGB;<br>	bi.biSizeImage = bm.bmHeight * bm.bmWidthBytes;<br><br>	<span class="hljs-keyword">char</span> *buf = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[bi.biSizeImage];<br>	<span class="hljs-built_in">BitBlt</span>(hmdc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, ScrWidth, ScrHeight, hdc, rect.left * scale, rect.top * scale, SRCCOPY);<br>	<span class="hljs-built_in">GetDIBits</span>(hmdc, hBmpScreen, <span class="hljs-number">0L</span>, (DWORD)ScrHeight, buf, (LPBITMAPINFO)&amp;bi, (DWORD)DIB_RGB_COLORS);<br><br>	BITMAPFILEHEADER bfh = &#123; <span class="hljs-number">0</span> &#125;;<br>	bfh.bfType = ((WORD)(<span class="hljs-string">&#x27;M&#x27;</span> &lt;&lt; <span class="hljs-number">8</span>) | <span class="hljs-string">&#x27;B&#x27;</span>);<br>	bfh.bfSize = <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPFILEHEADER) + <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPINFOHEADER) + bi.biSizeImage;<br>	bfh.bfOffBits = <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPFILEHEADER) + <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPINFOHEADER);<br>	HANDLE hFile = <span class="hljs-built_in">CreateFile</span>(filename, GENERIC_WRITE, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, <span class="hljs-number">0</span>);<br>	DWORD dwWrite;<br>	<span class="hljs-built_in">WriteFile</span>(hFile, &amp;bfh, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPFILEHEADER), &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	<span class="hljs-built_in">WriteFile</span>(hFile, &amp;bi, <span class="hljs-built_in"><span class="hljs-keyword">sizeof</span></span>(BITMAPINFOHEADER), &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	<span class="hljs-built_in">WriteFile</span>(hFile, buf, bi.biSizeImage, &amp;dwWrite, <span class="hljs-literal">NULL</span>);<br>	<span class="hljs-built_in">CloseHandle</span>(hFile);<br>	hBmpScreen = (HBITMAP)<span class="hljs-built_in">SelectObject</span>(hmdc, holdbmp);<br>&#125;<br><br>HHOOK g_kb_hook = <span class="hljs-literal">NULL</span>;<br><span class="hljs-keyword">int</span> keyCode = <span class="hljs-number">0</span>;<br><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">kb_proc</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, WPARAM w, LPARAM lparam)</span></span><br><span class="hljs-function"></span>&#123;<br>	PKBDLLHOOKSTRUCT p = (PKBDLLHOOKSTRUCT)lparam;<br>	<span class="hljs-keyword">if</span> (w == WM_KEYDOWN)<br>	&#123;<br>		cout &lt;&lt; <span class="hljs-string">&quot;你按下了键盘码为:&quot;</span> &lt;&lt; p-&gt;vkCode &lt;&lt; <span class="hljs-string">&quot;的键&quot;</span> &lt;&lt; endl;<br>		<span class="hljs-keyword">if</span> (p-&gt;vkCode == keyCode)<br>		&#123;<br>			<span class="hljs-comment">//POINT pNow = &#123; 0,0 &#125;;</span><br>			<span class="hljs-comment">//if (GetCursorPos(&amp;pNow))  // 获取鼠标当前位置</span><br>			<span class="hljs-comment">//&#123;</span><br>				HWND hwndPointNow = <span class="hljs-literal">NULL</span>;<br>				<span class="hljs-comment">//hwndPointNow = WindowFromPoint(pNow);  // 获取鼠标所在窗口的句柄</span><br>				<span class="hljs-comment">//hwndPointNow = GetActiveWindow();</span><br>				hwndPointNow = <span class="hljs-built_in">GetForegroundWindow</span>();<br>				<br>				<span class="hljs-comment">//cout &lt;&lt; hwndPointNow &lt;&lt; endl;</span><br>				<span class="hljs-keyword">if</span> (hwndPointNow)<br>				&#123;<br>					<span class="hljs-comment">//cout &lt;&lt; hwndPointNow &lt;&lt; endl;</span><br>					<span class="hljs-keyword">time_t</span> timep;<br>					<span class="hljs-keyword">int</span> t = <span class="hljs-built_in">time</span>(&amp;timep);<br>					<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> preT = <span class="hljs-number">0</span>;<br>					<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;<br>					<span class="hljs-keyword">if</span> (preT == t) &#123;<br>						cnt++;<br>					&#125;<br>					<span class="hljs-keyword">else</span> &#123;<br>						cnt = <span class="hljs-number">0</span>;<br>					&#125;<br>					<span class="hljs-keyword">char</span> name[<span class="hljs-number">256</span>] = &#123; <span class="hljs-number">0</span> &#125;;<br><br>					<span class="hljs-built_in">sprintf_s</span>(name, <span class="hljs-number">256</span>, <span class="hljs-string">&quot;%s/%d%d.bmp&quot;</span>, preName, t, cnt);<br>					preT = t;<br><br>					<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;[截图捕获成功,名称为:%s]\n&quot;</span>, name);<br>					<span class="hljs-built_in">ShootScreen</span>(name, hwndPointNow);<br>				&#125;<br>				<span class="hljs-keyword">else</span><br>				&#123;<br>					cout &lt;&lt; <span class="hljs-string">&quot;Error!!&quot;</span> &lt;&lt; endl;<br>				&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-built_in">CallNextHookEx</span>(g_kb_hook, code, w, lparam);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">int32_t</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">char</span> fileName[] = <span class="hljs-string">&quot;config.ini&quot;</span>;<br><br>	FILE *fp = <span class="hljs-built_in">fopen</span>(fileName, <span class="hljs-string">&quot;r&quot;</span>);<br>	Config *cnf = <span class="hljs-literal">NULL</span>;<br>	<span class="hljs-keyword">if</span> (fp == <span class="hljs-literal">NULL</span>)<br>	&#123;<br>		cnf = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Config</span>();<br>		cnf-&gt;comment = <span class="hljs-string">&#x27;#&#x27;</span>;<br>		cnf-&gt;separator = <span class="hljs-string">&#x27;=&#x27;</span>;<br><br>		<span class="hljs-built_in">cnf_add_option</span>(cnf, <span class="hljs-string">&quot;config&quot;</span>, <span class="hljs-string">&quot;keyboard&quot;</span>, <span class="hljs-string">&quot;162&quot;</span>); <span class="hljs-comment">// 新增NEW下的new_1的值</span><br>		<span class="hljs-built_in">cnf_add_option</span>(cnf, <span class="hljs-string">&quot;config&quot;</span>, <span class="hljs-string">&quot;scale&quot;</span>, <span class="hljs-string">&quot;1.25&quot;</span>); <span class="hljs-comment">// 新增NEW下的new_1的值</span><br>	&#125;<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		cnf = <span class="hljs-built_in">cnf_read_config</span>(fileName, <span class="hljs-string">&#x27;#&#x27;</span>, <span class="hljs-string">&#x27;=&#x27;</span>);<br>	&#125;<br>	<span class="hljs-keyword">if</span>(fp != <span class="hljs-literal">NULL</span>)<br>	<span class="hljs-built_in">fclose</span>(fp);<br>	<span class="hljs-keyword">if</span> (<span class="hljs-literal">NULL</span> == cnf)<br>	&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">/* 创建对象失败 */</span><br>	&#125;<br><br>	<span class="hljs-built_in">cnf_get_value</span>(cnf, <span class="hljs-string">&quot;config&quot;</span>, <span class="hljs-string">&quot;keyboard&quot;</span>); <span class="hljs-comment">// 获取NEW1下的new_2值</span><br>	keyCode = cnf-&gt;re_int;<br>	<span class="hljs-built_in">cnf_get_value</span>(cnf, <span class="hljs-string">&quot;config&quot;</span>, <span class="hljs-string">&quot;scale&quot;</span>); <span class="hljs-comment">// 获取NEW1下的new_2值</span><br>	scale = cnf-&gt;re_double;<br>	<span class="hljs-comment">//printf(&quot;%d %f\n&quot;, key, scale);</span><br>	<span class="hljs-comment">//printf(&quot;cnf_get_value:%s,%d,%d,%f\n&quot;,cnf-&gt;re_string,cnf-&gt;re_int,cnf-&gt;re_bool,cnf-&gt;re_double);</span><br><br>	<span class="hljs-comment">//cnf-&gt;separator = &#x27;:&#x27;; // 将分隔符改成 : ,冒号</span><br>	<span class="hljs-built_in">cnf_write_file</span>(cnf, fileName, <span class="hljs-string">&quot;这是一个配置文件,keyboard表示截屏的快捷键，scale表示WIN10屏幕缩放的比例（右键桌面-&gt;显示设置-&gt;缩放与布局）&quot;</span>); <span class="hljs-comment">// 将对象写入cnf_new.ini文件</span><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;============================================================================================\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;说明:\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;这是一个方便大量截图的工具，只需要按键盘上的一个键，就可以很轻松的捕获当前活动窗口的截图\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;默认截图按键是Ctrl，键盘代码是162，如果想要更改，请打开软件同目录下的config.ini\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Win10有一个缩放与布局，如果截图与想要的不符，请修改config.ini下面的scale属性，默认是1.25\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;============================================================================================\n&quot;</span>);<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;为本次的截图任务起一个名字吧(请不能要含特殊符号):&quot;</span>);<br>	cin &gt;&gt; preName;<br>	<span class="hljs-comment">// 文件夹不存在则创建文件夹</span><br>	<span class="hljs-keyword">if</span> (_access(preName, <span class="hljs-number">0</span>) == <span class="hljs-number">-1</span>)<br>	&#123;<br>		_mkdir(preName);<br>	&#125;<br>	<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;开始截图，每当你按下对应按键的时候，都会产生鼠标下窗口的一张图片\n&quot;</span>);<br><br>	HINSTANCE glhInstance = <span class="hljs-literal">NULL</span>;<br>	glhInstance = <span class="hljs-built_in">GetModuleHandle</span>(<span class="hljs-literal">NULL</span>);<br>	g_kb_hook = <span class="hljs-built_in">SetWindowsHookEx</span>(WH_KEYBOARD_LL, &amp;kb_proc, glhInstance, <span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">if</span> (g_kb_hook == <span class="hljs-literal">NULL</span>)<br>	&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;SetWindowsHookEx error!&quot;</span>);<br>		<span class="hljs-built_in">exit</span>(<span class="hljs-number">0</span>);<br>	&#125;<br>	MSG msg;<br>	<span class="hljs-keyword">while</span> (<span class="hljs-built_in">GetMessage</span>(&amp;msg, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br>	&#123;<br>		<span class="hljs-built_in">TranslateMessage</span>(&amp;msg);<br>		<span class="hljs-built_in">DispatchMessage</span>(&amp;msg);<br>	&#125;<br>	<span class="hljs-built_in">UnhookWindowsHookEx</span>(g_kb_hook);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">编程开发</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/C%E8%AF%AD%E8%A8%80/">C语言</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

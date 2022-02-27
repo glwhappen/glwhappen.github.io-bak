@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bilibili视频列表爬虫">
+<meta property="og:url" content="https://www.glwsq.cn/post/efe842ac/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/bilibili视频列表爬虫-2022-02-04-17-37-29.jpg">
+<meta property="article:published_time" content="2022-02-04T08:01:54.000Z">
+<meta property="article:modified_time" content="2022-02-04T08:01:54.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="创作中">
+<meta property="article:tag" content="哔哩哔哩">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/bilibili视频列表爬虫-2022-02-04-17-37-29.jpg">
+  
+  
+  <title>bilibili视频列表爬虫 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/bilibili-banner.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="bilibili视频列表爬虫">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-04 16:01" pubdate>
+        2022年2月4日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">bilibili视频列表爬虫</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月4日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>我经常通过哔哩哔哩看学习视频，一般视频都很长，分上百个P，每次学一段时间这个教程以后可能会由于种种原因忘了这个视频还没学完，因此专门写了一个小脚本来把视频的每一集的标题记录一下，方便以后的复习和记录学习的情况。也可以更方便的做笔记。</p>
+<span id="more"></span>
+
+<h2 id="获取视频的每一集的数据"><a href="#获取视频的每一集的数据" class="headerlink" title="获取视频的每一集的数据"></a>获取视频的每一集的数据</h2><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> videoData = <span class="hljs-built_in">window</span>.__INITIAL_STATE__.videoData<br><span class="hljs-keyword">let</span> bvid = videoData.bvid<br><span class="hljs-keyword">let</span> baseUrl = <span class="hljs-string">&#x27;https://www.bilibili.com/video/&#x27;</span><br><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [ ] [$part$]($partUrl$)</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> page <span class="hljs-keyword">of</span> videoData.pages) &#123;<br>    <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, page.part).replace(<span class="hljs-string">&#x27;$page$&#x27;</span>, page.page).replace(<span class="hljs-string">&#x27;$url$&#x27;</span>, baseUrl + bvid).replace(<span class="hljs-string">&#x27;$partUrl$&#x27;</span>,<span class="hljs-string">`<span class="hljs-subst">$&#123;baseUrl&#125;</span><span class="hljs-subst">$&#123;bvid&#125;</span>?p=<span class="hljs-subst">$&#123;page.page&#125;</span>`</span>)<br>    resStr += tempstr<br>&#125;<br><span class="hljs-built_in">console</span>.log(resStr)<br></code></pre></td></tr></table></figure>
+
+<p>会输出这种格式的文本，具体可以修改template字符串</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">01-项目初始化</span>](<span class="hljs-link">https://www.bilibili.com/video/BV13A411w79h?p=1</span>)<br><span class="hljs-bullet">-</span> [<span class="hljs-string"> </span>] [<span class="hljs-string">02-项目的基础搭建</span>](<span class="hljs-link">https://www.bilibili.com/video/BV13A411w79h?p=2</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="加强版-可以给前n个视频打勾"><a href="#加强版-可以给前n个视频打勾" class="headerlink" title="加强版-可以给前n个视频打勾"></a>加强版-可以给前n个视频打勾</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> done = <span class="hljs-number">8</span>; <span class="hljs-comment">// 学习过前几集</span><br><br><br><span class="hljs-keyword">const</span> videoData = <span class="hljs-built_in">window</span>.__INITIAL_STATE__.videoData<br><span class="hljs-keyword">let</span> bvid = videoData.bvid<br><span class="hljs-keyword">let</span> baseUrl = <span class="hljs-string">&#x27;https://www.bilibili.com/video/&#x27;</span><br><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [$checked$] [$part$]($partUrl$)</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> page <span class="hljs-keyword">of</span> videoData.pages) &#123;<br>    <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, page.part).replace(<span class="hljs-string">&#x27;$page$&#x27;</span>, page.page).replace(<span class="hljs-string">&#x27;$url$&#x27;</span>, baseUrl + bvid).replace(<span class="hljs-string">&#x27;$partUrl$&#x27;</span>,<span class="hljs-string">`<span class="hljs-subst">$&#123;baseUrl&#125;</span><span class="hljs-subst">$&#123;bvid&#125;</span>?p=<span class="hljs-subst">$&#123;page.page&#125;</span>`</span>)<br>    <span class="hljs-keyword">if</span>(page.page &lt;= done) &#123;<br>        tempstr = tempstr.replace(<span class="hljs-string">&#x27;$checked$&#x27;</span>, <span class="hljs-string">&#x27;x&#x27;</span>)<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        tempstr = tempstr.replace(<span class="hljs-string">&#x27;$checked$&#x27;</span>, <span class="hljs-string">&#x27; &#x27;</span>)<br>    &#125;<br>    <br>    resStr += tempstr<br>&#125;<br><span class="hljs-built_in">console</span>.log(resStr)<br><span class="hljs-built_in">console</span>.log(videoData.pic)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/">哔哩哔哩</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

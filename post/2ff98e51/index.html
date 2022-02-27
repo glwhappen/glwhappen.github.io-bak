@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="讲的太好了，一天看了20多个视频，如果学Docker，推荐学习。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker最新超详细版教程通俗易懂">
+<meta property="og:url" content="https://www.glwsq.cn/post/2ff98e51/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="讲的太好了，一天看了20多个视频，如果学Docker，推荐学习。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/Docker最新超详细版教程通俗易懂-2022-02-14-19-56-51.png">
+<meta property="article:published_time" content="2022-02-14T11:54:20.000Z">
+<meta property="article:modified_time" content="2022-02-14T11:54:20.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="学习中">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/Docker最新超详细版教程通俗易懂-2022-02-14-19-56-51.png">
+  
+  
+  <title>Docker最新超详细版教程通俗易懂 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/Docker最新超详细版教程通俗易懂-2022-02-14-19-56-51.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Docker最新超详细版教程通俗易懂">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-14 19:54" pubdate>
+        2022年2月14日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Docker最新超详细版教程通俗易懂</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月14日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <div class="note note-success">
+            <p>我把我通过哔哩哔哩学习过的视频都记录下来了，方便后期复习。如果你也在学习相关的知识，但是不知道有哪些优质的视频，可以看我的合集，都是学习过的，或者正在学习的。</p>
+          </div>
+
+<p><a href="/bilibili-record/">哔哩哔哩学习记录</a></p>
+
+<p>讲的太好了，一天看了20多个视频，如果学Docker，推荐学习。</p>
+
+
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=1">1、Docker学习大纲</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=2">2、聊聊Docker为什么会出现</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=3">3、聊聊Docker的历史</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=4">4、Docker能做什么</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=5">5、Docker中的名词概念</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=6">6、安装Docker</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=7">7、配置阿里云镜像加速</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=8">8、Run的流程和Docker原理</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=9">9、镜像的基本命令</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=10">10、容器的基本命令</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=11">11、日志、元数据、进程的查看</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=12">12、进入容器的命令和拷贝命令</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=13">13、常用命令小结</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=14">14、作业一：部署Nginx</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=15">15、作业二：部署Tomcat</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=16">16、作业三：部署ES+Kibana</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=17">17、Portainer可视化面板安装</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=18">18、镜像原理之联合文件系统</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=19">19、镜像原理之分层理解</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=20">20、Commit镜像</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=21">21、容器数据卷使用</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=22">22、实战：MySQL同步数据</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=23">23、具名挂载和匿名挂载</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=24">24、数据卷之Dockerfile</a></li>
+<li><input checked="" disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=25">25、数据卷容器</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=26">26、DockerFile介绍</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=27">27、DockerFile指令说明</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=28">28、实战：构建自己的centos</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=29">29、CMD和ENTRYPOINT的区别</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=30">30、实战：Dockerfile制作tomcat镜像</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=31">31、发布镜像到DockerHub</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=32">32、发布镜像到阿里云容器服务</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=33">33、Docker所有流程小结</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=34">34、Docker0网络详解</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=35">35、容器互联–link</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=36">36、自定义网络</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=37">37、网络连通</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=38">38、Redis集群部署实战</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=39">39、SpringBoot微服务打包Docker镜像</a></li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1og4y1q7M4?p=40">40、结语</a></li>
+</ul>
+<h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><blockquote>
+<p>弱小和无知不是生存的障碍，傲慢才是。</p>
+</blockquote>
+<blockquote>
+<p>看视频快速记录的笔记，格式可能不太好，但是每一行命令都是运行过的</p>
+</blockquote>
+<ol>
+<li><p>系统内核版本查看</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">uname -r</span><br></code></pre></td></tr></table></figure></li>
+<li><p>系统信息</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat <span class="hljs-regexp">/etc/</span>os-release<br></code></pre></td></tr></table></figure></li>
+<li><p>帮助文档<br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动docker</span><br>systemctl start docker<br><span class="hljs-comment"># hello word</span><br>sudo docker run hello-world<br><span class="hljs-comment"># 运行镜像</span><br>sudo docker run -it ubuntu bash<br><span class="hljs-comment"># 查看镜像</span><br>sudo docker images<br></code></pre></td></tr></table></figure>
+
+
+
+<p>每次输入命令都需要sudo很不方便，可以查看这个官方文档修改</p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/linux-postinstall/">https://docs.docker.com/engine/install/linux-postinstall/</a></p>
+<p>如果不想看，最简单的办法是执行下面的命令，作用是将当前登录的用户加入docker用户组，这样就不需要sudo了，然后记得注销用户重新登录一下。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs autoit">sudo groupadd docker<br>sudo usermod -aG docker $USER<br></code></pre></td></tr></table></figure>
+
+
+
+<p>镜像加速</p>
+<ol>
+<li><p>创建或修改 <code>/etc/docker/daemon.json</code> 文件，并写入以下内容：</p>
+<p>直接用tee来快速创建文件，并且写入内容</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo tee /etc/docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br>   <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<br>       <span class="hljs-string">&quot;https://mirror.ccs.tencentyun.com&quot;</span><br>  ]<br>&#125;<br>EOF<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>重新启动 Docker 服务 。重启之前可以 <code>docker ps</code>看下自己起了哪些服务，别忘了重启</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl daemon-reload<br>service docker restart<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><code>docker info</code>查看是否生效<br> 在最下面有这两行即为成功</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json">Registry Mirrors:<br> https:<span class="hljs-comment">//mirror.ccs.tencentyun.com</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>重启第 2 步中停掉的服务</li>
+</ol>
+<h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><p>帮助命令</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">docker <span class="hljs-keyword">version</span> <span class="hljs-comment"># 显示docker的版本信息</span><br>docker info    <span class="hljs-comment"># 显示docker的系统信息，镜像容器的数量</span><br>docker 命令 <span class="hljs-params">--help</span>  <span class="hljs-comment"># docker帮助命令</span><br></code></pre></td></tr></table></figure>
+
+<p>镜像命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs powershell">docker images <span class="hljs-comment"># 查看所有镜像</span><br>docker search <span class="hljs-comment"># 搜索镜像</span><br>docker pull mysql:<span class="hljs-number">5.7</span> <span class="hljs-comment"># 下载拉取镜像</span><br>docker rmi <span class="hljs-operator">-f</span> id <span class="hljs-comment"># 删除镜像</span><br><span class="hljs-comment"># 批量删除全部</span><br>docker rmi <span class="hljs-operator">-f</span> <span class="hljs-variable">$</span>(docker images <span class="hljs-literal">-aq</span>)<br></code></pre></td></tr></table></figure>
+
+<p>容器命令</p>
+<p>有了镜像才可以创建容器</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker pull centos <span class="hljs-comment"># 下载容器</span><br>docker run [可选参数] image<br>	--name=<span class="hljs-string">&quot;Name&quot;</span> 容器名字<br>	-d 后台方式运行<br>	-it 使用交互方式运行，进入容器查看内容<br>	-p 指定容器的端口 -p <span class="hljs-number">8080</span>:<span class="hljs-number">8080</span> ip:主机端口:容器端口<br>	-P 随机指定端口<br>docker ps <span class="hljs-comment"># 列出运行的容器</span><br>	-a <span class="hljs-comment"># 列出当前和历史运行的容器</span><br>	-n=? <span class="hljs-comment"># 列出最近创建的容器</span><br>	-q <span class="hljs-comment"># 只显示容器的编号</span><br>docker rm 容器id<br>	-f 强制删除<br><span class="hljs-comment"># 批量删除全部</span><br>docker rm -f $(docker ps -aq)<br>docker start 容器id <span class="hljs-comment"># 启动容器</span><br>docker restart 容器id <span class="hljs-comment"># 重启容器</span><br>docker stop 容器id <span class="hljs-comment"># 停止当前运行的容器</span><br>docker kill 容器id <span class="hljs-comment"># 强制停止当前容器</span><br><br><span class="hljs-keyword">exit</span> <span class="hljs-comment"># 直接停止容器退出</span><br>ctrl + P + Q <span class="hljs-comment"># 容器不停止退出</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>常用的其他命令</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -d centos <span class="hljs-comment"># 后台启动</span><br>docker logs -tf <span class="hljs-comment">--tail 10 容器id</span><br></code></pre></td></tr></table></figure>
+
+<p>一直输出内容的脚本</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -d centos <span class="hljs-regexp">/bin/</span>sh -c <span class="hljs-string">&quot;while true;do echo hello; sleep 1;done&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>查看容器中的进程信息</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker top 容器<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<p>查看镜像的元数据</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker inspect 容器<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<p>进入当前正在运行的容器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">docker <span class="hljs-built_in">exec</span> -it 容器<span class="hljs-built_in">id</span> /<span class="hljs-built_in">bin</span>/bash <span class="hljs-comment"># 会创建一个新的窗口</span><br>docker attach 容器<span class="hljs-built_in">id</span> <span class="hljs-comment"># 进入正在运行的</span><br></code></pre></td></tr></table></figure>
+
+<p>从容器内拷贝文件到主机上</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> cp <span class="hljs-number">408</span>e<span class="hljs-number">026</span>ee<span class="hljs-number">14</span>e:/home/test.java ./<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://image.glwsq.cn/img/2018071915491757" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>docker 安装nginx</p>
+<p><a target="_blank" rel="noopener" href="https://registry.hub.docker.com/search?q=nginx">https://registry.hub.docker.com/search?q=nginx</a></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker search nginx</span><br></code></pre></td></tr></table></figure>
+
+<p>docker 安装 tomcat</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -<span class="hljs-keyword">it</span> <span class="hljs-comment">--rm tomcat:9.0 # 用完就删 一般用来测试</span><br></code></pre></td></tr></table></figure>
+
+<p>docker 安装es+kibana</p>
+<p>es暴露的端口很多，耗内存</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs console">docker run -d --name elasticsearch02 -p 9200:9200 -p 9300:9300 -e &quot;discovery.type=single-node&quot; -e ES_JAVA_OPTS=&quot;-Xms64m -Xmx512m&quot; elasticsearch:7.6.2<br></code></pre></td></tr></table></figure>
+
+<p>docker stats</p>
+<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>portainer</p>
+<p>Docker图形化界面管理工具！提供一个后台面板让我们操作</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">docker run -d -p <span class="hljs-number">8088</span>:<span class="hljs-number">9000</span> --restart=always -v <span class="hljs-regexp">/var/</span>run<span class="hljs-regexp">/docker.sock:/</span>var<span class="hljs-regexp">/run/</span>docker.sock --privileged=<span class="hljs-keyword">true</span> portainer/portainer<br></code></pre></td></tr></table></figure>
+
+<p>访问测试</p>
+<p>Rancher</p>
+<h2 id="提交镜像"><a href="#提交镜像" class="headerlink" title="提交镜像"></a>提交镜像</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> commit -a=<span class="hljs-string">&quot;happen&quot;</span> -m <span class="hljs-string">&quot;add webapps app&quot;</span> id tomcate<span class="hljs-number">02</span>:<span class="hljs-number">1</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Docker-容器数据卷"><a href="#Docker-容器数据卷" class="headerlink" title="Docker 容器数据卷"></a>Docker 容器数据卷</h2><p>如果数据都在数据卷中，那么我们删除容器，数据就会丢失！需求：数据持久化</p>
+<p>使用数据卷</p>
+<p>方式一：使用命令来挂载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -it -v 主机目录:容器内目录  -p 主机端口:容器内端口<br>docker run -it -v <span class="hljs-regexp">/home/u</span>buntu<span class="hljs-regexp">/test:/</span>home centos <span class="hljs-regexp">/bin/</span>bash<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker pull mysql:<span class="hljs-number">5.7</span><br>docker run -d -p <span class="hljs-number">3310</span>:<span class="hljs-number">3306</span> -v <span class="hljs-regexp">/home/u</span>buntu<span class="hljs-regexp">/mysql/</span>conf:<span class="hljs-regexp">/etc/my</span>sql<span class="hljs-regexp">/conf.d -v /</span>home<span class="hljs-regexp">/ubuntu/my</span>sql<span class="hljs-regexp">/data:/</span>var<span class="hljs-regexp">/lib/my</span>sql -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> --name mysql01 mysql:<span class="hljs-number">5.7</span><br></code></pre></td></tr></table></figure>
+
+<p>具名挂载</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -d -P <span class="hljs-comment">--name nginx03 -v name-nginx:/etc/nginx nginx</span><br></code></pre></td></tr></table></figure>
+
+<p>匿名挂载</p>
+<p>-v 容器路径</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">docker <span class="hljs-keyword">run</span><span class="bash"> -d -P --name nginx02 -v /etc/nginx nginx</span><br>docker <span class="hljs-keyword">volume</span><span class="bash"> --<span class="hljs-built_in">help</span></span><br>docker <span class="hljs-keyword">volume</span><span class="bash"> ls <span class="hljs-comment"># 查看所有卷</span></span><br><br></code></pre></td></tr></table></figure>
+
+<p>ro/rw区别</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -d -P <span class="hljs-comment">--name nginx03 -v name-nginx:/etc/nginx:ro nginx</span><br>docker <span class="hljs-built_in">run</span> -d -P <span class="hljs-comment">--name nginx03 -v name-nginx:/etc/nginx:rw nginx</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>ro readonly 只读，只能从外部改变，不能从内部改变</p>
+</li>
+<li><p>rw readwrite 可读可写</p>
+</li>
+</ul>
+<h2 id="DockerFile"><a href="#DockerFile" class="headerlink" title="DockerFile"></a>DockerFile</h2><p>就是用来构建docker镜像的文件</p>
+<p>通过这个脚本可以生成镜像，一个一个的命令，每个命令都是一层</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> centos<br><span class="hljs-keyword">VOLUME</span><span class="bash"> [<span class="hljs-string">&quot;volume01&quot;</span>, <span class="hljs-string">&quot;volume02&quot;</span>]</span><br><br><span class="hljs-keyword">CMD</span><span class="bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;-----end-----&quot;</span></span><br><span class="hljs-keyword">CMD</span><span class="bash"> /bin/bash</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> build -f dockerfile<span class="hljs-number">1</span> -t happen/centos .<br></code></pre></td></tr></table></figure>
+
+
+
+<p>数据卷容器</p>
+<p>两个mysql同步数据</p>
+<p>–volumes-from</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -d -p <span class="hljs-number">3310</span>:<span class="hljs-number">3306</span> -v <span class="hljs-regexp">/home/u</span>buntu<span class="hljs-regexp">/mysql/</span>conf:<span class="hljs-regexp">/etc/my</span>sql<span class="hljs-regexp">/conf.d -v /</span>home<span class="hljs-regexp">/ubuntu/my</span>sql<span class="hljs-regexp">/data:/</span>var<span class="hljs-regexp">/lib/my</span>sql -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> --name mysql01 mysql:<span class="hljs-number">5.7</span><br>docker run -d -p <span class="hljs-number">3311</span>:<span class="hljs-number">3306</span> --volumes-form mysql01 -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> --name mysql02 mysql:<span class="hljs-number">5.7</span><br><span class="hljs-comment"># 这个时候可以实现两个容器数据同步</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">docker <span class="hljs-built_in">run</span> -<span class="hljs-keyword">it</span> <span class="hljs-comment">--name docker01 happen/centos</span><br>docker <span class="hljs-built_in">run</span> -<span class="hljs-keyword">it</span> <span class="hljs-comment">--name docker02 --volumes-from docker01 happen/centos</span><br>docker <span class="hljs-built_in">run</span> -<span class="hljs-keyword">it</span> <span class="hljs-comment">--name docker03 happen/centos</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Docker网络"><a href="#Docker网络" class="headerlink" title="Docker网络"></a>Docker网络</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Bilibili/">Bilibili</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E4%B8%AD/">学习中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

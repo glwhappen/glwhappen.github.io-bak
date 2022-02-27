@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 必须的 meta 标签 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap 的 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+    <title>英文文章提取到墨墨背单词</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center mt-2 mb-2">英文文章提取到墨墨背单词</h2>
+            <textarea class="form-control mb-1" name="" id="input-content" cols="30" rows="10"  placeholder="请输入要提取单词的英文文章"></textarea>
+            <div class="row">
+                <div class="col m-auto">
+                    <button class="btn btn-primary" id="btn-deal">提取单词</button>
+                    <button class="btn btn-primary" onclick="copy()">复制结果</button>
+
+
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="ck_ky">
+                    <label class="form-check-label" for="ck_ky">筛选考研5500词</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="ck_gang">
+                    <label class="form-check-label" for="ck_gang">单词前加//</label>
+                </div>
+            </div>
+            <textarea class="form-control mt-1" name="" id="input-words" cols="30" rows="10" placeholder="转换后这里将会显示适合墨墨app的单词列表"></textarea>    
+      </div>
+
+    <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" ></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<script>
+    let words_ky = [];
+    function findWords(text) {
+        return text.match(/\b\w+\b/g);
+    }
+    function copy(){
+        let num = $("#input-words");
+        num.select();//选中对象
+        document.execCommand("Copy");//执行复制
+        alert('复制成功');
+    }
+    // 获取考研单词
+    function get_ky() {
+        $.get("./words.txt", function (data, status) {
+            let datalist = data.split("\n");
+            for (let i = 0; i < datalist.length; i++) {
+                // console.log(datalist[i].split(" ")[1]);
+                words_ky.push(datalist[i].split(" ")[1]);
+        
+            }
+        })
+    };
+    $(document).ready(function() {
+        get_ky();
+        let input_content = $("#input-content");
+        let input_words = $("#input-words");
+        let text = "";
+        $("#btn-deal").click(function() {
+            text = input_content.val();
+            let res = ""; // 处理结果
+            let words_list = findWords(text);
+            console.log(words_list);
+            words_list = words_list.map(item => {
+                    return item.toLowerCase();
+                })
+
+            if($("#ck_ky").prop("checked")) {
+                // 处理考研单词
+                words_list = words_list.filter(item => {
+                    if(words_ky.indexOf(item) != -1) {
+                        return true;
+                    }
+                    return false;
+                })
+
+            }
+            if($("#ck_gang").prop("checked")) {
+                // 但此前+//
+                res = "// " + words_list.join('\n// ');
+            } else {
+                res = words_list.join('\n');
+            }
+            
+
+            input_words.val(res);
+
+        })
+    })
+</script>
+</html>

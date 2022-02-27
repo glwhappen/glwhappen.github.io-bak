@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="很不错的学习了解计算机相关技术的一本书，通过一个个生动的故事，来讲述计算机的前世今生。让你深刻理解“人间一天，CPU一年”看似荒诞但是又切合实际的故事。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="码农翻身">
+<meta property="og:url" content="https://www.glwsq.cn/post/d98560e0/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="很不错的学习了解计算机相关技术的一本书，通过一个个生动的故事，来讲述计算机的前世今生。让你深刻理解“人间一天，CPU一年”看似荒诞但是又切合实际的故事。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/码农翻身-2022-02-06-11-56-14.png">
+<meta property="article:published_time" content="2022-02-06T03:36:49.000Z">
+<meta property="article:modified_time" content="2022-02-06T03:36:49.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="创作中">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/码农翻身-2022-02-06-11-56-14.png">
+  
+  
+  <title>码农翻身 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/码农翻身-2022-02-06-11-56-14.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="码农翻身">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-06 11:36" pubdate>
+        2022年2月6日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">码农翻身</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月6日 中午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>很不错的学习了解计算机相关技术的一本书，通过一个个生动的故事，来讲述计算机的前世今生。让你深刻理解“人间一天，CPU一年”看似荒诞但是又切合实际的故事。</p>
+<span id="more"></span>
+
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><h3 id="第1章-计算机的世界你不懂"><a href="#第1章-计算机的世界你不懂" class="headerlink" title="第1章   计算机的世界你不懂"></a>第1章   计算机的世界你不懂</h3><ul>
+<li><input disabled="" type="checkbox"> 我是一个线程   1<ul>
+<li><input disabled="" type="checkbox"> 初生牛犊   1</li>
+<li><input disabled="" type="checkbox"> 渐入佳境   4</li>
+<li><input disabled="" type="checkbox"> 虎口脱险   5</li>
+<li><input disabled="" type="checkbox"> 江湖再见   8</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> TCP/IP之大明内阁   9</li>
+<li><input disabled="" type="checkbox"> TCP/IP之大明邮差   12</li>
+<li><input disabled="" type="checkbox"> CPU阿甘   17<ul>
+<li><input disabled="" type="checkbox"> 启动   17</li>
+<li><input disabled="" type="checkbox"> 运行   18</li>
+<li><input disabled="" type="checkbox"> 新装备：缓存   19</li>
+<li><input disabled="" type="checkbox"> 自我提升：流水线   20</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 我是一个进程   21<ul>
+<li><input checked="" disabled="" type="checkbox"> 批处理系统   22</li>
+<li><input checked="" disabled="" type="checkbox"> 多道程序   22</li>
+<li><input checked="" disabled="" type="checkbox"> 地址重定位   24</li>
+<li><input checked="" disabled="" type="checkbox"> 分时系统   26</li>
+<li><input checked="" disabled="" type="checkbox"> 分块装入内存   27</li>
+<li><input checked="" disabled="" type="checkbox"> 虚拟内存：分页   28</li>
+<li><input checked="" disabled="" type="checkbox"> 分段+分页   30</li>
+<li><input checked="" disabled="" type="checkbox"> 程序的装载   31</li>
+<li><input checked="" disabled="" type="checkbox"> 线程   35</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 我是一块硬盘   36<ul>
+<li><input checked="" disabled="" type="checkbox"> 内部结构   37</li>
+<li><input checked="" disabled="" type="checkbox"> 文件   38</li>
+<li><input checked="" disabled="" type="checkbox"> 文件的存放   39</li>
+<li><input checked="" disabled="" type="checkbox"> 管理空闲块   44</li>
+<li><input checked="" disabled="" type="checkbox"> 文件系统   45</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 我是一个键盘   46<ul>
+<li><input checked="" disabled="" type="checkbox"> 二等公民   46<details><summary>笔记</summary><p>很明显， CPU 和内存是一等公民，这对好朋友占据着二环内最核心 最金贵的土地，居高临下对外发号施令，从各处“抢劫”二进制数据到自己的地界来。</p>
+<p>真他的都被归类到二等公民，居住在五环以外，统称为输入/输出（I/O）设备。</p>
+<p>有些设备居无定所，通过 USB 临时接入计算机，待个三五天就走，是典型的“北漂”。</p>
+<p>对了，我必须说明一下，硬盘的地位有点特殊，虽然 也是一个 I/O 设备，但是存储着所有的程序和数据，包括操作系统老大！</p>
+<p>虽然经常被 CPU 和内存嘲笑，但硬盘应该属于 1.5 等公民，住在三环以里。</p>
+</details></li>
+<li><input checked="" disabled="" type="checkbox"> 总线和端口   47</li>
+<li><input checked="" disabled="" type="checkbox"> 轮询（程序式I/O）   48</li>
+<li><input checked="" disabled="" type="checkbox"> 中断   49</li>
+<li><input checked="" disabled="" type="checkbox"> DMA   50</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 数据库的奇妙之旅   51<ul>
+<li><input checked="" disabled="" type="checkbox"> 无纸化办公   51</li>
+<li><input checked="" disabled="" type="checkbox"> 数据的冗余和不一致   52</li>
+<li><input checked="" disabled="" type="checkbox"> 李氏查询   52<details><summary>笔记</summary><p>所有计算机的问题都可以通过增加一个中间层来解决。如果不行，那就再套一层</p>
+</details></li>
+<li><input checked="" disabled="" type="checkbox"> 并发访问   54</li>
+<li><input checked="" disabled="" type="checkbox"> 原子性问题   56</li>
+<li><input checked="" disabled="" type="checkbox"> 安全   58</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 搞清楚Socket   59</li>
+<li><input disabled="" type="checkbox"> 从1加到100：一道简单的数学题挑战一下你的大脑   64<ul>
+<li><input disabled="" type="checkbox"> CPU和内存   64</li>
+<li><input disabled="" type="checkbox"> 从1加到100   65</li>
+<li><input disabled="" type="checkbox"> 热身   65</li>
+<li><input disabled="" type="checkbox"> 正式出发   65</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 一个翻译家族的发家史   68<ul>
+<li><input disabled="" type="checkbox"> 机器语言   68</li>
+<li><input disabled="" type="checkbox"> 汇编语言   69</li>
+<li><input disabled="" type="checkbox"> 高级语言   70</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 编程世界的那把锁   74<ul>
+<li><input disabled="" type="checkbox"> 共享变量惹的祸   74</li>
+<li><input disabled="" type="checkbox"> 争抢吧，线程   75</li>
+<li><input disabled="" type="checkbox"> 改进   76</li>
+<li><input disabled="" type="checkbox"> 信号量   77</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 绕不开的加法器   81</li>
+<li><input disabled="" type="checkbox"> 递归那点事儿   85<h3 id="第2章-Java帝国"><a href="#第2章-Java帝国" class="headerlink" title="第2章   Java帝国"></a>第2章   Java帝国</h3></li>
+<li><input disabled="" type="checkbox"> Java：一个帝国的诞生   91</li>
+<li><input disabled="" type="checkbox"> C语言帝国的统治   91</li>
+<li><input disabled="" type="checkbox"> 反抗   92</li>
+<li><input disabled="" type="checkbox"> 一鸣惊人   93</li>
+<li><input disabled="" type="checkbox"> 开拓疆土   93</li>
+<li><input disabled="" type="checkbox"> 帝国的诞生   94</li>
+<li><input disabled="" type="checkbox"> 我是一个Java Class   96</li>
+<li><input disabled="" type="checkbox"> 陌生警察   96</li>
+<li><input disabled="" type="checkbox"> 刺探信息   97</li>
+<li><input disabled="" type="checkbox"> 初识虚拟机   98</li>
+<li><input disabled="" type="checkbox"> 快乐假期   102</li>
+<li><input disabled="" type="checkbox"> 真相大白   103</li>
+<li><input disabled="" type="checkbox"> 持久化：Java帝国反击战   104</li>
+<li><input disabled="" type="checkbox"> 断电的威胁   104</li>
+<li><input disabled="" type="checkbox"> 数据库联合酋长国   105</li>
+<li><input disabled="" type="checkbox"> 表面风光的EJB   106</li>
+<li><input disabled="" type="checkbox"> 轻量级O/R Mapping框架   106</li>
+<li><input disabled="" type="checkbox"> 帝国的反击   107</li>
+<li><input disabled="" type="checkbox"> JDBC的诞生   108</li>
+<li><input disabled="" type="checkbox"> 谈判   108</li>
+<li><input disabled="" type="checkbox"> 统一接口   110</li>
+<li><input disabled="" type="checkbox"> 面向接口编程   111</li>
+<li><input disabled="" type="checkbox"> 简单工厂   112</li>
+<li><input disabled="" type="checkbox"> 数据驱动   114</li>
+<li><input disabled="" type="checkbox"> 工厂方法   115</li>
+<li><input disabled="" type="checkbox"> Java帝国之宫廷内斗   119</li>
+<li><input disabled="" type="checkbox"> JDBC大臣   119</li>
+<li><input disabled="" type="checkbox"> 密谋   120</li>
+<li><input disabled="" type="checkbox"> 两阶段提交   121</li>
+<li><input disabled="" type="checkbox"> JTA   123</li>
+<li><input disabled="" type="checkbox"> 塞翁失马，焉知非福   124</li>
+<li><input disabled="" type="checkbox"> 基本可用   125</li>
+<li><input disabled="" type="checkbox"> 走漏风声   127</li>
+<li><input disabled="" type="checkbox"> 宫廷激辩   128</li>
+<li><input disabled="" type="checkbox"> JSP：一个装配工的没落   131</li>
+<li><input disabled="" type="checkbox"> 黑暗岁月   131</li>
+<li><input disabled="" type="checkbox"> 服务器端动态页面   132</li>
+<li><input disabled="" type="checkbox"> 标签库   134</li>
+<li><input disabled="" type="checkbox"> 模板引擎   134</li>
+<li><input disabled="" type="checkbox"> 草根搅局   135</li>
+<li><input disabled="" type="checkbox"> Java 帝国之消息队列   137</li>
+<li><input disabled="" type="checkbox"> 张家村的历史   137</li>
+<li><input disabled="" type="checkbox"> 拆分   138</li>
+<li><input disabled="" type="checkbox"> 新问题   139</li>
+<li><input disabled="" type="checkbox"> 消息队列   139</li>
+<li><input disabled="" type="checkbox"> 互不兼容的MQ   140</li>
+<li><input disabled="" type="checkbox"> 消息队列接口设计   141</li>
+<li><input disabled="" type="checkbox"> 配置和代码的分离   143</li>
+<li><input disabled="" type="checkbox"> 再次抽象   144</li>
+<li><input disabled="" type="checkbox"> Java帝国之动态代理   147</li>
+<li><input disabled="" type="checkbox"> 深夜奏对   147</li>
+<li><input disabled="" type="checkbox"> 明察暗访   149</li>
+<li><input disabled="" type="checkbox"> Java 动态代理   150</li>
+<li><input disabled="" type="checkbox"> Java注解是怎么成功上位的   153</li>
+<li><input disabled="" type="checkbox"> XML大臣   153</li>
+<li><input disabled="" type="checkbox"> 安翰林献计   154</li>
+<li><input disabled="" type="checkbox"> 早朝争斗   157</li>
+<li><input disabled="" type="checkbox"> Java帝国之泛型   159</li>
+<li><input disabled="" type="checkbox"> 新王登基   159</li>
+<li><input disabled="" type="checkbox"> C++使者   159</li>
+<li><input disabled="" type="checkbox"> 泛型实现   162</li>
+<li><input disabled="" type="checkbox"> 泛型方法   163</li>
+<li><input disabled="" type="checkbox"> 泛型和继承   164</li>
+<li><input disabled="" type="checkbox"> 一个著名的日志系统是怎么设计出来的   166</li>
+<li><input disabled="" type="checkbox"> 前言   166</li>
+<li><input disabled="" type="checkbox"> 张家村   167</li>
+<li><input disabled="" type="checkbox"> 小张的设计   167</li>
+<li><input disabled="" type="checkbox"> 正交性   170</li>
+<li><input disabled="" type="checkbox"> Log4j   171</li>
+<li><input disabled="" type="checkbox"> 尾声   171</li>
+<li><input disabled="" type="checkbox"> 序列化：一个老家伙的咸鱼翻身   172</li>
+<li><input disabled="" type="checkbox"> 寒冬的蛰伏   172</li>
+<li><input disabled="" type="checkbox"> XML和JSON的挑战   173</li>
+<li><input disabled="" type="checkbox"> 新协议的崛起   175</li>
+<li><input disabled="" type="checkbox"> 加锁还是不加锁，这是一个问题   176</li>
+<li><input disabled="" type="checkbox"> 互斥锁   176</li>
+<li><input disabled="" type="checkbox"> 要不要加锁   177</li>
+<li><input disabled="" type="checkbox"> CAS的扩展   179</li>
+<li><input disabled="" type="checkbox"> Spring 的本质   182</li>
+<li><input disabled="" type="checkbox"> 问题来源   183</li>
+<li><input disabled="" type="checkbox"> 设计模式：模板方法   184</li>
+<li><input disabled="" type="checkbox"> 设计模式：装饰者   186</li>
+<li><input disabled="" type="checkbox"> AOP   187</li>
+<li><input disabled="" type="checkbox"> 实现AOP   188</li>
+<li><input disabled="" type="checkbox"> 对象的创建   189</li>
+<li><input disabled="" type="checkbox"> IoC与DI   191<h3 id="第3章-浪潮之巅的Web"><a href="#第3章-浪潮之巅的Web" class="headerlink" title="第3章   浪潮之巅的Web"></a>第3章   浪潮之巅的Web</h3></li>
+<li><input disabled="" type="checkbox"> Web的起源   192</li>
+<li><input disabled="" type="checkbox"> 两个程序的爱情故事   195</li>
+<li><input disabled="" type="checkbox"> 好感   195</li>
+<li><input disabled="" type="checkbox"> 分离   196</li>
+<li><input disabled="" type="checkbox"> 网络   197</li>
+<li><input disabled="" type="checkbox"> Web   198</li>
+<li><input disabled="" type="checkbox"> 一个故事讲完HTTPS   199</li>
+<li><input disabled="" type="checkbox"> 总有一种被偷窥的感觉   199</li>
+<li><input disabled="" type="checkbox"> RSA：非对称加密   200</li>
+<li><input disabled="" type="checkbox"> 非对称加密+对称加密   202</li>
+<li><input disabled="" type="checkbox"> 中间人劫持   202</li>
+<li><input disabled="" type="checkbox"> 你到底是谁   203</li>
+<li><input disabled="" type="checkbox"> HTTPS    206</li>
+<li><input disabled="" type="checkbox"> 机房夜话   207</li>
+<li><input disabled="" type="checkbox"> 第一夜   207</li>
+<li><input disabled="" type="checkbox"> 第二夜   209</li>
+<li><input disabled="" type="checkbox"> 第三夜   211</li>
+<li><input disabled="" type="checkbox"> 从密码到token，一个有关授权的故事   215</li>
+<li><input disabled="" type="checkbox"> 我把密码献给你   215</li>
+<li><input disabled="" type="checkbox"> token   216</li>
+<li><input disabled="" type="checkbox"> 授权码 + token   218</li>
+<li><input disabled="" type="checkbox"> 后记   220</li>
+<li><input disabled="" type="checkbox"> 后端风云   220</li>
+<li><input disabled="" type="checkbox"> 数据库老头儿   220</li>
+<li><input disabled="" type="checkbox"> 危机   221</li>
+<li><input disabled="" type="checkbox"> 党委扩大会议   221</li>
+<li><input disabled="" type="checkbox"> 分家   223</li>
+<li><input disabled="" type="checkbox"> Redis   224</li>
+<li><input disabled="" type="checkbox"> 余数算法   227</li>
+<li><input disabled="" type="checkbox"> 一致性Hash算法   229</li>
+<li><input disabled="" type="checkbox"> Hash槽 （Hash Slot）   233</li>
+<li><input disabled="" type="checkbox"> 故障转移   235</li>
+<li><input disabled="" type="checkbox"> 高可用的Nginx   237</li>
+<li><input disabled="" type="checkbox"> 高可用的Tomcat   238</li>
+<li><input disabled="" type="checkbox"> 数据库的读写分离   240</li>
+<li><input disabled="" type="checkbox"> 我是一个函数   243</li>
+<li><input disabled="" type="checkbox"> 从SOA到微服务   246</li>
+<li><input disabled="" type="checkbox"> 什么是框架   249</li>
+<li><input disabled="" type="checkbox"> HTTP Server：一个差生的逆袭   252</li>
+<li><input disabled="" type="checkbox"> HTTP Server 1.0   252</li>
+<li><input disabled="" type="checkbox"> HTTP Server 2.0：多进程   253</li>
+<li><input disabled="" type="checkbox"> HTTP Server 3.0：select模型   254</li>
+<li><input disabled="" type="checkbox"> HTTP Server 4.0：epoll模型   255<h3 id="第4章-代码管理那些事儿"><a href="#第4章-代码管理那些事儿" class="headerlink" title="第4章   代码管理那些事儿"></a>第4章   代码管理那些事儿</h3></li>
+<li><input disabled="" type="checkbox"> 版本管理简史   258</li>
+<li><input disabled="" type="checkbox"> “人肉” 版本管理   258</li>
+<li><input disabled="" type="checkbox"> 锁定文件：避免互相覆盖   259</li>
+<li><input disabled="" type="checkbox"> 允许冲突：退一步海阔天空   260</li>
+<li><input disabled="" type="checkbox"> 分支：多版本并行   261</li>
+<li><input disabled="" type="checkbox"> 分布式管理：给程序员放权   262</li>
+<li><input disabled="" type="checkbox"> 程序员也爱社交   264</li>
+<li><input disabled="" type="checkbox"> Build的演进之路   265</li>
+<li><input disabled="" type="checkbox"> 手工Build的烦恼   265</li>
+<li><input disabled="" type="checkbox"> 自动化Build   267</li>
+<li><input disabled="" type="checkbox"> Java 与 XML   268</li>
+<li><input disabled="" type="checkbox"> 消除重复   270</li>
+<li><input disabled="" type="checkbox"> 烂代码传奇   275</li>
+<li><input disabled="" type="checkbox"> 敏捷下的单元测试   277</li>
+<li><input disabled="" type="checkbox"> 敏捷运动   277</li>
+<li><input disabled="" type="checkbox"> 困惑   278</li>
+<li><input disabled="" type="checkbox"> 讨论   279</li>
+<li><input disabled="" type="checkbox"> 一年以后   280</li>
+<li><input disabled="" type="checkbox"> 再见！Bug   281<h3 id="第5章-我的编程语言简史"><a href="#第5章-我的编程语言简史" class="headerlink" title="第5章   我的编程语言简史"></a>第5章   我的编程语言简史</h3></li>
+<li><input disabled="" type="checkbox"> JavaScript ：一个草根的逆袭   284</li>
+<li><input disabled="" type="checkbox"> 出世   284</li>
+<li><input disabled="" type="checkbox"> 成长   286</li>
+<li><input disabled="" type="checkbox"> 第一桶金   288</li>
+<li><input disabled="" type="checkbox"> 发明JSON   289</li>
+<li><input disabled="" type="checkbox"> 人生巅峰   291</li>
+<li><input disabled="" type="checkbox"> Node.js：我只需要一个店小二   292</li>
+<li><input disabled="" type="checkbox"> C老头儿和Java小子的硬盘夜话   295</li>
+<li><input disabled="" type="checkbox"> 编程语言的“爱恨情仇”   300</li>
+<li><input disabled="" type="checkbox"> 让人怀疑的C 语言   300</li>
+<li><input disabled="" type="checkbox"> 被忘却的 VB &amp; Visual FoxPro   301</li>
+<li><input disabled="" type="checkbox"> 蹂躏我的C++   302</li>
+<li><input disabled="" type="checkbox"> 赖以谋生的Java    303</li>
+<li><input disabled="" type="checkbox"> 优雅的Ruby    304</li>
+<li><input disabled="" type="checkbox"> 命令式编程 VS 声明式编程   306</li>
+<li><input disabled="" type="checkbox"> 一则小故事   306</li>
+<li><input disabled="" type="checkbox"> 命令式编程   306</li>
+<li><input disabled="" type="checkbox"> 声明式编程   307<h3 id="第6章-老司机的精进"><a href="#第6章-老司机的精进" class="headerlink" title="第6章   老司机的精进"></a>第6章   老司机的精进</h3></li>
+<li><input disabled="" type="checkbox"> 凡事必先骑上虎背，和性格内向的程序员聊几句   309</li>
+<li><input disabled="" type="checkbox"> 码农需要知道的“潜规则”   311</li>
+<li><input disabled="" type="checkbox"> 上帝的规矩：局部性原理   311</li>
+<li><input disabled="" type="checkbox"> 坐飞机的怎么和坐驴车的打交道：缓存   311</li>
+<li><input disabled="" type="checkbox"> 抛弃细节：抽象   312</li>
+<li><input disabled="" type="checkbox"> 我只想和邻居打交道：分层   312</li>
+<li><input disabled="" type="checkbox"> 我怕等不及：异步调用   313</li>
+<li><input disabled="" type="checkbox"> 大事化小，小事化了：分而治之   314</li>
+<li><input disabled="" type="checkbox"> 15年编程生涯，一名架构师的总结   314</li>
+<li><input disabled="" type="checkbox"> 好奇心   315</li>
+<li><input disabled="" type="checkbox"> 养成计算机的思维方式   315</li>
+<li><input disabled="" type="checkbox"> 扎实基础，融会贯通   317</li>
+<li><input disabled="" type="checkbox"> 要透彻地理解一门技术的本质   317</li>
+<li><input disabled="" type="checkbox"> 能写漂亮的代码   318</li>
+<li><input disabled="" type="checkbox"> 抽象的能力   319</li>
+<li><input disabled="" type="checkbox"> 技术领导力   319</li>
+<li><input disabled="" type="checkbox"> 对自己狠一点，开始写作吧   320</li>
+<li><input disabled="" type="checkbox"> 学习编程的四兄弟   322</li>
+<li><input disabled="" type="checkbox"> 摇摆不定的老大   322</li>
+<li><input disabled="" type="checkbox"> “小仓鼠”老二   322</li>
+<li><input disabled="" type="checkbox"> 不看书的老三   323</li>
+<li><input disabled="" type="checkbox"> 半途而废的老四   323</li>
+</ul>
+
+
+
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>分时系统   26<br>分时系统一经推出就大获成功，尤真对于那些速度超慢的人类而言，他们开着电脑一边昕歌、一边上网 一边聊 QQ ，很是自在，理所当然地认为这些程序就是同时运行的。</p>
+<p>虚拟内存：分页   28<br>我们可以给每个程序都提供一个超级大的空间，如 4GB ，只不过这个空间是虚拟的，程序中的指令使用的就是这些虚拟地址，然后我的MMU把它们映射到真实的物理内存地址上，那些程序却浑然不觉。哈哈，实在太棒了。</p>
+<p>程序的装载   31<br>操作系统老大和 CPU 阿甘“狼狈为奸”， 成功地营造了一个假象，让我们以为每个程序都可以使用 4GB 的巨大空间，但实际上那只是虚拟的！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AF%BB%E4%B9%A6/">读书</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
