@@ -1,6 +1,7 @@
+https://www.glwsq.cn/post/340fc0e/
 https://www.glwsq.cn/post/desk-save/
 https://www.glwsq.cn/post/f57fc629/
-https://www.glwsq.cn/post/f6357c6c/
+https://www.glwsq.cn/post/spring-boot-2/
 https://www.glwsq.cn/post/public-npm-package/
 https://www.glwsq.cn/post/bilibili-record/
 https://www.glwsq.cn/post/flexboxdefense/
@@ -47,4 +48,3 @@ https://www.glwsq.cn/post/42a7d7b8/
 https://www.glwsq.cn/post/swindle01/
 https://www.glwsq.cn/post/own-hexo-blog/
 https://www.glwsq.cn/post/hexo-plugins/
-https://www.glwsq.cn/post/vue2-note/

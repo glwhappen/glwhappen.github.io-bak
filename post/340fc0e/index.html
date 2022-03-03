@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="新手教程代码记录Tutorial 1 - Game UI and basic scripting12Game.spawns[&amp;#x27;Spawn1&amp;#x27;].spawnCreep( [WORK, CARRY, MOVE], &amp;#x27;Harvester1&amp;#x27; );Game.spawns[&amp;#x27;Spawn1&amp;#x27;].spawnCreep( [WORK, CARRY, MO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="screeps - JavaScript即时战略游戏">
+<meta property="og:url" content="https://www.glwsq.cn/post/340fc0e/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="新手教程代码记录Tutorial 1 - Game UI and basic scripting12Game.spawns[&amp;#x27;Spawn1&amp;#x27;].spawnCreep( [WORK, CARRY, MOVE], &amp;#x27;Harvester1&amp;#x27; );Game.spawns[&amp;#x27;Spawn1&amp;#x27;].spawnCreep( [WORK, CARRY, MO">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-03T11:16:14.000Z">
+<meta property="article:modified_time" content="2022-03-03T11:16:14.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="创作中">
+<meta property="article:tag" content="首页">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>screeps - JavaScript即时战略游戏 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/images/uploads/article.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="screeps - JavaScript即时战略游戏">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-03 19:16" pubdate>
+        2022年3月3日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      8.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      70 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">screeps - JavaScript即时战略游戏</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月3日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="新手教程代码记录"><a href="#新手教程代码记录" class="headerlink" title="新手教程代码记录"></a>新手教程代码记录</h2><h3 id="Tutorial-1-Game-UI-and-basic-scripting"><a href="#Tutorial-1-Game-UI-and-basic-scripting" class="headerlink" title="Tutorial 1 - Game UI and basic scripting"></a>Tutorial 1 - Game UI and basic scripting</h3><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs js">Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep( [WORK, CARRY, MOVE], <span class="hljs-string">&#x27;Harvester1&#x27;</span> );<br>Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep( [WORK, CARRY, MOVE], <span class="hljs-string">&#x27;Harvester2&#x27;</span> );<br></code></pre></td></tr></table></figure>
+
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.harvester&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports.loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.creeps) &#123;<br>        <span class="hljs-keyword">var</span> creep = Game.creeps[name];<br>        roleHarvester.run(creep);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>role.harvester</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = &#123;<br><br>    <span class="hljs-comment">/** <span class="hljs-doctag">@param <span class="hljs-type">&#123;Creep&#125;</span> </span>creep **/</span><br>    run: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">creep</span>) </span>&#123;<br>	    <span class="hljs-keyword">if</span>(creep.store.getFreeCapacity() &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">var</span> sources = creep.room.find(FIND_SOURCES);<br>            <span class="hljs-keyword">if</span>(creep.harvest(sources[<span class="hljs-number">0</span>]) == ERR_NOT_IN_RANGE) &#123;<br>                creep.moveTo(sources[<span class="hljs-number">0</span>]);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span>(creep.transfer(Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;<br>                creep.moveTo(Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>]);<br>            &#125;<br>        &#125;<br>	&#125;<br>&#125;;<br><br><span class="hljs-built_in">module</span>.exports = roleHarvester;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Tutorial-2-Upgrading-controller"><a href="#Tutorial-2-Upgrading-controller" class="headerlink" title="Tutorial 2 - Upgrading controller"></a>Tutorial 2 - Upgrading controller</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep( [WORK, CARRY, MOVE], <span class="hljs-string">&#x27;Upgrader1&#x27;</span> );<br>Game.creeps[<span class="hljs-string">&#x27;Harvester1&#x27;</span>].memory.role = <span class="hljs-string">&#x27;harvester&#x27;</span>;<br>Game.creeps[<span class="hljs-string">&#x27;Upgrader1&#x27;</span>].memory.role = <span class="hljs-string">&#x27;upgrader&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.harvester&#x27;</span>);<br><span class="hljs-keyword">var</span> roleUpgrader = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.upgrader&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports.loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.creeps) &#123;<br>        <span class="hljs-keyword">var</span> creep = Game.creeps[name];<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;harvester&#x27;</span>) &#123;<br>            roleHarvester.run(creep);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;upgrader&#x27;</span>) &#123;<br>            roleUpgrader.run(creep);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>role.upgrader</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">var roleUpgrader = &#123;<br><br>    <span class="hljs-comment">/** @param &#123;Creep&#125; creep **/</span><br>    run: <span class="hljs-keyword">function</span>(creep) &#123;<br>	    <span class="hljs-keyword">if</span>(creep.store<span class="hljs-literal">[RESOURCE<span class="hljs-identifier">_ENERGY</span>]</span><span class="hljs-operator"> == </span><span class="hljs-number">0</span>) &#123;<br>            var sources = creep.room.find(FIND_SOURCES);<br>            <span class="hljs-keyword">if</span>(creep.harvest(sources<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<span class="hljs-operator"> == </span>ERR_NOT_IN_RANGE) &#123;<br>                creep.move<span class="hljs-constructor">To(<span class="hljs-params">sources</span>[0])</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span>(creep.upgrade<span class="hljs-constructor">Controller(<span class="hljs-params">creep</span>.<span class="hljs-params">room</span>.<span class="hljs-params">controller</span>)</span><span class="hljs-operator"> == </span>ERR_NOT_IN_RANGE) &#123;<br>                creep.move<span class="hljs-constructor">To(<span class="hljs-params">creep</span>.<span class="hljs-params">room</span>.<span class="hljs-params">controller</span>)</span>;<br>            &#125;<br>        &#125;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">module</span>.exports = roleUpgrader;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Tutorial-3-Building-structures"><a href="#Tutorial-3-Building-structures" class="headerlink" title="Tutorial 3 - Building structures"></a>Tutorial 3 - Building structures</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep( [<span class="hljs-keyword">WORK</span>, CARRY, <span class="hljs-keyword">MOVE</span>], <span class="hljs-string">&#x27;Builder1&#x27;</span>,<br>    &#123; memory: &#123; <span class="hljs-keyword">role</span>: <span class="hljs-string">&#x27;builder&#x27;</span> &#125; &#125; );<br><br>Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep( [<span class="hljs-keyword">WORK</span>,<span class="hljs-keyword">WORK</span>,<span class="hljs-keyword">WORK</span>,<span class="hljs-keyword">WORK</span>,CARRY,<span class="hljs-keyword">MOVE</span>,<span class="hljs-keyword">MOVE</span>],<br>    <span class="hljs-string">&#x27;HarvesterBig&#x27;</span>,<br>    &#123; memory: &#123; <span class="hljs-keyword">role</span>: <span class="hljs-string">&#x27;harvester&#x27;</span> &#125; &#125; );<br></code></pre></td></tr></table></figure>
+
+<p>main</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.harvester&#x27;</span>);<br><span class="hljs-keyword">var</span> roleBuilder = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.builder&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports.loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.rooms) &#123;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Room &quot;&#x27;</span>+name+<span class="hljs-string">&#x27;&quot; has &#x27;</span>+Game.rooms[name].energyAvailable+<span class="hljs-string">&#x27; energy&#x27;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.creeps) &#123;<br>        <span class="hljs-keyword">var</span> creep = Game.creeps[name];<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;harvester&#x27;</span>) &#123;<br>            roleHarvester.run(creep);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;builder&#x27;</span>) &#123;<br>            roleBuilder.run(creep);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>role.builder</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleBuilder = &#123;<br><br>    <span class="hljs-comment">/** <span class="hljs-doctag">@param <span class="hljs-type">&#123;Creep&#125;</span> </span>creep **/</span><br>    run: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">creep</span>) </span>&#123;<br><br>	    <span class="hljs-keyword">if</span>(creep.memory.building &amp;&amp; creep.store[RESOURCE_ENERGY] == <span class="hljs-number">0</span>) &#123;<br>            creep.memory.building = <span class="hljs-literal">false</span>;<br>            creep.say(<span class="hljs-string">&#x27;🔄 harvest&#x27;</span>);<br>	    &#125;<br>	    <span class="hljs-keyword">if</span>(!creep.memory.building &amp;&amp; creep.store.getFreeCapacity() == <span class="hljs-number">0</span>) &#123;<br>	        creep.memory.building = <span class="hljs-literal">true</span>;<br>	        creep.say(<span class="hljs-string">&#x27;🚧 build&#x27;</span>);<br>	    &#125;<br><br>	    <span class="hljs-keyword">if</span>(creep.memory.building) &#123;<br>	        <span class="hljs-keyword">var</span> targets = creep.room.find(FIND_CONSTRUCTION_SITES);<br>            <span class="hljs-keyword">if</span>(targets.length) &#123;<br>                <span class="hljs-keyword">if</span>(creep.build(targets[<span class="hljs-number">0</span>]) == ERR_NOT_IN_RANGE) &#123;<br>                    creep.moveTo(targets[<span class="hljs-number">0</span>], &#123;<span class="hljs-attr">visualizePathStyle</span>: &#123;<span class="hljs-attr">stroke</span>: <span class="hljs-string">&#x27;#ffffff&#x27;</span>&#125;&#125;);<br>                &#125;<br>            &#125;<br>	    &#125;<br>	    <span class="hljs-keyword">else</span> &#123;<br>	        <span class="hljs-keyword">var</span> sources = creep.room.find(FIND_SOURCES);<br>            <span class="hljs-keyword">if</span>(creep.harvest(sources[<span class="hljs-number">0</span>]) == ERR_NOT_IN_RANGE) &#123;<br>                creep.moveTo(sources[<span class="hljs-number">0</span>], &#123;<span class="hljs-attr">visualizePathStyle</span>: &#123;<span class="hljs-attr">stroke</span>: <span class="hljs-string">&#x27;#ffaa00&#x27;</span>&#125;&#125;);<br>            &#125;<br>	    &#125;<br>	&#125;<br>&#125;;<br><br><span class="hljs-built_in">module</span>.exports = roleBuilder;<br></code></pre></td></tr></table></figure>
+
+<p>role.harvester</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">var roleHarvester = &#123;<br><br>    <span class="hljs-comment">/** @param &#123;Creep&#125; creep **/</span><br>    run: <span class="hljs-keyword">function</span>(creep) &#123;<br>	    <span class="hljs-keyword">if</span>(creep.store.get<span class="hljs-constructor">FreeCapacity()</span> &gt; <span class="hljs-number">0</span>) &#123;<br>            var sources = creep.room.find(FIND_SOURCES);<br>            <span class="hljs-keyword">if</span>(creep.harvest(sources<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>)<span class="hljs-operator"> == </span>ERR_NOT_IN_RANGE) &#123;<br>                creep.move<span class="hljs-constructor">To(<span class="hljs-params">sources</span>[0], &#123;<span class="hljs-params">visualizePathStyle</span>: &#123;<span class="hljs-params">stroke</span>: &#x27;#<span class="hljs-params">ffaa00</span>&#x27;&#125;&#125;)</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            var targets = creep.room.find(FIND_STRUCTURES, &#123;<br>                    filter:<span class="hljs-function"> (<span class="hljs-params">structure</span>) =&gt;</span> &#123;<br>                        return (structure.structureType<span class="hljs-operator"> == </span>STRUCTURE_EXTENSION<span class="hljs-operator"> || </span>structure.structureType<span class="hljs-operator"> == </span>STRUCTURE_SPAWN)<span class="hljs-operator"> &amp;&amp;</span><br><span class="hljs-operator">                            </span>structure.store.get<span class="hljs-constructor">FreeCapacity(RESOURCE_ENERGY)</span> &gt; <span class="hljs-number">0</span>;<br>                    &#125;<br>            &#125;);<br>            <span class="hljs-keyword">if</span>(targets.length &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span>(creep.transfer(targets<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>, RESOURCE_ENERGY)<span class="hljs-operator"> == </span>ERR_NOT_IN_RANGE) &#123;<br>                    creep.move<span class="hljs-constructor">To(<span class="hljs-params">targets</span>[0], &#123;<span class="hljs-params">visualizePathStyle</span>: &#123;<span class="hljs-params">stroke</span>: &#x27;#<span class="hljs-params">ffffff</span>&#x27;&#125;&#125;)</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br>	&#125;<br>&#125;;<br><br><span class="hljs-keyword">module</span>.exports = roleHarvester;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Tutorial-4-Auto-spawning-creeps"><a href="#Tutorial-4-Auto-spawning-creeps" class="headerlink" title="Tutorial 4 - Auto-spawning creeps"></a>Tutorial 4 - Auto-spawning creeps</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">Game.creeps[<span class="hljs-string">&#x27;Harvester1&#x27;</span>].suicide()<br></code></pre></td></tr></table></figure>
+
+<p>main</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.harvester&#x27;</span>);<br><span class="hljs-keyword">var</span> roleUpgrader = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.upgrader&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports.loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Memory.creeps) &#123;<br>        <span class="hljs-keyword">if</span>(!Game.creeps[name]) &#123;<br>            <span class="hljs-keyword">delete</span> Memory.creeps[name];<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Clearing non-existing creep memory:&#x27;</span>, name);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">var</span> harvesters = _.filter(Game.creeps, <span class="hljs-function">(<span class="hljs-params">creep</span>) =&gt;</span> creep.memory.role == <span class="hljs-string">&#x27;harvester&#x27;</span>);<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Harvesters: &#x27;</span> + harvesters.length);<br><br>    <span class="hljs-keyword">if</span>(harvesters.length &lt; <span class="hljs-number">2</span>) &#123;<br>        <span class="hljs-keyword">var</span> newName = <span class="hljs-string">&#x27;Harvester&#x27;</span> + Game.time;<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Spawning new harvester: &#x27;</span> + newName);<br>        Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawnCreep([WORK,CARRY,MOVE], newName, <br>            &#123;<span class="hljs-attr">memory</span>: &#123;<span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;harvester&#x27;</span>&#125;&#125;);<br>    &#125;<br>    <br>    <span class="hljs-keyword">if</span>(Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawning) &#123; <br>        <span class="hljs-keyword">var</span> spawningCreep = Game.creeps[Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].spawning.name];<br>        Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].room.visual.text(<br>            <span class="hljs-string">&#x27;🛠️&#x27;</span> + spawningCreep.memory.role,<br>            Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].pos.x + <span class="hljs-number">1</span>, <br>            Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].pos.y, <br>            &#123;<span class="hljs-attr">align</span>: <span class="hljs-string">&#x27;left&#x27;</span>, <span class="hljs-attr">opacity</span>: <span class="hljs-number">0.8</span>&#125;);<br>    &#125;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.creeps) &#123;<br>        <span class="hljs-keyword">var</span> creep = Game.creeps[name];<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;harvester&#x27;</span>) &#123;<br>            roleHarvester.run(creep);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;upgrader&#x27;</span>) &#123;<br>            roleUpgrader.run(creep);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Tutorial-5-Defending-your-room"><a href="#Tutorial-5-Defending-your-room" class="headerlink" title="Tutorial 5 - Defending your room"></a>Tutorial 5 - Defending your room</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].room.controller.activateSafeMode();<br>Game.spawns[<span class="hljs-string">&#x27;Spawn1&#x27;</span>].room.createConstructionSite( <span class="hljs-number">23</span>, <span class="hljs-number">22</span>, STRUCTURE_TOWER );<br></code></pre></td></tr></table></figure>
+
+<p>main</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.harvester&#x27;</span>);<br><span class="hljs-keyword">var</span> roleUpgrader = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.upgrader&#x27;</span>);<br><span class="hljs-keyword">var</span> roleBuilder = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;role.builder&#x27;</span>);<br><br><span class="hljs-built_in">module</span>.exports.loop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br><br>    <span class="hljs-keyword">var</span> tower = Game.getObjectById(<span class="hljs-string">&#x27;e8448b416df02416c362bec1&#x27;</span>);<br>    <span class="hljs-keyword">if</span>(tower) &#123;<br>        <span class="hljs-keyword">var</span> closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, &#123;<br>            <span class="hljs-attr">filter</span>: <span class="hljs-function">(<span class="hljs-params">structure</span>) =&gt;</span> structure.hits &lt; structure.hitsMax<br>        &#125;);<br>        <span class="hljs-keyword">if</span>(closestDamagedStructure) &#123;<br>            tower.repair(closestDamagedStructure);<br>        &#125;<br><br>        <span class="hljs-keyword">var</span> closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);<br>        <span class="hljs-keyword">if</span>(closestHostile) &#123;<br>            tower.attack(closestHostile);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> Game.creeps) &#123;<br>        <span class="hljs-keyword">var</span> creep = Game.creeps[name];<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;harvester&#x27;</span>) &#123;<br>            roleHarvester.run(creep);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;upgrader&#x27;</span>) &#123;<br>            roleUpgrader.run(creep);<br>        &#125;<br>        <span class="hljs-keyword">if</span>(creep.memory.role == <span class="hljs-string">&#x27;builder&#x27;</span>) &#123;<br>            roleBuilder.run(creep);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>role.harvester</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> roleHarvester = &#123;<br><br>    <span class="hljs-comment">/** <span class="hljs-doctag">@param <span class="hljs-type">&#123;Creep&#125;</span> </span>creep **/</span><br>    run: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">creep</span>) </span>&#123;<br>	    <span class="hljs-keyword">if</span>(creep.store.getFreeCapacity() &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">var</span> sources = creep.room.find(FIND_SOURCES);<br>            <span class="hljs-keyword">if</span>(creep.harvest(sources[<span class="hljs-number">0</span>]) == ERR_NOT_IN_RANGE) &#123;<br>                creep.moveTo(sources[<span class="hljs-number">0</span>], &#123;<span class="hljs-attr">visualizePathStyle</span>: &#123;<span class="hljs-attr">stroke</span>: <span class="hljs-string">&#x27;#ffaa00&#x27;</span>&#125;&#125;);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">var</span> targets = creep.room.find(FIND_STRUCTURES, &#123;<br>                    <span class="hljs-attr">filter</span>: <span class="hljs-function">(<span class="hljs-params">structure</span>) =&gt;</span> &#123;<br>                        <span class="hljs-keyword">return</span> (structure.structureType == STRUCTURE_EXTENSION ||<br>                                structure.structureType == STRUCTURE_SPAWN ||<br>                                structure.structureType == STRUCTURE_TOWER) &amp;&amp; <br>                                structure.store.getFreeCapacity(RESOURCE_ENERGY) &gt; <span class="hljs-number">0</span>;<br>                    &#125;<br>            &#125;);<br>            <span class="hljs-keyword">if</span>(targets.length &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span>(creep.transfer(targets[<span class="hljs-number">0</span>], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) &#123;<br>                    creep.moveTo(targets[<span class="hljs-number">0</span>], &#123;<span class="hljs-attr">visualizePathStyle</span>: &#123;<span class="hljs-attr">stroke</span>: <span class="hljs-string">&#x27;#ffffff&#x27;</span>&#125;&#125;);<br>                &#125;<br>            &#125;<br>        &#125;<br>	&#125;<br>&#125;;<br><br><span class="hljs-built_in">module</span>.exports = roleHarvester;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
