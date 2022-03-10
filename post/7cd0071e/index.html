@@ -18,21 +18,24 @@
   <meta name="author" content="郭力玮">
   <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
   
-    <meta name="description" content="打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来 不能递归的打印，只能打印当前文件夹下面的 1234567891011121314151617181920212223242526let template &#x3D; &#96;- [ ] $partNotEx$&#96;let resStr &#x3D; &amp;#x27;&amp;#x27;&#x2F;**遍历文件夹的内容*&#x2F;async function dir">
+    <meta name="description" content="记录在学习组成原理这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..">
 <meta property="og:type" content="article">
-<meta property="og:title" content="百度网盘视频列表爬虫">
-<meta property="og:url" content="https://www.glwsq.cn/post/b21290c1/index.html">
+<meta property="og:title" content="王道组成原理学习总结">
+<meta property="og:url" content="https://www.glwsq.cn/post/7cd0071e/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
-<meta property="og:description" content="打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来 不能递归的打印，只能打印当前文件夹下面的 1234567891011121314151617181920212223242526let template &#x3D; &#96;- [ ] $partNotEx$&#96;let resStr &#x3D; &amp;#x27;&amp;#x27;&#x2F;**遍历文件夹的内容*&#x2F;async function dir">
+<meta property="og:description" content="记录在学习组成原理这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-05T15:36:42.000Z">
-<meta property="article:modified_time" content="2022-02-05T15:36:42.000Z">
+<meta property="og:image" content="https://image.glwsq.cn/img/组成原理学习总结-2022-03-10-16-12-13.png">
+<meta property="article:published_time" content="2022-03-10T03:32:35.000Z">
+<meta property="article:modified_time" content="2022-03-10T08:12:57.000Z">
 <meta property="article:author" content="郭力玮">
 <meta property="article:tag" content="创作中">
+<meta property="article:tag" content="首页">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/组成原理学习总结-2022-03-10-16-12-13.png">
   
   
-  <title>百度网盘视频列表爬虫 - Happen&#39;s Blog</title>
+  <title>王道组成原理学习总结 - Happen&#39;s Blog</title>
 
   <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
 
@@ -177,12 +180,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/images/uploads/article.png') no-repeat center center;
+         style="background: url('https://image.glwsq.cn/img/组成原理学习总结-2022-03-10-16-12-13.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="百度网盘视频列表爬虫">
+            <span class="h2" id="subtitle" title="王道组成原理学习总结">
               
             </span>
 
@@ -192,8 +195,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-05 23:36" pubdate>
-        2022年2月5日 晚上
+      <time datetime="2022-03-10 11:32" pubdate>
+        2022年3月10日 中午
       </time>
     </span>
   
@@ -203,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      703 字
+      851 字
     </span>
   
 
@@ -212,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      8 分钟
     </span>
   
 
@@ -249,28 +252,96 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">百度网盘视频列表爬虫</h1>
+            <h1 style="display: none">王道组成原理学习总结</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月5日 晚上
+                  本文最后更新于：2022年3月10日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <p>打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来</p>
-<p>不能递归的打印，只能打印当前文件夹下面的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [ ] $partNotEx$</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">遍历文件夹的内容</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dir</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> fileName = $(<span class="hljs-string">&#x27;.filename&#x27;</span>)<br>    <span class="hljs-keyword">let</span> fileSize = $(<span class="hljs-string">&#x27;.file-size&#x27;</span>)<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; fileName.length; i++) &#123;<br>        <span class="hljs-keyword">let</span> filesize = fileSize[i].innerHTML <span class="hljs-comment">// 文件大小</span><br>        <span class="hljs-keyword">if</span>(filesize === <span class="hljs-string">&#x27;-&#x27;</span>) &#123; <span class="hljs-comment">// 是个文件夹</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;进入文件夹&#x27;</span>, i,  fileName[i].innerHTML)<br>        &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 是个文件</span><br>            <span class="hljs-keyword">let</span> filename = fileName[i].innerHTML<br>            <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, filename).replace(<span class="hljs-string">&#x27;$partNotEx$&#x27;</span>, filename.substring(<span class="hljs-number">0</span>, filename.lastIndexOf(<span class="hljs-string">&#x27;.&#x27;</span>)))<br>            resStr += tempstr<br><br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">console</span>.log(resStr)<br>&#125;<br><br>dir()<br><br></code></pre></td></tr></table></figure>
+              <p>记录在学习组成原理这门课的过程中的知识点，方便复习，看的视频是王道考研的视频，正在学习…..</p>
+<span id="more"></span>
+
+
+
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><h3 id="01-第一章计算机系统概述"><a href="#01-第一章计算机系统概述" class="headerlink" title="01.第一章计算机系统概述"></a>01.第一章计算机系统概述</h3><ul>
+<li><input checked="" disabled="" type="checkbox"> 1.0 - 你好，我是计算机组成原理<ul>
+<li>没啥要学的</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 1.1 - 计算机的发展（大纲已删但建议看看）<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-10-12-14-39.png" srcset="/img/loading.gif" lazyload><br>中国的超级计算机：神威·太湖之光
+  </p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 1.2.1 - 计算机硬件的基本组成<ul>
+<li><details><summary>笔记</summary><h4 id="早期的冯诺依曼计算机"><a href="#早期的冯诺依曼计算机" class="headerlink" title="早期的冯诺依曼计算机"></a>早期的冯诺依曼计算机</h4><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-10-15-32-12.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-10-15-34-04.png" srcset="/img/loading.gif" lazyload><br>早期的冯诺依曼计算机可以类比为一个加工厂<br>因此很明显可以看到缺点，就是存储部门可以直接和采购部门销售部门对接，但是现在非要经过生产加工部门，因此需要改进，这也就出现了现代计算机<br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-10-16-05-06.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="现代计算机"><a href="#现代计算机" class="headerlink" title="现代计算机"></a>现代计算机</h4><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-10-16-06-45.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 1.2.2 - 认识各个硬件部件</li>
+<li><input disabled="" type="checkbox"> 1.2.3 - 计算机系统的层次结构</li>
+<li><input disabled="" type="checkbox"> 1.3 - 计算机的性能指标<h3 id="02-第二章数据的表示和运算"><a href="#02-第二章数据的表示和运算" class="headerlink" title="02.第二章数据的表示和运算"></a>02.第二章数据的表示和运算</h3></li>
+<li><input disabled="" type="checkbox"> 2.1.1 - 进位计数制</li>
+<li><input disabled="" type="checkbox"> 2.1.2 - BCD码（大纲已删408考生可不看）</li>
+<li><input disabled="" type="checkbox"> 2.1.3 - 字符与字符串</li>
+<li><input disabled="" type="checkbox"> 2.1.4 - 奇偶校验码（计组大纲已删但计网要考）</li>
+<li><input disabled="" type="checkbox"> 2.1.5 - 海明校验码（计组大纲已删但计网要考）</li>
+<li><input disabled="" type="checkbox"> 2.1.6 - 循环冗余校验码（计组大纲已删但计网要考）</li>
+<li><input disabled="" type="checkbox"> 2.2.1 - 定点数的表示</li>
+<li><input disabled="" type="checkbox"> 2.2.2 - 原码补码移码的作用</li>
+<li><input disabled="" type="checkbox"> 2.2.3 - 移位运算</li>
+<li><input disabled="" type="checkbox"> 2.2.4 - 加减运算和溢出判断</li>
+<li><input disabled="" type="checkbox"> 2.2.5 - 原码的乘法运算</li>
+<li><input disabled="" type="checkbox"> 2.2.5 - 补码的乘法运算</li>
+<li><input disabled="" type="checkbox"> 2.2.6 - 原码的除法运算</li>
+<li><input disabled="" type="checkbox"> 2.2.6 - 补码的除法运算</li>
+<li><input disabled="" type="checkbox"> 2.2.7 - 强制类型转换</li>
+<li><input disabled="" type="checkbox"> 2.2.8 - 数据的存储和排列</li>
+<li><input disabled="" type="checkbox"> 2.3.1 - 浮点数的表示</li>
+<li><input disabled="" type="checkbox"> 2.3.2 - IEEE75</li>
+<li><input disabled="" type="checkbox"> 2.3.3 - 浮点数的运算</li>
+<li><input disabled="" type="checkbox"> 2.4.1 - 电路的基本原理、加法器设计</li>
+<li><input disabled="" type="checkbox"> 2.4.2 - 加法器、ALU的改进<h3 id="03-第三章存储系统"><a href="#03-第三章存储系统" class="headerlink" title="03.第三章存储系统"></a>03.第三章存储系统</h3></li>
+<li><input disabled="" type="checkbox"> 3.6.4 - Cache写策略</li>
+<li><input disabled="" type="checkbox"> 3.7.1 - 页式存储器</li>
+<li><input disabled="" type="checkbox"> 3.7.2 - 虚拟存储器</li>
+<li><input disabled="" type="checkbox"> 3.1+3.2 - 存储系统基本概念</li>
+<li><input disabled="" type="checkbox"> 3.3.1 - 主存储器的基本组成</li>
+<li><input disabled="" type="checkbox"> 3.3.2 - SRAM和DRAM</li>
+<li><input disabled="" type="checkbox"> 3.3.3 - 只读存储器ROM</li>
+<li><input disabled="" type="checkbox"> 3.4 - 主存储器与CPU的连接</li>
+<li><input disabled="" type="checkbox"> 3.5 - 双端口RAM和多模块存储器</li>
+<li><input disabled="" type="checkbox"> 3.6.1 - Cache的基本概念和原理</li>
+<li><input disabled="" type="checkbox"> 3.6.2 - Cache和主存的映射方式</li>
+<li><input disabled="" type="checkbox"> 3.6.3 - Cache替换算法<h3 id="04-第四章指令系统"><a href="#04-第四章指令系统" class="headerlink" title="04.第四章指令系统"></a>04.第四章指令系统</h3></li>
+</ul>
+<h3 id="05-第五章中央处理器"><a href="#05-第五章中央处理器" class="headerlink" title="05.第五章中央处理器"></a>05.第五章中央处理器</h3><h3 id="06-第六章总线"><a href="#06-第六章总线" class="headerlink" title="06.第六章总线"></a>06.第六章总线</h3><h3 id="07-第七章IO系统"><a href="#07-第七章IO系统" class="headerlink" title="07.第七章IO系统"></a>07.第七章IO系统</h3>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98/">百度网盘</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
                     
                   </div>
                 

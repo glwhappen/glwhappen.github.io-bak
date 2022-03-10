@@ -18,21 +18,24 @@
   <meta name="author" content="郭力玮">
   <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
   
-    <meta name="description" content="打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来 不能递归的打印，只能打印当前文件夹下面的 1234567891011121314151617181920212223242526let template &#x3D; &#96;- [ ] $partNotEx$&#96;let resStr &#x3D; &amp;#x27;&amp;#x27;&#x2F;**遍历文件夹的内容*&#x2F;async function dir">
+    <meta name="description" content="我平时用右键的功能有点频繁，Win11现在右键需要点击更多选项才能展开所有，有点麻烦，这个方法可以直接展开最全的右键菜单。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="百度网盘视频列表爬虫">
-<meta property="og:url" content="https://www.glwsq.cn/post/b21290c1/index.html">
+<meta property="og:title" content="win11右键默认显示更多选项">
+<meta property="og:url" content="https://www.glwsq.cn/post/8146e869/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
-<meta property="og:description" content="打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来 不能递归的打印，只能打印当前文件夹下面的 1234567891011121314151617181920212223242526let template &#x3D; &#96;- [ ] $partNotEx$&#96;let resStr &#x3D; &amp;#x27;&amp;#x27;&#x2F;**遍历文件夹的内容*&#x2F;async function dir">
+<meta property="og:description" content="我平时用右键的功能有点频繁，Win11现在右键需要点击更多选项才能展开所有，有点麻烦，这个方法可以直接展开最全的右键菜单。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-05T15:36:42.000Z">
-<meta property="article:modified_time" content="2022-02-05T15:36:42.000Z">
+<meta property="og:image" content="https://image.glwsq.cn/img/win11右键默认显示更多选项-2022-03-10-19-39-16.png">
+<meta property="article:published_time" content="2022-03-10T11:27:35.000Z">
+<meta property="article:modified_time" content="2022-03-10T11:27:35.000Z">
 <meta property="article:author" content="郭力玮">
 <meta property="article:tag" content="创作中">
+<meta property="article:tag" content="首页">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/win11右键默认显示更多选项-2022-03-10-19-39-16.png">
   
   
-  <title>百度网盘视频列表爬虫 - Happen&#39;s Blog</title>
+  <title>win11右键默认显示更多选项 - Happen&#39;s Blog</title>
 
   <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
 
@@ -177,12 +180,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/images/uploads/article.png') no-repeat center center;
+         style="background: url('https://image.glwsq.cn/img/win11右键默认显示更多选项-2022-03-10-19-39-16.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="百度网盘视频列表爬虫">
+            <span class="h2" id="subtitle" title="win11右键默认显示更多选项">
               
             </span>
 
@@ -192,8 +195,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-05 23:36" pubdate>
-        2022年2月5日 晚上
+      <time datetime="2022-03-10 19:27" pubdate>
+        2022年3月10日 晚上
       </time>
     </span>
   
@@ -203,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      703 字
+      993 字
     </span>
   
 
@@ -212,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6 分钟
+      9 分钟
     </span>
   
 
@@ -249,28 +252,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">百度网盘视频列表爬虫</h1>
+            <h1 style="display: none">win11右键默认显示更多选项</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月5日 晚上
+                  本文最后更新于：2022年3月10日 晚上
                 
               </p>
             
             <div class="markdown-body">
-              <p>打开分享的百度网盘链接，然后进入一个包含n个文件的目录，可以把文件夹里面的文件目录打印出来</p>
-<p>不能递归的打印，只能打印当前文件夹下面的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> template = <br><span class="hljs-string">`- [ ] $partNotEx$</span><br><span class="hljs-string">`</span><br><span class="hljs-keyword">let</span> resStr = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">遍历文件夹的内容</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dir</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> fileName = $(<span class="hljs-string">&#x27;.filename&#x27;</span>)<br>    <span class="hljs-keyword">let</span> fileSize = $(<span class="hljs-string">&#x27;.file-size&#x27;</span>)<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; fileName.length; i++) &#123;<br>        <span class="hljs-keyword">let</span> filesize = fileSize[i].innerHTML <span class="hljs-comment">// 文件大小</span><br>        <span class="hljs-keyword">if</span>(filesize === <span class="hljs-string">&#x27;-&#x27;</span>) &#123; <span class="hljs-comment">// 是个文件夹</span><br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;进入文件夹&#x27;</span>, i,  fileName[i].innerHTML)<br>        &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// 是个文件</span><br>            <span class="hljs-keyword">let</span> filename = fileName[i].innerHTML<br>            <span class="hljs-keyword">let</span> tempstr = template.replace(<span class="hljs-string">&#x27;$part$&#x27;</span>, filename).replace(<span class="hljs-string">&#x27;$partNotEx$&#x27;</span>, filename.substring(<span class="hljs-number">0</span>, filename.lastIndexOf(<span class="hljs-string">&#x27;.&#x27;</span>)))<br>            resStr += tempstr<br><br>        &#125;<br>    &#125;<br>    <span class="hljs-built_in">console</span>.log(resStr)<br>&#125;<br><br>dir()<br><br></code></pre></td></tr></table></figure>
+              
+<p>我平时用右键的功能有点频繁，Win11现在右键需要点击更多选项才能展开所有，有点麻烦，这个方法可以直接展开最全的右键菜单。</p>
+
+
+<p>反正可以再改回去，想尝试了可以试试，我现在体验很好<br><img src="https://image.glwsq.cn/img/win11%E5%8F%B3%E9%94%AE%E9%BB%98%E8%AE%A4%E6%98%BE%E7%A4%BA%E6%9B%B4%E5%A4%9A%E9%80%89%E9%A1%B9-2022-03-10-19-44-38.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="快速修改"><a href="#快速修改" class="headerlink" title="快速修改"></a>快速修改</h2><p>最简单方法，直接用下面这个批处理文件</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><pre><code class="hljs bat"><span class="hljs-built_in">echo</span> off<br><span class="hljs-built_in">color</span> <span class="hljs-number">1</span>f<br>:<span class="hljs-built_in">start</span><br><span class="hljs-built_in">cls</span><br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>     修改右键菜单模式<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>   <span class="hljs-number">1</span> Windows <span class="hljs-number">10</span> 传统模式<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>   <span class="hljs-number">2</span> Windows <span class="hljs-number">11</span> 默认模式<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>   <span class="hljs-number">0</span> 放弃修改，退出<br><span class="hljs-built_in">echo</span>,<br><span class="hljs-built_in">echo</span>,<br>choice /c:<span class="hljs-number">120</span> /n /m:&quot;请选择要使用的模式&quot;<br><span class="hljs-keyword">if</span> <span class="hljs-variable">%errorlevel%</span>==<span class="hljs-number">0</span> <span class="hljs-keyword">exit</span><br><span class="hljs-keyword">if</span> <span class="hljs-variable">%errorlevel%</span>==<span class="hljs-number">2</span> <span class="hljs-keyword">goto</span> cmd2<br><span class="hljs-keyword">if</span> <span class="hljs-variable">%errorlevel%</span>==<span class="hljs-number">1</span> <span class="hljs-keyword">goto</span> cmd1<br><span class="hljs-keyword">exit</span><br><br><br>:cmd1<br>reg.exe add &quot;HKCU\Software\Classes\CLSID\&#123;<span class="hljs-number">86</span>ca1aa0-<span class="hljs-number">34</span>aa-<span class="hljs-number">4</span>e8b-a509-<span class="hljs-number">50</span>c905bae2a2&#125;\InprocServer32&quot; /f /ve<br>shutdown -l<br><span class="hljs-keyword">exit</span><br><br>:cmd2<br>reg.exe delete &quot;HKCU\Software\Classes\CLSID\&#123;<span class="hljs-number">86</span>ca1aa0-<span class="hljs-number">34</span>aa-<span class="hljs-number">4</span>e8b-a509-<span class="hljs-number">50</span>c905bae2a2&#125;&quot; /f<br>shutdown -l<br><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>通过修改注册表，我们就可以将Win11的右键菜单改为老样式。下面是具体的方法。</p>
+<ol>
+<li><p>运行“regedit”，开启注册表编辑器，定位到“HKEY_CURRENT_USER\SOFTWARE\CLASSES\CLSID”；</p>
+</li>
+<li><p>接着，右键点击“CLSID”键值，新建一个名为{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}的项；</p>
+</li>
+<li><p>右键点击新创建的项，新建一个名为InprocServer32的项，按下回车键保存；</p>
+</li>
+<li><p>最后选择新创建的项，然后双击右侧窗格中的默认条目，什么内容都不需要输入，按下回车键。</p>
+</li>
+<li><p>保存注册表后，重启explorer.exe，即可看到右键菜单恢复成旧样式了。</p>
+</li>
+</ol>
+<p>如果想要恢复成为Win11的设计，那么删掉InprocServer32的项就可以了。</p>
+
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%94%B5%E8%84%91%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">电脑使用技巧</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
                     
                   </div>
                 
