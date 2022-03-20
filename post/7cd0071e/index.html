@@ -41,13 +41,13 @@
 
 
   <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="/static/hint@2.7.0/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="/static/highlight.js@11.5.0/styles/github-gist.min.css" />
     
   
 
@@ -206,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.8k 字
     </span>
   
 
@@ -215,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11 分钟
+      16 分钟
     </span>
   
 
@@ -285,7 +285,7 @@
 </li>
 <li><input checked="" disabled="" type="checkbox"> 1.2.2 - 认识各个硬件部件<ul>
 <li>这节课还是比较硬核的</li>
-<li>字(word): 跟计算机的硬件有关</li>
+<li>字(word): 跟计算机的硬件有关 如果是32位系统则一个字是4个字节,如果是64位,则是8个字节。</li>
 <li>字节(Byte): 1字节 = 8bit</li>
 <li>运算器<ul>
 <li>ACC：累加器 Accumulator</li>
@@ -363,32 +363,192 @@
 </details></li>
 </ul>
 </li>
-<li><input disabled="" type="checkbox"> 2.2.4 - 加减运算和溢出判断</li>
-<li><input disabled="" type="checkbox"> 2.2.5 - 原码的乘法运算</li>
-<li><input disabled="" type="checkbox"> 2.2.5 - 补码的乘法运算</li>
-<li><input disabled="" type="checkbox"> 2.2.6 - 原码的除法运算</li>
-<li><input disabled="" type="checkbox"> 2.2.6 - 补码的除法运算</li>
-<li><input disabled="" type="checkbox"> 2.2.7 - 强制类型转换</li>
-<li><input disabled="" type="checkbox"> 2.2.8 - 数据的存储和排列</li>
-<li><input disabled="" type="checkbox"> 2.3.1 - 浮点数的表示</li>
-<li><input disabled="" type="checkbox"> 2.3.2 - IEEE75</li>
-<li><input disabled="" type="checkbox"> 2.3.3 - 浮点数的运算</li>
-<li><input disabled="" type="checkbox"> 2.4.1 - 电路的基本原理、加法器设计</li>
-<li><input disabled="" type="checkbox"> 2.4.2 - 加法器、ALU的改进<h3 id="03-第三章存储系统"><a href="#03-第三章存储系统" class="headerlink" title="03.第三章存储系统"></a>03.第三章存储系统</h3></li>
-<li><input disabled="" type="checkbox"> 3.6.4 - Cache写策略</li>
-<li><input disabled="" type="checkbox"> 3.7.1 - 页式存储器</li>
-<li><input disabled="" type="checkbox"> 3.7.2 - 虚拟存储器</li>
-<li><input disabled="" type="checkbox"> 3.1+3.2 - 存储系统基本概念</li>
-<li><input disabled="" type="checkbox"> 3.3.1 - 主存储器的基本组成</li>
-<li><input disabled="" type="checkbox"> 3.3.2 - SRAM和DRAM</li>
-<li><input disabled="" type="checkbox"> 3.3.3 - 只读存储器ROM</li>
-<li><input disabled="" type="checkbox"> 3.4 - 主存储器与CPU的连接</li>
-<li><input disabled="" type="checkbox"> 3.5 - 双端口RAM和多模块存储器</li>
-<li><input disabled="" type="checkbox"> 3.6.1 - Cache的基本概念和原理</li>
-<li><input disabled="" type="checkbox"> 3.6.2 - Cache和主存的映射方式</li>
-<li><input disabled="" type="checkbox"> 3.6.3 - Cache替换算法<h3 id="04-第四章指令系统"><a href="#04-第四章指令系统" class="headerlink" title="04.第四章指令系统"></a>04.第四章指令系统</h3></li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.4 - 加减运算和溢出判断<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-07-30.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-08-27.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-09-07.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-10-20.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-10-41.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-12-11.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-12-43.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
 </ul>
-<h3 id="05-第五章中央处理器"><a href="#05-第五章中央处理器" class="headerlink" title="05.第五章中央处理器"></a>05.第五章中央处理器</h3><h3 id="06-第六章总线"><a href="#06-第六章总线" class="headerlink" title="06.第六章总线"></a>06.第六章总线</h3><h3 id="07-第七章IO系统"><a href="#07-第七章IO系统" class="headerlink" title="07.第七章IO系统"></a>07.第七章IO系统</h3>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.5 - 原码的乘法运算<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-09-46-20.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.5 - 补码的乘法运算<ul>
+<li><strong>好难，没听懂，回头再来学学</strong></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.6 - 原码的除法运算<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-17-53-11.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-17-54-23.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.6 - 补码的除法运算<ul>
+<li><details><summary>笔记</summary><p>发现补码的都比较难<br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-15-18-08-49.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.7 - 强制类型转换<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-16-15-41-08.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.2.8 - 数据的存储和排列<ul>
+<li>大小端模式</li>
+<li>边界对齐</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.3.1 - 浮点数的表示<ul>
+<li>内容有点多，感觉不是很好算</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.3.2 - IEEE75<ul>
+<li><details><summary>笔记</summary><p>重点学一下十进制和二进制的相互转换<br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-16-22-54-43.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-16-22-56-04.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-16-22-57-04.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.3.3 - 浮点数的运算<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-10-38-13.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-10-39-29.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-10-39-47.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 2.4.1 - 电路的基本原理、加法器设计<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-19-39.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-20-59.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-21-27.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-22-38.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-22-56.png" srcset="/img/loading.gif" lazyload alt="一位全加器"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-23-36.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-11-24-01.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 2.4.2 - 加法器、ALU的改进<ul>
+<li>听不懂，跳过 <h3 id="03-第三章存储系统"><a href="#03-第三章存储系统" class="headerlink" title="03.第三章存储系统"></a>03.第三章存储系统</h3></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.1+3.2 - 存储系统基本概念<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-15-52-37.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-15-53-12.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.3.1 - 主存储器的基本组成<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-16-12-57.png" srcset="/img/loading.gif" lazyload alt="主存储器的简单模型"></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 3.3.2 - SRAM和DRAM<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-16-23-09.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-16-55-09.png" srcset="/img/loading.gif" lazyload alt="DRAM v.s SRAM"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-16-56-32.png" srcset="/img/loading.gif" lazyload alt="DRAM的刷新"></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.3.3 - 只读存储器ROM<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-17-09-35.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.4 - 主存储器与CPU的连接<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-17-51-06.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-17-51-54.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-17-52-34.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-17-17-53-01.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 3.5 - 双端口RAM和多模块存储器<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-15-56-54.png" srcset="/img/loading.gif" lazyload alt="双端口RAM"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-15-57-34.png" srcset="/img/loading.gif" lazyload alt="多体并行存储器"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-15-59-00.png" srcset="/img/loading.gif" lazyload alt="都体块存储器"></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 3.6.1 - Cache的基本概念和原理<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-01-29.png" srcset="/img/loading.gif" lazyload alt="Cache的工作原理"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-02-09.png" srcset="/img/loading.gif" lazyload alt="局部性原理"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-03-28.png" srcset="/img/loading.gif" lazyload alt="性能分析"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-04-22.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-04-48.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.6.2 - Cache和主存的映射方式<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-52-55.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-16-58-19.png" srcset="/img/loading.gif" lazyload alt="Cache-主存映射方式"></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 3.6.3 - Cache替换算法<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-00-35.png" srcset="/img/loading.gif" lazyload alt="随机算法"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-01-10.png" srcset="/img/loading.gif" lazyload alt="先进先出算法"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-03-33.png" srcset="/img/loading.gif" lazyload alt="近期最少使用算法"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-04-18.png" srcset="/img/loading.gif" lazyload alt="最不经常使用算法"></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.6.4 - Cache写策略<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-15-56.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.7.1 - 页式存储器<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-51-21.png" srcset="/img/loading.gif" lazyload alt="快表和Cache总结"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-49-41.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-17-50-47.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 3.7.2 - 虚拟存储器<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-18-06-05.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-18-18-06-27.png" srcset="/img/loading.gif" lazyload></p>
+</details>
+<h3 id="04-第四章指令系统"><a href="#04-第四章指令系统" class="headerlink" title="04.第四章指令系统"></a>04.第四章指令系统</h3></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.1.1 - 指令格式<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-41-03.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.1.2 - 扩展操作码指令格式<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-42-25.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-43-23.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.2.1 - 指令寻址<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-45-06.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.2.2 - 数据寻址<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-45-41.png" srcset="/img/loading.gif" lazyload alt="数据寻址方法"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-10-46-58.png" srcset="/img/loading.gif" lazyload></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.2.3 - 数据寻址2_偏移寻址<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-01-42.png" srcset="/img/loading.gif" lazyload alt="基址寻址"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-02-08.png" srcset="/img/loading.gif" lazyload alt="变址寻址"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-06-12.png" srcset="/img/loading.gif" lazyload alt="相对寻址"></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.2.4 - 数据寻址3_堆栈寻址<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-07-18.png" srcset="/img/loading.gif" lazyload alt="堆栈寻址"></p>
+</details></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 4.3 - CISC和RISC<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-10-55.png" srcset="/img/loading.gif" lazyload><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-19-20-11-30.png" srcset="/img/loading.gif" lazyload></p>
+</details>
+<h3 id="05-第五章中央处理器"><a href="#05-第五章中央处理器" class="headerlink" title="05.第五章中央处理器"></a>05.第五章中央处理器</h3></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 5.0 - 回忆过去</li>
+<li><input checked="" disabled="" type="checkbox"> 5.1 - CPU的功能和基本结构<ul>
+<li><details><summary>笔记</summary><p><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-20-11-08-36.png" srcset="/img/loading.gif" lazyload alt="CPU的基本结构"><br><img src="https://image.glwsq.cn/img/%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93-2022-03-20-11-09-19.png" srcset="/img/loading.gif" lazyload alt="CPU的功能和基本结构"></p>
+</details></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 5.2 - 指令周期的数据流</li>
+<li><input disabled="" type="checkbox"> 5.3.1 - 数据通路-单总线结构</li>
+<li><input disabled="" type="checkbox"> 5.3.2 - 数据通路-专用通路结构</li>
+<li><input disabled="" type="checkbox"> 5.4.1 - 硬布线控制器的设计</li>
+<li><input disabled="" type="checkbox"> 5.4.2 - 微程序控制器的基本原理</li>
+<li><input disabled="" type="checkbox"> 5.4.3 - 微指令的设计</li>
+<li><input disabled="" type="checkbox"> 5.4.4 - 微程序控制单元的设计</li>
+<li><input disabled="" type="checkbox"> 5.5.1 - 指令流水线的基本概念</li>
+<li><input disabled="" type="checkbox"> 5.5.2 - 指令流水线的影响因素和分类</li>
+<li><input disabled="" type="checkbox"> 5.5.3 - 五段式指令流水线<h3 id="06-第六章总线"><a href="#06-第六章总线" class="headerlink" title="06.第六章总线"></a>06.第六章总线</h3></li>
+<li><input disabled="" type="checkbox"> 6.1.1 - 总线概述</li>
+<li><input disabled="" type="checkbox"> 6.1.2 - 总线的性能指标</li>
+<li><input disabled="" type="checkbox"> 6.2 - 总线仲裁</li>
+<li><input disabled="" type="checkbox"> 6.3 - 总线操作和定时</li>
+<li><input disabled="" type="checkbox"> 6.4 - 总线标准<h3 id="07-第七章IO系统"><a href="#07-第七章IO系统" class="headerlink" title="07.第七章IO系统"></a>07.第七章IO系统</h3></li>
+<li><input disabled="" type="checkbox"> 7.1 IO系统基本概念</li>
+<li><input disabled="" type="checkbox"> 7.2.1 输入输出设备</li>
+<li><input disabled="" type="checkbox"> 7.2.2 外存储器</li>
+<li><input disabled="" type="checkbox"> 7.3 I-O接口</li>
+<li><input disabled="" type="checkbox"> 7.4.1 程序查询方式</li>
+<li><input disabled="" type="checkbox"> 7.4.2 中断的作用和原理</li>
+<li><input disabled="" type="checkbox"> 7.4.3 多重中断</li>
+<li><input disabled="" type="checkbox"> 7.4.4 程序中断方式</li>
+<li><input disabled="" type="checkbox"> 7.4.5 DMA方式</li>
+</ul>
+
             </div>
             <hr>
             <div>
@@ -605,7 +765,7 @@
 
 
 
-  <script  src="https://cdn.bootcdn.net/ajax/libs/typed.js/2.0.12/typed.min.js" ></script>
+  <script  src="/static/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
