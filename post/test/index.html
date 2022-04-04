@@ -207,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      272 字
+      1.8k 字
     </span>
   
 
@@ -216,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3 分钟
+      16 分钟
     </span>
   
 
@@ -273,8 +273,50 @@
 <p>This text should be shown in –draft mode and in production.</p>
 
 
+<h2 id="include文件"><a href="#include文件" class="headerlink" title="include文件"></a>include文件</h2><h2 id="插入iframe"><a href="#插入iframe" class="headerlink" title="插入iframe"></a>插入iframe</h2><div class="code-wrapper"><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        #div1 &#123;
+            width: 100px;
+            height: 80px;
+            background-color: red;
+            border: 50px solid black;
+            border-top-color: green;
+            border-right-color: blue;
+            border-bottom-color: yellow;
+        &#125;
+        #div2 &#123;
+            width: 0;
+            height: 0;
+            border: 50px solid black;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        &#125;
+        #div3 &#123;
+            width: 0;
+            height: 0;
+            border: 50px solid transparent;
+            border-left-color: red;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;div1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;div2&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;div3&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
 
 
+<h1 id="adf-cpp-include-lt-iostream-gt"><a href="#adf-cpp-include-lt-iostream-gt" class="headerlink" title="adf cpp #include&lt;iostream&gt;"></a>adf <code>cpp #include&lt;iostream&gt;</code></h1><iframe allowtransparency="yes" frameborder="0" width="100%" height="60" src="/web/前端实战案例总结/div圆角实例.html"></iframe>
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></div></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span><br><span class="css">        <span class="hljs-selector-id">#div1</span> &#123;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">80px</span>;</span><br><span class="css">            <span class="hljs-attribute">background-color</span>: red;</span><br><span class="css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">50px</span> solid black;</span><br><span class="css">            <span class="hljs-attribute">border-top-color</span>: green;</span><br><span class="css">            <span class="hljs-attribute">border-right-color</span>: blue;</span><br><span class="css">            <span class="hljs-attribute">border-bottom-color</span>: yellow;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-id">#div2</span> &#123;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;</span><br><span class="css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">50px</span> solid black;</span><br><span class="css">            <span class="hljs-attribute">border-top-color</span>: transparent;</span><br><span class="css">            <span class="hljs-attribute">border-right-color</span>: transparent;</span><br><span class="css">            <span class="hljs-attribute">border-bottom-color</span>: transparent;</span><br><span class="css">        &#125;</span><br><span class="css">        <span class="hljs-selector-id">#div3</span> &#123;</span><br><span class="css">            <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;</span><br><span class="css">            <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;</span><br><span class="css">            <span class="hljs-attribute">border</span>: <span class="hljs-number">50px</span> solid transparent;</span><br><span class="css">            <span class="hljs-attribute">border-left-color</span>: red;</span><br><span class="css">        &#125;</span><br><span class="css">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;div3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
