@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.glwsq.cn/post/delicious-food-01/</loc>
+    
+    <lastmod>2022-04-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.glwsq.cn/post/photography-20220404/</loc>
     
     <lastmod>2022-04-04</lastmod>
@@ -523,13 +530,6 @@
     <loc>https://www.glwsq.cn/post/vscode-paste-image/</loc>
     
     <lastmod>2020-05-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.glwsq.cn/post/5b5b7734/</loc>
-    
-    <lastmod>2020-05-07</lastmod>
     
   </url>
   
@@ -1057,13 +1057,6 @@
   
   <url>
     <loc>https://www.glwsq.cn/categories/%E6%91%84%E5%BD%B1/</loc>
-    <lastmod>2022-04-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.glwsq.cn/categories/800-%E4%B8%AA%E4%BA%BA%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2022-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
