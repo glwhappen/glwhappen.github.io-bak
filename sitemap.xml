@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.glwsq.cn/post/eac5d358/</loc>
+    
+    <lastmod>2022-04-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.glwsq.cn/post/a372d80e/</loc>
+    
+    <lastmod>2022-04-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.glwsq.cn/post/dd06a4e4/</loc>
     
     <lastmod>2022-04-21</lastmod>
@@ -962,6 +976,13 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://www.glwsq.cn/tags/conda/</loc>
+    <lastmod>2022-04-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -1106,6 +1127,13 @@
   
   <url>
     <loc>https://www.glwsq.cn/categories/%E6%91%84%E5%BD%B1/</loc>
+    <lastmod>2022-04-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.glwsq.cn/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/python/</loc>
     <lastmod>2022-04-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
