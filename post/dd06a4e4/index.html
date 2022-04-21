@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="在工作中遇到一个问题，有一个网络摄像头，打开摄像头自带的监控软件以后，可以转发出来RTSP的视频流，现在需要在web端显示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过python和websocket将RTSP视频流显示到网页上">
+<meta property="og:url" content="https://www.glwsq.cn/post/dd06a4e4/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="在工作中遇到一个问题，有一个网络摄像头，打开摄像头自带的监控软件以后，可以转发出来RTSP的视频流，现在需要在web端显示。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/通过python和websocket将RTSP视频流显示到网页上-2022-04-21-17-23-30.png">
+<meta property="article:published_time" content="2022-04-21T08:36:46.000Z">
+<meta property="article:modified_time" content="2022-04-21T08:36:46.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="创作中">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="websocket">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/通过python和websocket将RTSP视频流显示到网页上-2022-04-21-17-23-30.png">
+  
+  
+  <title>通过python和websocket将RTSP视频流显示到网页上 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/static/hint@2.7.0/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="/static/highlight.js@11.5.0/styles/github.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/通过python和websocket将RTSP视频流显示到网页上-2022-04-21-17-23-30.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="通过python和websocket将RTSP视频流显示到网页上">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-21 16:36" pubdate>
+        2022年4月21日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      27 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">通过python和websocket将RTSP视频流显示到网页上</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月21日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><img src="" srcset="/img/loading.gif" lazyload></p>
+
+<p>在工作中遇到一个问题，有一个网络摄像头，打开摄像头自带的监控软件以后，可以转发出来RTSP的视频流，现在需要在web端显示。</p>
+
+
+<p>因为html是没办法直接显示这样的视频数据的，所以需要通过其他的语言来进行处理一下。</p>
+<p>我的思路是：</p>
+<ol>
+<li>通过python语言将rtsp的视频数据捕获</li>
+<li>将捕获的数据转换成一帧一帧的图片数据</li>
+<li>将图片数据转换成base64格式的形式，方便发送到前端</li>
+<li>通过websocket实时的将数据发送到html</li>
+</ol>
+<h2 id="需要安装的依赖"><a href="#需要安装的依赖" class="headerlink" title="需要安装的依赖"></a>需要安装的依赖</h2><figure class="highlight cmake"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> opencv-python<br>pip <span class="hljs-keyword">install</span> websockets<br></code></pre></td></tr></table></figure>
+
+<h2 id="Python捕获视频数据"><a href="#Python捕获视频数据" class="headerlink" title="Python捕获视频数据"></a>Python捕获视频数据</h2><p>rtsp_path 可以为一个地址，也可以为0，当为0时表示本机的摄像头</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-comment"># 0 表示本地的摄像头</span><br>rtsp_path = <span class="hljs-number">0</span> <span class="hljs-comment"># &#x27;rtsp://admin:@192.168.1.11:554&#x27;</span><br><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">capture_videp</span>():</span><br>    capture = cv2.VideoCapture(rtsp_path)<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        ret, frame = capture.read()<br>        <span class="hljs-built_in">print</span>(frame)<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> ret:<br>            <span class="hljs-keyword">break</span><br>        cv2.imshow(<span class="hljs-string">&#x27;video&#x27;</span>, frame)<br>        <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">50</span>) == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>): <span class="hljs-comment"># 按q键退出</span><br>            <span class="hljs-keyword">break</span><br><br>capture_videp()<br><br>cv2.destroyAllWindows()<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="python发送websocket"><a href="#python发送websocket" class="headerlink" title="python发送websocket"></a>python发送websocket</h2><p>python提供了一个高级库websockets来实现websocket。<br>官网链接：<a target="_blank" rel="noopener" href="https://websockets.readthedocs.io/en/stable/">https://websockets.readthedocs.io/en/stable/</a></p>
+<p>它需要借助asyncio这个异步框架来实现。官网上有详细的教程。</p>
+<blockquote>
+<p>也可以参考这个博客来进行学习：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b7df44b7c7f7">https://www.jianshu.com/p/b7df44b7c7f7</a></p>
+</blockquote>
+<h2 id="完整的python代码-后端"><a href="#完整的python代码-后端" class="headerlink" title="完整的python代码-后端"></a>完整的python代码-后端</h2><blockquote>
+<p>自己随便写的，可以使用，但是代码很丑，但是思路就是这个思路</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> threading<br><span class="hljs-keyword">import</span> base64<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> asyncio<br><span class="hljs-keyword">import</span> websockets<br><br>rtsp_path = <span class="hljs-string">&#x27;rtsp://admin:@192.168.1.11:554&#x27;</span><br>camera1 = <span class="hljs-literal">None</span><br>frame = <span class="hljs-literal">None</span><br>base64img = <span class="hljs-string">&#x27;&#x27;</span><br>flag = <span class="hljs-literal">True</span><br>speed = <span class="hljs-number">0.1</span> <span class="hljs-comment"># 视频帧率 表示多少秒一帧</span><br><br><span class="hljs-comment"># 视频获取</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">vedioCapture_thread2</span>(<span class="hljs-params">n</span>):</span><br>	<span class="hljs-keyword">global</span> camera1<br>	camera1 = cv2.VideoCapture(rtsp_path)<br>	<span class="hljs-keyword">global</span> frame<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		_, img_bgr = camera1.read()<br><br>		<span class="hljs-keyword">if</span> img_bgr <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>			camera1 = cv2.VideoCapture(rtsp_path)<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;丢失帧&#x27;</span>)<br>		<span class="hljs-keyword">else</span>:<br>			frame=img_bgr<br>		<span class="hljs-comment"># cv2.imshow(&#x27;video&#x27;, frame)</span><br>		<span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">50</span>) == <span class="hljs-number">27</span>:<br>			<span class="hljs-keyword">break</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">vedioSend_thread1</span>(<span class="hljs-params">n</span>):</span><br>	<span class="hljs-keyword">global</span> base64img<br>	<span class="hljs-keyword">global</span> flag<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;send&#x27;</span>)<br>	time.sleep(<span class="hljs-number">3</span>)<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		image = cv2.imencode(<span class="hljs-string">&#x27;.jpg&#x27;</span>, frame)[<span class="hljs-number">1</span>]<br>		base64_data = base64.b64encode(image)<br>		s = base64_data.decode()<br>		<span class="hljs-comment"># print(&#x27;data:image/jpeg;base64,%s&#x27;%s)</span><br>		base64img = <span class="hljs-string">&#x27;data:image/jpeg;base64,&#123;&#125;&#x27;</span>.<span class="hljs-built_in">format</span>(s)<br>		flag = <span class="hljs-literal">True</span><br>		<span class="hljs-comment"># server.send_message_to_all(&#x27;data:image/jpeg;base64,%s&#x27;%s)</span><br>		time.sleep(speed)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">from_vedio</span>():</span><br>    thread1 = threading.Thread(target=vedioSend_thread1, args=(<span class="hljs-number">1</span>,))<br>    thread1.start()<br>    thread2 = threading.Thread(target=vedioCapture_thread2, args=(<span class="hljs-number">1</span>,))<br>    thread2.start()<br><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sendImg</span>(<span class="hljs-params">websocket, path</span>):</span><br>	<span class="hljs-keyword">global</span> flag<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		<span class="hljs-keyword">if</span> flag:<br>			<span class="hljs-keyword">try</span>:<br>				<span class="hljs-keyword">await</span> websocket.send(base64img)<br>			<span class="hljs-keyword">except</span> websockets.exceptions.ConnectionClosedError <span class="hljs-keyword">as</span> e:<br>				<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;connection closed error&quot;</span>)<br>				<span class="hljs-keyword">break</span><br>			<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>				<span class="hljs-built_in">print</span>(e)<br>				<span class="hljs-keyword">break</span><br>			flag = <span class="hljs-literal">False</span><br><br><br><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span><br>    <span class="hljs-comment"># start a websocket server</span><br><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> websockets.serve(sendImg, <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-number">8765</span>):<br>        <span class="hljs-keyword">await</span> asyncio.Future()  <span class="hljs-comment"># run forever</span><br><br>from_vedio()<br>asyncio.run(main())<br></code></pre></td></tr></table></figure>
+
+<h2 id="完整的html代码-前端"><a href="#完整的html代码-前端" class="headerlink" title="完整的html代码-前端"></a>完整的html代码-前端</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>websocket练习<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;capture&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="javascript">    <span class="hljs-keyword">let</span> vedio = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;capture&#x27;</span>)</span><br><span class="javascript">    <span class="hljs-keyword">var</span> ws = <span class="hljs-keyword">new</span> WebSocket(<span class="hljs-string">&#x27;ws://localhost:8765&#x27;</span>);</span><br><span class="javascript">    ws.onopen = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">        ws.send(<span class="hljs-string">&#x27;the request from client&#x27;</span>);</span><br><span class="javascript">    &#125;;</span><br><span class="javascript">    ws.onmessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-comment">// console.log(&#x27;from server: &#x27; + e.data);</span></span><br><span class="javascript">        vedio.setAttribute(<span class="hljs-string">&#x27;src&#x27;</span>, e.data)</span><br><span class="javascript"></span><br><span class="javascript">    &#125;;</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/html/">html</a>
+                    
+                      <a class="hover-with-bg" href="/tags/websocket/">websocket</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="/static/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
