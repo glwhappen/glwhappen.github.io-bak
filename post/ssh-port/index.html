@@ -18,26 +18,44 @@
   <meta name="author" content="郭力玮">
   <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
   
-    <meta name="description" content="郭力玮的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类 - 内容聚合">
-<meta property="og:url" content="https://www.glwsq.cn/categories/%E5%86%85%E5%AE%B9%E8%81%9A%E5%90%88/index.html">
+    <meta name="description" content="众所周知，ssh的端口是22，世界上有那么一群人专门喜欢挨着服务器一个一个的试用户名密码，为了更加的安全，直接把ssh的端口换掉。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="短而美第7期 - 修改ssh的访问端口">
+<meta property="og:url" content="https://www.glwsq.cn/post/ssh-port/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
-<meta property="og:description" content="郭力玮的个人博客">
+<meta property="og:description" content="众所周知，ssh的端口是22，世界上有那么一群人专门喜欢挨着服务器一个一个的试用户名密码，为了更加的安全，直接把ssh的端口换掉。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/%E7%AC%AC1%E6%9C%9F-ssh%E7%94%9F%E6%88%90%E5%85%AC%E9%92%A5-2022-02-05-23-31-16.png">
+<meta property="article:published_time" content="2022-02-10T10:39:03.000Z">
+<meta property="article:modified_time" content="2022-04-26T12:17:33.000Z">
 <meta property="article:author" content="郭力玮">
-<meta property="article:tag" content="郭力玮">
-<meta property="article:tag" content="郭力玮的博客">
-<meta property="article:tag" content="郭力玮的个人博客">
-<meta property="article:tag" content="happen">
-<meta property="article:tag" content="happen&#39;blog">
+<meta property="article:tag" content="首页">
+<meta property="article:tag" content="创作完成">
+<meta property="article:tag" content="ssh">
+<meta property="article:tag" content="精选文章">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/%E7%AC%AC1%E6%9C%9F-ssh%E7%94%9F%E6%88%90%E5%85%AC%E9%92%A5-2022-02-05-23-31-16.png">
   
   
-  <title>分类 - 内容聚合 - Happen&#39;s Blog</title>
+  <title>短而美第7期 - 修改ssh的访问端口 - Happen&#39;s Blog</title>
 
   <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/static/hint@2.7.0/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="/static/highlight.js@11.5.0/styles/github.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -68,7 +86,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -164,14 +182,56 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/images/uploads/categories.jpg') no-repeat center center;
+         style="background: url('https://image.glwsq.cn/img/%E7%AC%AC1%E6%9C%9F-ssh%E7%94%9F%E6%88%90%E5%85%AC%E9%92%A5-2022-02-05-23-31-16.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类 - 内容聚合">
+            <span class="h2" id="subtitle" title="短而美第7期 - 修改ssh的访问端口">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-02-10 18:39" pubdate>
+        2022年2月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      335 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -184,40 +244,121 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/post/hexo-plugins/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">hexo插件推荐</span>
-      <time style="float: right;">01-20</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">短而美第7期 - 修改ssh的访问端口</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月26日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><img src="https://image.glwsq.cn/img/%E7%AC%AC1%E6%9C%9F-ssh%E7%94%9F%E6%88%90%E5%85%AC%E9%92%A5-2022-02-05-23-31-16.png" srcset="/img/loading.gif" lazyload><br>众所周知，ssh的端口是22，世界上有那么一群人专门喜欢挨着服务器一个一个的试用户名密码，为了更加的安全，直接把ssh的端口换掉。</p>
+<span id="more"></span>
 
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>修改配置文件<code>/etc/ssh/sshd_config</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/ssh/sshd_config<br></code></pre></td></tr></table></figure>
 
+<p>找到Port这个配置项，修改为你想要的端口号</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs diff">Include /etc/ssh/sshd_config.d/*.conf<br><span class="hljs-deletion">- #Port 22</span><br><span class="hljs-addition">+ Port 222</span><br>#AddressFamily any<br>AddressFamily inet<br></code></pre></td></tr></table></figure>
 
+<h2 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo <span class="hljs-regexp">/etc/i</span>nit.d/ssh restart<br></code></pre></td></tr></table></figure>
 
-              </div>
-            </div>
+<h2 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h2><p>如果是购买的服务器，需要打开控制台把222端口放行</p>
+<p><img src="https://image.glwsq.cn/img/%E4%BF%AE%E6%94%B9ssh%E7%9A%84%E8%AE%BF%E9%97%AE%E7%AB%AF%E5%8F%A3-2022-02-10-18-40-53.png" srcset="/img/loading.gif" lazyload></p>
+<div class="note note-success">
+            <p>相关文章推荐：</p><ul><li><a href="/post/github-clone-ssh/">GitHub clone切换为ssh方式</a></li><li><a href="/post/ssh-port/">修改ssh的访问端口</a></li></ul>
           </div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E5%AE%8C%E6%88%90/">创作完成</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ssh/">ssh</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0/">精选文章</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -335,6 +476,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+  
 
 
 
