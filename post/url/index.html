@@ -21,7 +21,7 @@
     <meta name="description" content="一些常用网站汇总">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站推荐">
-<meta property="og:url" content="https://www.glwsq.cn/post/best-loved-websits-old/index.html">
+<meta property="og:url" content="https://www.glwsq.cn/post/url/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
 <meta property="og:description" content="一些常用网站汇总">
 <meta property="og:locale" content="zh_CN">
@@ -205,7 +205,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      2k 字
     </span>
   
 
@@ -214,7 +214,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      17 分钟
     </span>
   
 
@@ -262,168 +262,199 @@
             <div class="markdown-body">
               <h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2>
 <div id="app">
-			<!-- 输入框 开始 -->
-			<div v-if="isLogin">
-				<table>
-					<tr>
-						<td>网址</td>
-						<td><input v-model="urlItem.url" type="text"></td>
-					</tr>
-					<tr>
-						<td>标题</td>
-						<td><input v-model="urlItem.title" type="text"></td>
-					</tr>
-					<tr>
-						<td>介绍</td>
-						<td><input v-model="urlItem.description" type="text"></td>
-					</tr>
-					<tr>
-						<td>标签</td>
-						<td><input name="tags" v-model.array="urlItem.tags" type="text"></td>
-					</tr>
-				</table>
-				<button class="primary" @click="addUrl">添加</button>
-			</div>
-			<!-- 输入框 结束 -->
-			<!-- 网址列表 开始 -->
-			<span v-show="msg">{{msg}}</span>
-			<div v-for="(urls, index) in urlsByTag" :key="index">
-				<h2 :id="index"><a :href="`#${index}`" class="headerlink" :title="index"></a>{{index}}<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" :href="`#${index}`" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
-				<span v-for="url in urls" :key = 'url.url'>
-					<a class="btn" :href="url.url" :title="url.description" target="_blank">{{url.title}}</a> 
+    <!-- 输入框 开始 -->
+    <div v-if="isLogin">
+        <table>
+            <tr>
+                <td>网址</td>
+                <td><input v-model="urlItem.url" type="text"></td>
+            </tr>
+            <tr>
+                <td>标题</td>
+                <td><input v-model="urlItem.title" type="text"></td>
+            </tr>
+            <tr>
+                <td>介绍</td>
+                <td><input v-model="urlItem.description" type="text"></td>
+            </tr>
+            <tr>
+                <td>标签</td>
+                <td><input name="tags" v-model.array="urlItem.tags" type="text"></td>
+            </tr>
+        </table>
+        <button class="primary" @click="addUrl">添加</button>
+    </div>
+    <!-- 输入框 结束 -->
+    <br>
+    <textarea style="width: 100%; height: 200px;">{{mdUrl}}</textarea>
+    <!-- 网址列表 开始 -->
+    <span v-show="msg">{{msg}}</span>
+    <div v-for="(urls, index) in urlsByTag" :key="index">
+        <h2 :id="index"><a :href="`#${index}`" class="headerlink" :title="index"></a>{{index}}<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" :href="`#${index}`" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+        <span v-for="url in urls" :key = 'url.url'>
+					<a class="btn" :href="url.url" :title="url.description" target="_blank">{{url.title}}</a>
 					<template v-if="isLogin">
 					 <!-- tag: {{url.tags | handleTag}} -->
 					 <button @click="edit(url)">编辑</button>
-					 <button @click="remove(url)">删除</button>						
+					 <button @click="remove(url)">删除</button>
 					</template>
 					<br v-if="isLogin">
 				</span>
-			</div>
-			<!-- 网址列表 结束 -->
+    </div>
+    <!-- 网址列表 结束 -->
 </div>
 
 
-
-
-
-
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/vue.js"></script>
-	<script type="text/javascript">
-		Vue.config.productionTip = false;
-		let base_url = 'https://server.glwsq.cn/1.1/classes/Urls'
-		let headers = {
-			'X-LC-Id': 'Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz',
-			'X-LC-Key': 'pFVTY6Uxn0qQKOhbJBROqbTi',
-			'Content-Type': 'application/json'
-		}
-		new Vue({
-			el: "#app",
-			filters: {
-				handleTag(val) {
-					return val
-				}
-			},
-			data: {
-				msg: '正在查询',
-				urlItem: {
-					url:'',
-					title: '',
-					description: '',
-					tags: ''
-				},
-				urls:[],
-			},
-			methods: {
-				getAllUrls() {
-					this.msg = '正在查询数据'
-					axios({
-							method: "GET",
-							url: `${base_url}/61e1028fc6c65335c8f9c66f`,
-							headers
-					}).then((res)=> {
-							 // console.log(res.data.urls)
-							 this.urls = res.data.urls
-							 this.msg = ''
-					});
-				},
-				setAllUrls() {
-					console.log({urls:this.urls})
-					axios({
-							method: "PUT",
-							url: `${base_url}/61e1028fc6c65335c8f9c66f`,
-							data: {urls:this.urls},
-							headers
-					}).then((res)=> {
-							 console.log('保存成功', res.data)
-							 // this.urls = res.data.urls
-					}, (err)=>{
-						console.log('保存失败', err.message)
-					});
-				},
-				addUrl() {
-					let isEdit = false;
-					for(let i in this.urls) {
-						if(this.urls[i].url === this.urlItem.url) {
-							this.$set(this.urls, i, {...this.urlItem})
-							this.urlItem = {}
-							isEdit = true;
-						}
-					}
-					if(isEdit) {
-						this.save()
-						this.msg="修改成功"
-						return  // 不需要添加了
-					}
-					this.urls.push({...this.urlItem})
-					this.urlItem = {}
-					this.save()
-					this.msg="添加成功"
-				},
-				edit(url) {
-					this.urlItem = {...url}
-				},
-				remove(urlItem) {
-					this.urls = this.urls.filter((url)=>{
-						return url.url !== urlItem.url
-					})
-					this.save()
-				},
-				save() {
-					// localStorage.setItem('blog-urls-data', JSON.stringify(this.urls))
-					this.setAllUrls()
-				}
-			},
-			mounted() {
-				this.getAllUrls()
-			},
-			computed:{
-				urlsByTag() {
-					// {'小工具':[]}
-					let tagUrls = {}
-					for(let url of this.urls) {
-						if(!url.tags) {
-							url.tags = ''
-						}
-						let tags = url.tags.split(' ');
-						for(let tag of tags) {
-							if(tag === '') tag = '未分类'
-							if(tagUrls[tag]) {
-								// 这个标签已经存在
-								tagUrls[tag].push(url);
-							} else {
-								tagUrls[tag] = [url]
-							}
-						}
-					}
-					return tagUrls
-				},
-				isLogin() {
-					return localStorage.getItem('isLogin')
-				}
-			}
-		})
-	</script>
+<script src="http://www.glwsq.cn/js/vue.js"></script>
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+    let base_url = 'https://server.glwsq.cn/1.1/classes/Urls'
+    let headers = {
+        'X-LC-Id': 'Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz',
+        'X-LC-Key': 'pFVTY6Uxn0qQKOhbJBROqbTi',
+        'Content-Type': 'application/json'
+    }
+    new Vue({
+        el: "#app",
+        filters: {
+            handleTag(val) {
+                return val
+            }
+        },
+        data: {
+            msg: '正在查询',
+            urlItem: {
+                url:'',
+                title: '',
+                description: '',
+                tags: ''
+            },
+            urls:[],
+        },
+        methods: {
+            getAllUrls() {
+                this.msg = '正在查询数据'
+                axios({
+                    method: "GET",
+                    url: `${base_url}/61e1028fc6c65335c8f9c66f`,
+                    headers
+                }).then((res)=> {
+                    // console.log(res.data.urls)
+                    this.urls = res.data.urls
+                    this.msg = ''
+                });
+            },
+            setAllUrls() {
+                console.log({urls:this.urls})
+                axios({
+                    method: "PUT",
+                    url: `${base_url}/61e1028fc6c65335c8f9c66f`,
+                    data: {urls:this.urls},
+                    headers
+                }).then((res)=> {
+                    console.log('保存成功', res.data)
+                    // this.urls = res.data.urls
+                }, (err)=>{
+                    console.log('保存失败', err.message)
+                });
+            },
+            addUrl() {
+                let isEdit = false;
+                for(let i in this.urls) {
+                    if(this.urls[i].url === this.urlItem.url) {
+                        this.$set(this.urls, i, {...this.urlItem})
+                        this.urlItem = {}
+                        isEdit = true;
+                    }
+                }
+                if(isEdit) {
+                    this.save()
+                    this.msg="修改成功"
+                    return  // 不需要添加了
+                }
+                this.urls.push({...this.urlItem})
+                this.urlItem = {}
+                this.save()
+                this.msg="添加成功"
+            },
+            edit(url) {
+                this.urlItem = {...url}
+            },
+            remove(urlItem) {
+                this.urls = this.urls.filter((url)=>{
+                    return url.url !== urlItem.url
+                })
+                this.save()
+            },
+            save() {
+                // localStorage.setItem('blog-urls-data', JSON.stringify(this.urls))
+                this.setAllUrls()
+            }
+        },
+        mounted() {
+            this.getAllUrls()
+        },
+        computed:{
+            mdUrl() {
+            //     <div v-for="(urls, index) in urlsByTag" :key="index">
+            //         <h2 :id="index"><a :href="`#${index}`" class="headerlink" :title="index"></a>{{index}}<a class="anchorjs-link " aria-label="Anchor" data-anchorjs-icon="" :href="`#${index}`" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+            //     <span v-for="url in urls" :key = 'url.url'>
+            //         <a class="btn" :href="url.url" :title="url.description" target="_blank">{{url.title}}</a>
+            //     <template v-if="isLogin">
+            //         <!-- tag: {{url.tags | handleTag}} -->
+            //         <button @click="edit(url)">编辑</button>
+            //     <button @click="remove(url)">删除</button>
+            // </template>
+            //     <br v-if="isLogin">
+            //     </span>
+            // </div>
+            //     ## 个人使用
+            //
+            //     {% btn https://engine.glwsq.cn/, 博客留言, 博客留言管理 %}
+
+                let html = ''
+
+                for(let index in this.urlsByTag) {
+                    let title = index
+                    let urls = this.urlsByTag[index]
+
+                    html += `## ${title}\n\n`
+                    for(let url of urls) {
+                        html += `{% btn ${url.url}, ${url.title}, ${url.description} %} \n`
+                    }
+                    html += `\n`
+                }
+
+              return html
+            },
+            urlsByTag() {
+                // {'小工具':[]}
+                let tagUrls = {}
+                for(let url of this.urls) {
+                    if(!url.tags) {
+                        url.tags = ''
+                    }
+                    let tags = url.tags.split(' ');
+                    for(let tag of tags) {
+                        if(tag === '') tag = '未分类'
+                        if(tagUrls[tag]) {
+                            // 这个标签已经存在
+                            tagUrls[tag].push(url);
+                        } else {
+                            tagUrls[tag] = [url]
+                        }
+                    }
+                }
+                return tagUrls
+            },
+            isLogin() {
+                return true
+                return localStorage.getItem('isLogin')
+            }
+        }
+    })
+</script>
 
 
 
