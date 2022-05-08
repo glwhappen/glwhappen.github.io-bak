@@ -18,22 +18,22 @@
   <meta name="author" content="郭力玮">
   <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
   
-    <meta name="description" content="nodejs1docker run -d -it -v &#x2F;home&#x2F;ubuntu&#x2F;code&#x2F;node:&#x2F;home&#x2F;node -p 4000:4000 --name nodejs node &#x2F;bin&#x2F;bash  mysqlubuntu用户下安装 5.7配置文件路径：&#x2F;home&#x2F;ubuntu&#x2F;mysql&#x2F;conf数据文件路径：&#x2F;home&#x2F;ubuntu&#x2F;mysql&#x2F;datamysql密码：123456">
+    <meta name="description" content="参考:配置文档: https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;7e788634257b搭建方法: https:&#x2F;&#x2F;blog.csdn.net&#x2F;dorlolo&#x2F;article&#x2F;details&#x2F;119336687错误解决: https:&#x2F;&#x2F;blog.csdn.net&#x2F;nbxuwentao&#x2F;article&#x2F;details&#x2F;106090489https:&#x2F;&#x2F;www.gl.sh.cn&#x2F;2021&#x2F;0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker安装镜像记录">
-<meta property="og:url" content="https://www.glwsq.cn/post/docker-image-install/index.html">
+<meta property="og:title" content="进程管理工具supervisor的使用、常见报错问题处理">
+<meta property="og:url" content="https://www.glwsq.cn/post/96de12a8/index.html">
 <meta property="og:site_name" content="Happen&#39;s Blog">
-<meta property="og:description" content="nodejs1docker run -d -it -v &#x2F;home&#x2F;ubuntu&#x2F;code&#x2F;node:&#x2F;home&#x2F;node -p 4000:4000 --name nodejs node &#x2F;bin&#x2F;bash  mysqlubuntu用户下安装 5.7配置文件路径：&#x2F;home&#x2F;ubuntu&#x2F;mysql&#x2F;conf数据文件路径：&#x2F;home&#x2F;ubuntu&#x2F;mysql&#x2F;datamysql密码：123456">
+<meta property="og:description" content="参考:配置文档: https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;7e788634257b搭建方法: https:&#x2F;&#x2F;blog.csdn.net&#x2F;dorlolo&#x2F;article&#x2F;details&#x2F;119336687错误解决: https:&#x2F;&#x2F;blog.csdn.net&#x2F;nbxuwentao&#x2F;article&#x2F;details&#x2F;106090489https:&#x2F;&#x2F;www.gl.sh.cn&#x2F;2021&#x2F;0">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-14T12:17:10.000Z">
-<meta property="article:modified_time" content="2022-02-14T12:17:10.000Z">
+<meta property="article:published_time" content="2022-04-28T03:55:22.000Z">
+<meta property="article:modified_time" content="2022-04-28T03:55:22.000Z">
 <meta property="article:author" content="郭力玮">
 <meta property="article:tag" content="创作中">
 <meta property="article:tag" content="首页">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>docker安装镜像记录 - Happen&#39;s Blog</title>
+  <title>进程管理工具supervisor的使用、常见报错问题处理 - Happen&#39;s Blog</title>
 
   <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="docker安装镜像记录">
+            <span class="h2" id="subtitle" title="进程管理工具supervisor的使用、常见报错问题处理">
               
             </span>
 
@@ -193,8 +193,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-02-14 20:17" pubdate>
-        2022年2月14日 晚上
+      <time datetime="2022-04-28 11:55" pubdate>
+        2022年4月28日 中午
       </time>
     </span>
   
@@ -204,7 +204,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.8k 字
     </span>
   
 
@@ -213,7 +213,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      24 分钟
     </span>
   
 
@@ -250,45 +250,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">docker安装镜像记录</h1>
+            <h1 style="display: none">进程管理工具supervisor的使用、常见报错问题处理</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月14日 晚上
+                  本文最后更新于：2022年4月28日 中午
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs crmsh">docker run -d -it -v /home/ubuntu/code/<span class="hljs-keyword">node</span><span class="hljs-title">:/home</span>/<span class="hljs-keyword">node</span> <span class="hljs-title">-p</span> <span class="hljs-number">4000</span>:<span class="hljs-number">4000</span> --name nodejs <span class="hljs-keyword">node</span> <span class="hljs-title">/bin</span>/bash<br></code></pre></td></tr></table></figure>
+              <blockquote>
+<p>参考:<br>配置文档: <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7e788634257b">https://www.jianshu.com/p/7e788634257b</a><br>搭建方法: <a target="_blank" rel="noopener" href="https://blog.csdn.net/dorlolo/article/details/119336687">https://blog.csdn.net/dorlolo/article/details/119336687</a><br>错误解决: <a target="_blank" rel="noopener" href="https://blog.csdn.net/nbxuwentao/article/details/106090489">https://blog.csdn.net/nbxuwentao/article/details/106090489</a><br><a target="_blank" rel="noopener" href="https://www.gl.sh.cn/2021/02/27/shi_yong_supervisor_guan_li_jin_cheng_guan_li_docker_de_jin_cheng.html">https://www.gl.sh.cn/2021/02/27/shi_yong_supervisor_guan_li_jin_cheng_guan_li_docker_de_jin_cheng.html</a></p>
+</blockquote>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><ul>
+<li><code>/etc/supervisor/supervisor.conf</code>主配置文件。<br>一般用于配置supservisor的通用参数，如指定自动加载的目录，设置http服务地址等。</li>
+<li><code>/etc/supervisor/conf.d</code>自定义的进程管理文件存放目录。<br>主要添加进程名、进程组、进程的启动命令、进程的log日志路径等参数。</li>
+</ul>
+<p>修改完配置文件以后，需要载入最新的配置文件，重启所有进程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">supervisorctl reload <span class="hljs-comment"># 如果重启不了，就用下面的重新开</span><br>supervisord -c /etc/supervisor/supervisord.conf<br></code></pre></td></tr></table></figure>
 
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><p>ubuntu用户下安装 5.7<br>配置文件路径：/home/ubuntu/mysql/conf<br>数据文件路径：/home/ubuntu/mysql/data<br>mysql密码：123456</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker run -d -p <span class="hljs-number">3306</span>:<span class="hljs-number">3306</span> -v <span class="hljs-regexp">/home/u</span>buntu<span class="hljs-regexp">/mysql/</span>conf:<span class="hljs-regexp">/etc/my</span>sql<span class="hljs-regexp">/conf.d -v /</span>home<span class="hljs-regexp">/ubuntu/my</span>sql<span class="hljs-regexp">/data:/</span>var<span class="hljs-regexp">/lib/my</span>sql -e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> --name mysql57 mysql:<span class="hljs-number">5.7</span><br></code></pre></td></tr></table></figure>
+<h2 id="我的配置文件"><a href="#我的配置文件" class="headerlink" title="我的配置文件"></a>我的配置文件</h2><p>/etc/supervisor/supervisord.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">; supervisor config file</span><br><br><span class="hljs-section">[unix_http_server]</span><br><span class="hljs-attr">file</span>=/var/run/supervisor.sock   <span class="hljs-comment">; (the path to the socket file)</span><br><span class="hljs-attr">chmod</span>=<span class="hljs-number">0700</span>                       <span class="hljs-comment">; sockef file mode (default 0700)</span><br><br><br><span class="hljs-section">[inet_http_server]</span>         <span class="hljs-comment">;HTTP server web</span><br><br><span class="hljs-attr">port</span>=<span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span>:<span class="hljs-number">7777</span>        <span class="hljs-comment">; port</span><br><span class="hljs-attr">username</span>=admin              <span class="hljs-comment">; username</span><br><span class="hljs-attr">password</span>=admin               <span class="hljs-comment">; password</span><br><br><br><span class="hljs-section">[supervisord]</span><br><span class="hljs-attr">logfile</span>=/var/log/supervisor/supervisord.log <span class="hljs-comment">; (main log file;default $CWD/supervisord.log)</span><br><span class="hljs-attr">pidfile</span>=/var/run/supervisord.pid <span class="hljs-comment">; (supervisord pidfile;default supervisord.pid)</span><br><span class="hljs-attr">childlogdir</span>=/var/log/supervisor            <span class="hljs-comment">; (&#x27;AUTO&#x27; child log dir, default $TEMP)</span><br><br><span class="hljs-comment">; the below section must remain in the config file for RPC</span><br><span class="hljs-comment">; (supervisorctl/web interface) to work, additional interfaces may be</span><br><span class="hljs-comment">; added by defining them in separate rpcinterface: sections</span><br><span class="hljs-section">[rpcinterface:supervisor]</span><br><span class="hljs-attr">supervisor.rpcinterface_factory</span> = supervisor.rpcinterface:make_main_rpcinterface<br><br><span class="hljs-section">[supervisorctl]</span><br><span class="hljs-attr">serverurl</span>=unix:///var/run/supervisor.sock <span class="hljs-comment">; use a unix:// URL  for a unix socket</span><br><br><span class="hljs-comment">; The [include] section can just contain the &quot;files&quot; setting.  This</span><br><span class="hljs-comment">; setting can list multiple files (separated by whitespace or</span><br><span class="hljs-comment">; newlines).  It can also contain wildcards.  The filenames are</span><br><span class="hljs-comment">; interpreted as relative to this file.  Included files *cannot*</span><br><span class="hljs-comment">; include files themselves.</span><br><br><span class="hljs-section">[include]</span><br><span class="hljs-attr">files</span> = /etc/supervisor/conf.d/*.conf<br></code></pre></td></tr></table></figure>
 
-<p>root用户下安装 8.0<br>配置文件路径：/root/mysql/conf<br>数据文件路径：/root/mysql/data<br>mysql密码：123456</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d -p 3316:3306 -v /root/mysql/conf:/etc/mysql/conf.d -v /root/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql80 mysql:8.0<br></code></pre></td></tr></table></figure>
+<p>/etc/supervisor/conf.d/a.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[group:group1]</span> <span class="hljs-comment"># 创建一个应用组</span><br>programs= <span class="hljs-comment"># 应用组中的程序名</span><br><span class="hljs-attr">stopasgroup</span>=<span class="hljs-literal">true</span><br><br><span class="hljs-section">[program:frp]</span> <span class="hljs-comment"># frp应用程序启动参数</span><br><span class="hljs-attr">command</span>=/root/frp/frps -c /root/frp/frps.ini <span class="hljs-comment">#解释器要用绝对路径，后进默认在directory变量指定的目录中</span><br><span class="hljs-attr">directory</span>=/root/frp <span class="hljs-comment">#应用路径</span><br><span class="hljs-attr">user</span>=root<br><span class="hljs-attr">autostart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">autorestart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">redirect_stderr</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">stdout_logfile</span>=/root/frp/log.out<br><span class="hljs-attr">loglvel</span>=info<br><br><br><span class="hljs-section">[program: nginx]</span> <span class="hljs-comment"># https://blog.csdn.net/weixin_44449055/article/details/88966342</span><br><span class="hljs-attr">command</span>=/usr/local/nginx/sbin/nginx  -g <span class="hljs-string">&#x27;daemon off;&#x27;</span><br><span class="hljs-attr">directory</span>=/root <span class="hljs-comment">;</span><br><span class="hljs-attr">autorestart</span>=<span class="hljs-literal">true</span> <span class="hljs-comment">;</span><br><span class="hljs-attr">autostart</span>=<span class="hljs-literal">true</span> <span class="hljs-comment">;</span><br><span class="hljs-attr">stderr_logfile</span>=/root/supervisor_log/nginx_err.out<br><span class="hljs-attr">stdout_logfile</span>=/root/supervisor_log/nginx.out<br><span class="hljs-attr">user</span>=root <span class="hljs-comment">;</span><br><span class="hljs-attr">stopsignal</span>=INT<br><span class="hljs-attr">startsecs</span>=<span class="hljs-number">10</span> <span class="hljs-comment">;</span><br><span class="hljs-attr">startretries</span>=<span class="hljs-number">5</span> <span class="hljs-comment">;</span><br><span class="hljs-attr">stopasgroup</span>=<span class="hljs-literal">true</span><br><br><br><span class="hljs-section">[program:webhook]</span> <span class="hljs-comment"># frp应用程序启动参数</span><br><span class="hljs-attr">command</span>=/usr/bin/webhook -hooks /home/ubuntu/webhook/hooks.json -verbose <span class="hljs-comment">#解释器要用绝对路径，后进默认在directory变量指定的目录中</span><br><span class="hljs-attr">directory</span>=/root <span class="hljs-comment">#应用路径</span><br><span class="hljs-attr">user</span>=root<br><span class="hljs-attr">autostart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">autorestart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">redirect_stderr</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">stdout_logfile</span>=/root/supervisor_log/webhook.out<br><br></code></pre></td></tr></table></figure>
 
-
-<h2 id="phpmyadmin"><a href="#phpmyadmin" class="headerlink" title="phpmyadmin"></a>phpmyadmin</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个phpmyadmin，直接使用mysql80这个docker容器中的mysql</span><br>docker run --name myadmin -d --link mysql80:db -p 8999:80 phpmyadmin<br><br><span class="hljs-comment"># 创建一个phpmyadmin，PMA_ARBITRARY当设置为 1 时，将允许与任意服务器连接</span><br>docker run --name myadmin -e PMA_ARBITRARY=1 -d -p 8999:80 phpmyadmin<br></code></pre></td></tr></table></figure>
-
-<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/_/redis?tab=description">https://hub.docker.com/_/redis?tab=description</a></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">docker</span> run -itd --name redis -p <span class="hljs-number">6379</span>:<span class="hljs-number">6379</span> redis<br></code></pre></td></tr></table></figure>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/usr/</span>bin<span class="hljs-regexp">/webhook -hooks /</span>home<span class="hljs-regexp">/ubuntu/</span>webhook/hooks.json -verbose<br></code></pre></td></tr></table></figure>
 
 
-<h2 id="portainer-docker可视化管理工具"><a href="#portainer-docker可视化管理工具" class="headerlink" title="portainer - docker可视化管理工具"></a>portainer - docker可视化管理工具</h2><p>Docker图形化界面管理工具！提供一个后台面板让我们操作</p>
-<p>–restart=always参数能够使我们在重启docker时，自动启动相关容器。</p>
-<p>–privileged=true 使用该参数，container内的root拥有真正的root权限。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle">docker run -d -p <span class="hljs-number">9000</span>:<span class="hljs-number">9000</span> --restart=always -v <span class="hljs-regexp">/var/</span>run<span class="hljs-regexp">/docker.sock:/</span>var<span class="hljs-regexp">/run/</span>docker.sock --privileged=<span class="hljs-keyword">true</span> portainer/portainer-ce<br></code></pre></td></tr></table></figure>
-
-<p>可以访问 https://服务器ip:9000 查看web管理界面</p>
-<h2 id="带ssh的ubuntu镜像"><a href="#带ssh的ubuntu镜像" class="headerlink" title="带ssh的ubuntu镜像"></a>带ssh的ubuntu镜像</h2><p>ubuntu版本对应名称</p>
-<p>12.04 (precise)<br>12.10 (quantal)<br>13.04 (raring)<br>13.10 (saucy)<br>14.04 (trusty)<br>16.04 (xenial)<br>18.04 (bionic)</p>
-<p>docker run -d -p 2223:22 -e ROOT_PASS=”密码” tutum/ubuntu:latest</p>
-<p>docker run -d -p 42222:22 -e ROOT_PASS=”密码” –name=ubuntu-test tutum/ubuntu:latest</p>
-<h2 id="csgo"><a href="#csgo" class="headerlink" title="csgo"></a>csgo</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -d <span class="hljs-attribute">--net</span>=host -v /home/ubuntu/usr/local/csgo-data:/home/steam/csgo-dedicated/ <span class="hljs-attribute">--name</span>=csgo-dedicated20 -e <span class="hljs-attribute">SRCDS_PORT</span>=27026 -e <span class="hljs-attribute">SRCDS_TV_PORT</span>=27031 -e <span class="hljs-attribute">SRCDS_TOKEN</span>=ABC7091B508EBFBB3BA0CE578CA82041 cm2network/csgo:sourcemod<br><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
