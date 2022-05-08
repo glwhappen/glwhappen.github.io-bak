@@ -1,3 +1,4 @@
+https://www.glwsq.cn/post/freelinux/
 https://www.glwsq.cn/post/ssh-tools/
 https://www.glwsq.cn/post/e6e3ebe0/
 https://www.glwsq.cn/post/16a627d2/
@@ -47,4 +48,3 @@ https://www.glwsq.cn/post/BV13A411w79h/
 https://www.glwsq.cn/post/switch-node-version/
 https://www.glwsq.cn/post/npmmirror/
 https://www.glwsq.cn/post/87a7dd59/
-https://www.glwsq.cn/post/e32105ea/
