@@ -4,11 +4,53 @@
   
   
   <entry>
+    <title>uTools文档备份</title>
+    <link href="/post/176c2715/"/>
+    <url>/post/176c2715/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://yuanliao.info/d/1166-utools">https://yuanliao.info/d/1166-utools</a></p><p>下面的方法只针对windows系统，不过mac也有自己的实现方法。</p><h2 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h2><p>退出uTools</p><p>mklink /d “D:\BaiduSyncdisk\utools” “C:\Users%UserName%\AppData\Roaming\uTools”</p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>其实就是软链接的简单应用啦ヾ(•ω•`)o</p><p>我比较讨厌软件安装到C盘或者把数据一股脑儿往C盘塞，所以会有几个单独的分区用来存软件和数据（像vscode拓展，也可以像下面一样操作）</p><p>具体操作是这样的：</p><ol><li>退出uTools</li><li>win+R 后输入 %APPDATA%，找到uTools文件夹（假设目前uTools文件夹的路径是 C:\Users\fakeuser\AppData\Roaming\uTools）</li><li>选中uTools文件夹，剪切到你想要的任何位置（你没看错是剪切）（假设剪切后uTools文件夹的路径为 D:\fakepath\uTools）</li><li>win+R 后输入 cmd，打开cmd窗口</li><li>在cmd窗口中输入mklink /d “C:\Users\fakeuser\AppData\Roaming\uTools” “D:\fakepath\uTools”，回车（记得替换路径）</li></ol><p>完成上述操作后，你会发现原来的AppData目录中出现了一个类似快捷方式的uTools目录，但是仅仅是类似，实际上是创建了一个软链接，普通的快捷方式是没法达到这个目的的。</p><p>这样就能让uTools不占用C盘空间，将数据储存到其他地方了。</p><p>mklink /d “C:\Users\15977\AppData\Roaming\uTools” “F:\BaiduNetdiskWorkspace\AppData\utools\utools”</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>创作中</tag>
+      
+      <tag>首页</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>看过的电影</title>
+    <link href="/post/99b7b15a/"/>
+    <url>/post/99b7b15a/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>电影零零散散也看过不少，但是让我叙述一下其中的某一部电影感觉又无话可说，专门开一篇文章记录一下看电影时候的想法，这样也不会觉得只是浪费时间的看了一部电影，至少有一点收获。</p></blockquote><span id="more"></span><h2 id="神奇动物在哪里"><a href="#神奇动物在哪里" class="headerlink" title="神奇动物在哪里"></a>神奇动物在哪里</h2><link rel="stylesheet" type="text/css" href="/static/hexo-tag-mtime.css" /><div class="mtime-movie_card"><div class="mtime-info_section"><div class="mtime-movie_header"><img src="https://img5.mtime.cn/mt/2016/10/26/095432.57742613_1280X720X2.jpg" class="mtime-locandina"><h3 id="神奇动物在哪里">神奇动物在哪里</h3><h4 id="神奇动物在哪里">2016，大卫·耶茨</h4><div><span class="mtime-minutes">133分钟</span><p class="mtime-type">奇幻，家庭，冒险</p></div></div><div class="mtime-movie_desc"><p class="mtime-text">1926年纽约的魔法世界，危机四伏。某个神秘的力量在街头制造了一连串的破坏，并扬言要向反魔法师狂热组织'第二塞勒姆'揭露魔法社会的存在，并借他们的手斩草除根。而强大的黑魔法师盖勒特·格林德沃，在欧洲制造了浩劫后消身匿迹，至今没人能寻得其踪。　　魔法动物学家纽特·斯卡曼德抵达纽约时，对这日益严重的紧张气氛毫不知情。他即将结束对神奇魔法动物的研究和营救工作开展的环球之旅。在他看似其貌不扬的魔法皮箱里，其实保护着不少神奇魔法动物。但意外还是猝不及防地发生了，一个叫雅各布·科瓦斯基的麻鸡无意间放跑了几个纽特的神奇魔法动物，而此时的纽约魔法界正处于最为动荡不安的时刻 -因严重违反保密法令被停职的前傲罗蒂娜·戈德斯坦恩一把抓住这个机会，想重回自己以前调查员的职位。但是，神秘莫测的美国魔法国会魔法安全部长帕西瓦尔·格雷夫斯却同时怀疑上纽特和蒂娜，事态突然变得凶险异常。　　自此，不得不合作的纽特和蒂娜，以及蒂娜的妹妹奎妮和他们的新麻鸡朋友雅各布，凑成了一支冒险小队，他们必须尽快找到走丢的神奇动物，以免它们遭受不测。然而，真正的危险，远比这四个上了通缉名单的局外人兼逃犯想象的要严重得多。他们与黑暗势力产生了正面冲突，魔法和麻鸡两界的战争可能因此一触即发。</p></div></div><div class="mtime-blur_back" style="background: url(https://img31.mtime.cn/pi/2015/11/16/095136.88394195_1000X1000.jpg); no-repeat fixed;background-size: cover;"></div></div><p>观看时间: 2022-05-16</p><h2 id="哈利·波特系列的50个精彩瞬间"><a href="#哈利·波特系列的50个精彩瞬间" class="headerlink" title="哈利·波特系列的50个精彩瞬间"></a>哈利·波特系列的50个精彩瞬间</h2><link rel="stylesheet" type="text/css" href="/static/hexo-tag-mtime.css" /><div class="mtime-movie_card"><div class="mtime-info_section"><div class="mtime-movie_header"><img src="https://img5.mtime.cn/img2x/mt/2011/08/08/210039.76203047_1280X720X2.jpg" class="mtime-locandina"><h3 id="哈利·波特系列的50个精彩瞬间">哈利·波特系列的50个精彩瞬间</h3><h4 id="哈利·波特系列的50个精彩瞬间">2011，无导演</h4><div><span class="mtime-minutes"></span><p class="mtime-type">纪录片</p></div></div><div class="mtime-movie_desc"><p class="mtime-text">英国ITV电视台回顾哈利波特系列的纪录片，但不包括《哈7下》。</p></div></div><div class="mtime-blur_back" style="background: url(https://img5.mtime.cn/img2x/mt/2011/08/08/210039.76203047_1280X720X2.jpg); no-repeat fixed;background-size: cover;"></div></div><p>观看时间：2022-05-14</p><h3 id="个人评价"><a href="#个人评价" class="headerlink" title="个人评价"></a>个人评价</h3><p>无意中看到了居然还有记录片，然后去B站搜了搜，发现居然有1个多小时，跟看个电影一样，一口气看完，回味了一遍哈利波特全集。</p><p>纪录片讲述的50个瞬间没有包含最后一部，是在最后一部上映前发出来的，所以并没有斯内普流泪这一个感人的镜头</p><h3 id="视频截图"><a href="#视频截图" class="headerlink" title="视频截图"></a>视频截图</h3><div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="https://image.glwsq.cn/img/%E7%9C%8B%E8%BF%87%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AE%B0%E5%BD%95%E5%88%86%E4%BA%AB-2022-05-14-16-15-48.png"></div><div class="group-image-wrap"><img src="https://image.glwsq.cn/img/%E7%9C%8B%E8%BF%87%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AE%B0%E5%BD%95%E5%88%86%E4%BA%AB-2022-05-14-16-16-23.png"></div></div></div><h3 id="J·K·罗琳的哈利波特粉丝交流网站"><a href="#J·K·罗琳的哈利波特粉丝交流网站" class="headerlink" title="J·K·罗琳的哈利波特粉丝交流网站"></a>J·K·罗琳的哈利波特粉丝交流网站</h3><p><img src="https://image.glwsq.cn/img/%E7%9C%8B%E8%BF%87%E7%9A%84%E7%94%B5%E5%BD%B1%E8%AE%B0%E5%BD%95%E5%88%86%E4%BA%AB-2022-05-14-18-18-18.png"></p><p><a href="http://www.pottermore.com/">www.pottermore.com</a></p><hr><h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><link rel="stylesheet" type="text/css" href="/static/hexo-tag-mtime.css" /><div class="mtime-movie_card"><div class="mtime-info_section"><div class="mtime-movie_header"><img src="https://img31.mtime.cn/mt/2014/02/22/234831.84539626_1280X720X2.jpg" class="mtime-locandina"><h3 id="我是谁">我是谁</h3><h4 id="我是谁">1998，陈木胜</h4><div><span class="mtime-minutes">120分钟</span><p class="mtime-type">动作，惊悚，科幻，冒险</p></div></div><div class="mtime-movie_desc"><p class="mtime-text">很多年前，科学家在南非发现了一种一经震动便会产生极强的杀伤力的矿石。中央情报局要独占“魔石”，派特别突击队队员杰克及十一名队友前往南非，他们用先进的武器掳走三名科学家和所有的“魔石”。这时，发生空难事件，致使所有突击队员遇难，只有杰克侥幸生存。他被非洲土著居民在森林中发现，奄奄一息，完全失去记忆。在土著人的照料下，杰克慢慢恢复健康，而对自己的身份和处境茫然无知。他经常问“我是谁”，土著人因此称他为“我是谁”。杰克毅然离开土著人，去寻找自己，他刚一现身，就陷入到追杀的困境中。…</p></div></div><div class="mtime-blur_back" style="background: url(https://img5.mtime.cn/img2x/pi/2011/07/22/201017.57428373_1000X1000.jpg); no-repeat fixed;background-size: cover;"></div></div><p>观看时间：2022-05-13</p><h3 id="个人评价-1"><a href="#个人评价-1" class="headerlink" title="个人评价"></a>个人评价</h3><p>对这部电影的影响是感觉没看过，但是看的时候又感觉看过，可能是成龙很经典的电影了，里面的很多镜头都在其他视频中反复出现过。成龙的电影都是以动作戏为主，而且镜头下看到的大多数都是真实的场景，因此很有代入感。</p><p>在看电影的时候有几句话印象很深，那就是再也不会有这么真实的镜头了，现在的镜头大多都是后期合成的，虽然看起来也是很棒的，但是少了一点韵味吧。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>创作中</tag>
+      
+      <tag>首页</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>免费领取Linux虚拟机</title>
     <link href="/post/freelinux/"/>
     <url>/post/freelinux/</url>
     
-    <content type="html"><![CDATA[<p>我这两天将自己闲置的服务器用docker技术分成了很多个小的Linux虚拟机，如果你想随时随地通过ssh控制一个Linux服务器进行学习的话，不妨来领取一个试试。</p><span id="more"></span><h2 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h2><p><img src="https://image.glwsq.cn/img/%E5%85%8D%E8%B4%B9%E9%A2%86%E5%8F%96Linux%E8%99%9A%E6%8B%9F%E6%9C%BA-2022-05-09-00-12-15.png"></p><p>获取的方法是关注公众号：海上飞棚，发送任意的文字即可<br><img max-width="50px" width="200px" src="https://image.glwsq.cn/img/202202052349959.jpg"></p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>目前的服务器只开放了22端口，可以让你通过ssh来访问，未来的展望是可以让你自行绑定其他端口，例如80、3306端口，当然这要看这个项目受欢迎的程度，如果很多人用的话，肯定会一直做下去。</p><p>这也是我第一次尝试，可能会遇到很多问题，因此这个系统只是让你用来练习Linux命令的，你可以放心大胆的使用<code>rm -rf /*</code>，更不用跑路。</p><h2 id="更多操作"><a href="#更多操作" class="headerlink" title="更多操作"></a>更多操作</h2><p>这个系统是一个精简版的ubuntu系统，如果没有你需要的命令直接安装就好了，例如系统本身是没有tree命令的，那么只需要<code>apt-get install tree</code>就好了</p><blockquote><p>如果你又任何的问题或者建议，可以在下面评论。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>我这两天将自己闲置的服务器用docker技术分成了很多个小的Linux虚拟机，如果你想随时随地通过ssh控制一个Linux服务器进行学习的话，不妨来领取一个试试。</p><span id="more"></span><h2 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h2><p><img src="https://image.glwsq.cn/img/%E5%85%8D%E8%B4%B9%E9%A2%86%E5%8F%96Linux%E8%99%9A%E6%8B%9F%E6%9C%BA-2022-05-09-00-12-15.png"></p><p>获取的方法是关注公众号：海上飞棚，发送任意的文字即可<br><img max-width="50px" width="200px" src="https://image.glwsq.cn/img/202202052349959.jpg"></p><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>目前的服务器只开放了22端口，可以让你通过ssh来访问，未来的展望是可以让你自行绑定其他端口，例如80、3306端口，当然这要看这个项目受欢迎的程度，如果很多人用的话，肯定会一直做下去。</p><p>这也是我第一次尝试，可能会遇到很多问题，因此这个系统只是让你用来练习Linux命令的，你可以放心大胆的使用<code>rm -rf /*</code>，更不用跑路。</p><h2 id="更多操作"><a href="#更多操作" class="headerlink" title="更多操作"></a>更多操作</h2><p>这个系统是一个精简版的ubuntu系统，如果没有你需要的命令直接安装就好了，例如系统本身是没有tree命令的，那么只需要<code>apt-get install tree</code>就好了</p><blockquote><p>如果你有任何的问题或者建议，可以在下面评论。</p></blockquote>]]></content>
     
     
     
