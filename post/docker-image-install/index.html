@@ -74,7 +74,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -185,6 +185,8 @@
           <div class="page-header text-center fade-in-up">
             <span class="h2" id="subtitle" title="docker安装镜像记录">
               
+                docker安装镜像记录
+              
             </span>
 
             
@@ -204,7 +206,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.7k 字
     </span>
   
 
@@ -213,7 +215,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14 分钟
+      15 分钟
     </span>
   
 
@@ -284,6 +286,7 @@
 <p>12.04 (precise)<br>12.10 (quantal)<br>13.04 (raring)<br>13.10 (saucy)<br>14.04 (trusty)<br>16.04 (xenial)<br>18.04 (bionic)</p>
 <p>docker run -d -p 2223:22 -e ROOT_PASS=”密码” tutum/ubuntu:latest</p>
 <p>docker run -d -p 42222:22 -e ROOT_PASS=”密码” –name=ubuntu-test tutum/ubuntu:latest</p>
+<p>docker run -d -p 7022:22 -p 54321:54321 -p 7443:443 -e ROOT_PASS=”gywa2003217” –name=yuanshen tutum/ubuntu:latest</p>
 <h2 id="csgo"><a href="#csgo" class="headerlink" title="csgo"></a>csgo</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker <span class="hljs-builtin-name">run</span> -d <span class="hljs-attribute">--net</span>=host -v /home/ubuntu/usr/local/csgo-data:/home/steam/csgo-dedicated/ <span class="hljs-attribute">--name</span>=csgo-dedicated20 -e <span class="hljs-attribute">SRCDS_PORT</span>=27026 -e <span class="hljs-attribute">SRCDS_TV_PORT</span>=27031 -e <span class="hljs-attribute">SRCDS_TOKEN</span>=ABC7091B508EBFBB3BA0CE578CA82041 cm2network/csgo:sourcemod<br><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
@@ -491,17 +494,6 @@
   <script defer src="/js/leancloud.js" ></script>
 
 
-
-  <script  src="/static/typed.js@2.0.12/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
 
 
 
