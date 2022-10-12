@@ -1,0 +1,917 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/uploads/myavatar.png">
+  <link rel="icon" href="/images/uploads/myavatar.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="郭力玮">
+  <meta name="keywords" content="郭力玮,郭力玮的博客,郭力玮的个人博客,happen,happen&#39;blog">
+  
+    <meta name="description" content="讲的很不错，还简单的分析了一下源码，很有收获">
+<meta property="og:type" content="article">
+<meta property="og:title" content="人工智能基础 | 机器学习入门：Python机器学习算法基础">
+<meta property="og:url" content="https://www.glwsq.cn/post/bc418503/index.html">
+<meta property="og:site_name" content="Happen&#39;s Blog">
+<meta property="og:description" content="讲的很不错，还简单的分析了一下源码，很有收获">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image.glwsq.cn/img/202210041203535.png">
+<meta property="article:published_time" content="2022-10-04T04:01:30.000Z">
+<meta property="article:modified_time" content="2022-10-04T04:01:30.000Z">
+<meta property="article:author" content="郭力玮">
+<meta property="article:tag" content="创作中">
+<meta property="article:tag" content="首页">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://image.glwsq.cn/img/202210041203535.png">
+  
+  
+  <title>人工智能基础 | 机器学习入门：Python机器学习算法基础 - Happen&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="/static/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="/static/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/static/hint@2.7.0/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="/static/highlight.js@11.5.0/styles/github.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1747228_dzugh10xjn7.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"www.glwsq.cn","root":"/","version":"1.8.14","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"b0c2894ddbbad268252b7b7116a0b105","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","app_key":"pFVTY6Uxn0qQKOhbJBROqbTi","server_url":"https://server.glwsq.cn","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Happen&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://image.glwsq.cn/img/202210041203535.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="人工智能基础 | 机器学习入门：Python机器学习算法基础">
+              
+                人工智能基础 | 机器学习入门：Python机器学习算法基础
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-10-04 12:01" pubdate>
+        2022年10月4日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">人工智能基础 | 机器学习入门：Python机器学习算法基础</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年10月4日 中午
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+
+<div class="note note-success">
+            <p>我把我通过哔哩哔哩学习过的视频都记录下来了，方便后期复习。如果你也在学习相关的知识，但是不知道有哪些优质的视频，可以看我的合集，都是学习过的，或者正在学习的。</p>
+          </div>
+
+<p><a href="/bilibili-record/">哔哩哔哩学习记录</a></p>
+
+<p>讲的很不错，还简单的分析了一下源码，很有收获</p>
+
+
+<h2 id="学习记录"><a href="#学习记录" class="headerlink" title="学习记录"></a>学习记录</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=1">P1. 1 人工智能概述</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=2">P2. 2 人工智能发展历程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=3">P3. 3 人工智能主要分支</a><br><img src="https://image.glwsq.cn/img/202210032253805.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=4">P4. 4 人工智能必备三要素</a></p>
+<ul>
+<li>三要素：数据、算法、计算力</li>
+<li>gpu-计算密集型，cpu-IO密集型</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=5">P5. 5 人工智能工作流程概述</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=6">P6. 6 数据集的介绍.</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=7">P7. 7 特征工程介绍</a></p>
+<ul>
+<li>特征工程：把我们的数据转换成机器更容易识别的东西</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=8">P8. 8 机器学习算法分类</a></p>
+<ul>
+<li>监督学习<ul>
+<li>定义：输入数据是由输入特征值和目标值所组成的<ul>
+<li>函数的输出可以是一个连续的值（成为回归）</li>
+<li>输出的是有限个离散值（成为分类）</li>
+</ul>
+</li>
+<li>回归问题<ul>
+<li>预测放假</li>
+</ul>
+</li>
+<li>分类问题<ul>
+<li>预测肿瘤是良性的还是劣性的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>无监督学习<ul>
+<li>定义：输入数据有特征值没有目标值也就是标签</li>
+</ul>
+</li>
+<li>监督学习和无监督的区别<ul>
+<li><img src="https://image.glwsq.cn/img/202210041601727.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+</li>
+<li>半监督学习<ul>
+<li>定义：训练集同时包含有标记样本和未标记样本数据</li>
+</ul>
+</li>
+<li>强化学习<ul>
+<li>定义：动态过程，上一步护具的输出是下一步数据的输入</li>
+<li>四要素：agent，action，environment，Reward</li>
+<li><img src="https://image.glwsq.cn/img/202210041606926.png" srcset="/img/loading.gif" lazyload></li>
+<li><img src="https://image.glwsq.cn/img/202210041607916.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=9">P9. 9 分类模型评估介绍</a></p>
+<ul>
+<li>准确率<ul>
+<li>预测正确的数占样本总数的比例</li>
+</ul>
+</li>
+<li>精确率<ul>
+<li>正确预测为正占全部预测为正的比例</li>
+</ul>
+</li>
+<li>召回率<ul>
+<li>正确预测为正占全部正样本的比例</li>
+</ul>
+</li>
+<li>F1-score<ul>
+<li>主要用于评估模型的稳健性</li>
+</ul>
+</li>
+<li>AUC指标<ul>
+<li>主要用于评估样本不均衡的情况</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=10">P10. 10 回归模型评估和拟合问题</a></p>
+<ul>
+<li>均方根误差（Root Mean Squared Error， RMSE）</li>
+<li>相对平方误差（Relative Squared Error， RSE）</li>
+<li>平均绝对误差（Mean Absolute Error， MAE）</li>
+<li>相对绝对误差（Relative Absolute Error, RAE）</li>
+<li>决定系数（Coefficient of Determination）</li>
+<li>拟合<ul>
+<li>过拟合</li>
+<li>欠拟合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=11">P11. 11 azure平台实验演示</a></p>
+<ul>
+<li>这个演示还是很好的，能整体把握一下机器学习能干什么</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=12">P12. 12 深度学习简介</a></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://playground.tensorflow.org/">https://playground.tensorflow.org/</a></li>
+<li>什么叫深度学习：就是神经元的层数和节点数不断的增加</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=13">P13. 1 机器学习基础环境库的安装</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=14">P14. 2 jupyter基本使用介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=15">P15. 3 jupytermarkdown功能演示</a></p>
+<ul>
+<li>讲的很详细</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=16">P16. 1 matplotlin基本简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=17">P17. 2 基础绘图功能演示 图像保存 xy轴刻度 添加网格</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=18">P18. 3 多次plot和显示图例</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=19">P19. 4 多个坐标系显示图像</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=20">P20. 5 折线图的应用场景</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=21">P21. 6 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=22">P22. 1 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=23">P23. 2 常见图形绘制</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=24">P24. 3 numpy基本介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=25">P25. 4 ndarray介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=26">P26. 5 生成数组</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=27">P27. 6 正态分布和均匀分布</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=28">P28. 7 切片和形状修改</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=29">P29. 8 类型修改和数组去重</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=30">P30. 9 ndarray运算</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=31">P31. 10 矩阵介绍（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=32">P32. 11 矩阵介绍（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=33">P33. 12 数组间运算</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=34">P34. 1 pandas介绍和DataFrame使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=35">P35. 2.案例_电影数据分析2.ev4</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=36">P36. 2.索引操作.ev4</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=37">P37. 3 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=38">P38. 4 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=39">P39. 5 索引操作</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=40">P40. 6 赋值和排序</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=41">P41. 7 算术运算和逻辑运算</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=42">P42. 8 统计运算</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=43">P43. 9 自定义函数运算</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=44">P44. 10 pandas画图</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=45">P45. 11 csv文件读取和存储</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=46">P46. 12 hdf,json数据的读取和存储</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=47">P47. 13 缺失值的判断</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=48">P48. 14 缺失值删除和替换</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=49">P49. 15 缺失值不是NaN的处理情况</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=50">P50. 16 数据离散化</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=51">P51. 17 数据合并</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=52">P52. 18 交叉表和透视表</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=53">P53. 19 分组和聚合</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=54">P54. 20 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=55">P55. 21 科学计算库三天内容复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=56">P56. 22 电影数据分析案例</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=57">P57. 23 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=58">P58. 24 案例-电影数据分析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=59">P59. 1 k近邻算法简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=60">P60. 2 k近邻算的初步使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=61">P61. 3 距离度量（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=62">P62. 4 距离度量（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=63">P63. 5 距离度量（三）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=64">P64. 6 k值的选择</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=65">P65. 7 kd树构造</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=66">P66. 8 kd树搜索(2.1,3.1)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=67">P67. 9 kd树搜索(2,4.5)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=68">P68. 10 数据集介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=69">P69. 11 鸢尾花数据可视化</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=70">P70. 12 数据集划分</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=71">P71. 13 特征预处理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=72">P72. 14 鸢尾花案例实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=73">P73. 15 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=74">P74. 16 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=75">P75. 17 knn算法总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=76">P76. 18 交叉验证</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=77">P77. 19 网格搜索</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=78">P78. 20 facebook案例预测流程分析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=79">P79. 1 线性回归简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=80">P80. 2 线性回归api初步使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=81">P81. 3 数学求导复习（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=82">P82. 4 数学求导复习（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=83">P83. 5 线性回归损失和正规方程推导（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=84">P84. 6 正规方程推导（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=85">P85. 1 梯度下降法初步简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=86">P86. 2 梯度下降法介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=87">P87. 3 正规方程api使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=88">P88. 4 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=89">P89. 5 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=90">P90. 6 梯度下降法案例介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=91">P91. 1 欠拟合过拟合简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=92">P92. 2 岭回归和lasso回归</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=93">P93. 3 弹性网络和early stopping</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=94">P94. 4 岭回归案例实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=95">P95. 5 模型保存和加载</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=96">P96. 1 逻辑回归介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=97">P97. 2 逻辑回归案例实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=98">P98. 3 精确率和召回率介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=99">P99. 4 精确率和召回率api实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=100">P100. 5 roc和auc案例实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=101">P101. 6 roc曲线绘制（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=102">P102. 7 roc曲线绘制（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=103">P103. 8 roc曲线绘制（三）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=104">P104. 1 决策树算法简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=105">P105. 2 信息熵的介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=106">P106. 3 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=107">P107. 4 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=108">P108. 5 信息增益（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=109">P109. 6 信息增益（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=110">P110. 7 信息增益比</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=111">P111. 8 基尼增益（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=112">P112. 9 基尼增益（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=113">P113. 10 cart剪枝介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=114">P114. 11 特征提取介绍和字典特征提取</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=115">P115. 12 英文文本特征提取</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=116">P116. 13 中文文本特征提取</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=117">P117. 14 tfidf介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=118">P118. 15 决策树api介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=119">P119. 16 决策树案例实现</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=120">P120. 17 决策树可视化</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=121">P121. 1 集成学习介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=122">P122. 2 bagging集成过程简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=123">P123. 3 随机森林介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=124">P124. 4 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=125">P125. 5 昨日复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=126">P126. 6 boosting实现流程分析</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=127">P127. 7 bagging和boosting对比</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=128">P128. 8 GBDT介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=129">P129. 9 XGBoost介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=130">P130. 1 聚类算法简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=131">P131. 2 聚类算法api初步使用</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=132">P132. 3 聚类算法实现流程简介</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=133">P133. 4 聚类算法实现流程案例介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=134">P134. 5 模型评估</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=135">P135. 6 算法优化（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=136">P136. 7 算法优化（二）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=137">P137. 8 特征降维介绍和地低方差特征过滤</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=138">P138. 9 相关系数介绍</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=139">P139. 10 pca降维</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=140">P140. 11 案例-探究用户对物品类别喜好</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=141">P141. 12 今日总结</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=142">P142. 13 机器学习阶段整体内容复习</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1824y1Z7B1?p=143">P143. 14 pubg项目竞赛说明</a></p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Bilibili/">Bilibili</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%88%9B%E4%BD%9C%E4%B8%AD/">创作中</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A6%96%E9%A1%B5/">首页</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.16/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Aoy6FDnKsB5kLWRBO6ofSGNH-gzGzoHsz","appKey":"pFVTY6Uxn0qQKOhbJBROqbTi","path":"window.location.pathname","placeholder":"为了及时收到回复通知，建议留下您的邮箱。","avatar":"retro","meta":["nick","mail"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://server.glwsq.cn","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        豫ICP备18013568
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="/static/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="/static/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="/static/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="/static/bootstrap@4.6.1/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b0c2894ddbbad268252b7b7116a0b105";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+<script src="/tools/baidu_push.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
